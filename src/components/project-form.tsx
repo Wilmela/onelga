@@ -65,7 +65,7 @@ const ProjectForm = ({ type, project }: FormType) => {
           return;
         }
         toast.success("Project has been created successfully!");
-        form.reset();
+        router.replace("/dashboard/projects");
       } else {
         const id = project?._id as string;
         const res = await updateProject(id, data);
@@ -218,6 +218,7 @@ const ProjectForm = ({ type, project }: FormType) => {
             alt="banner"
             className="object-cover"
             fill
+            sizes="45vw"
           />
         </div>
       </section>

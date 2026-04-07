@@ -9,18 +9,34 @@ import { useEffect, useState } from "react";
 import { cn, lc } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Search } from "lucide-react";
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "./ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "./ui/pagination";
 import { getNewsByCategory } from "@/lib/actions/news.actions";
 import { NewsSkeleton } from "./skeletons";
 
 const NewsComp = () => {
+  const [news, setNews] = useState<NewsType[]>([]);
+
   const [isActive, setisActive] = useState("General");
   const [searchTerm, setSearchTerm] = useState("");
+
   const [foundNews, setFoundNews] = useState<NewsType[]>([]);
 
-  const [news, setNews] = useState<NewsType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  
 
   useEffect(() => {
     function getNews() {
@@ -42,12 +58,6 @@ const NewsComp = () => {
     }
     getNews();
   }, [isActive, news, searchTerm]);
-
-
-
-  // Pagination states
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
 
   // Fetch paginated news by category
   useEffect(() => {
@@ -124,7 +134,6 @@ const NewsComp = () => {
     return pages;
   };
 
-
   if (loading) {
     return <NewsSkeleton />;
   }
@@ -147,10 +156,11 @@ const NewsComp = () => {
       </div>
     );
   }
+
   return (
     <>
       <MaxWidthWrapper className="pt-16">
-        <div className="grid grid-cols-3 md:grid-cols-8 gap-4 justify-center mx-auto">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4 justify-center mx-auto">
           {categories.map((c) => (
             <Button
               onClick={() => handleCategoryChange(c)}
@@ -184,67 +194,69 @@ const NewsComp = () => {
       </MaxWidthWrapper>
 
       {/* PAGINATION */}
-      {totalPages > 1 && (
-        <div className="mt-16">
-          <Pagination>
-            <PaginationContent>
-              {/* Previous button */}
-              <PaginationItem>
-                <PaginationPrevious
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPage > 1) setCurrentPage(currentPage - 1);
-                  }}
-                  className={
-                    currentPage === 1
-                      ? "pointer-events-none opacity-50"
-                      : "cursor-pointer"
-                  }
-                />
-              </PaginationItem>
-
-              {/* Page numbers */}
-              {getPageNumbers().map((page, index) => (
-                <PaginationItem key={index}>
-                  {page === "ellipsis-start" || page === "ellipsis-end" ? (
-                    <PaginationEllipsis />
-                  ) : (
-                    <PaginationLink
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setCurrentPage(page as number);
-                      }}
-                      isActive={currentPage === page}
-                      className="cursor-pointer"
-                    >
-                      {page}
-                    </PaginationLink>
-                  )}
+      <div className="my-12">
+        {totalPages > 1 && (
+          <div className="mt-16">
+            <Pagination>
+              <PaginationContent>
+                {/* Previous button */}
+                <PaginationItem>
+                  <PaginationPrevious
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (currentPage > 1) setCurrentPage(currentPage - 1);
+                    }}
+                    className={
+                      currentPage === 1
+                        ? "pointer-events-none opacity-50"
+                        : "cursor-pointer"
+                    }
+                  />
                 </PaginationItem>
-              ))}
 
-              {/* Next button */}
-              <PaginationItem>
-                <PaginationNext
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPage < totalPages)
-                      setCurrentPage(currentPage + 1);
-                  }}
-                  className={
-                    currentPage === totalPages
-                      ? "pointer-events-none opacity-50"
-                      : "cursor-pointer"
-                  }
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
-        </div>
-      )}
+                {/* Page numbers */}
+                {getPageNumbers().map((page, index) => (
+                  <PaginationItem key={index}>
+                    {page === "ellipsis-start" || page === "ellipsis-end" ? (
+                      <PaginationEllipsis />
+                    ) : (
+                      <PaginationLink
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setCurrentPage(page as number);
+                        }}
+                        isActive={currentPage === page}
+                        className="cursor-pointer"
+                      >
+                        {page}
+                      </PaginationLink>
+                    )}
+                  </PaginationItem>
+                ))}
+
+                {/* Next button */}
+                <PaginationItem>
+                  <PaginationNext
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (currentPage < totalPages)
+                        setCurrentPage(currentPage + 1);
+                    }}
+                    className={
+                      currentPage === totalPages
+                        ? "pointer-events-none opacity-50"
+                        : "cursor-pointer"
+                    }
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        )}
+      </div>
     </>
   );
 };

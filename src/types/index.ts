@@ -40,7 +40,7 @@ export type CouncilorType = {
 };
 
 export type ProjectType = {
-  _id?: string;
+  _id: string;
 
   imageUrl: string;
   title: string;

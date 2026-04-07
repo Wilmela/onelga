@@ -255,7 +255,7 @@ const Header = () => {
                 </div>
               ))}
 
-              <div className="mt-12">
+              <div className="mt-12 animate-slide-up">
                 <Socials />
               </div>
             </div>

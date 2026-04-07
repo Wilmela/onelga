@@ -5,7 +5,7 @@ const Socials = ({ size }: { size?: string }) => {
   const defaultSize = "size-6";
 
   return (
-    <div className="flex items-center text-white space-x-2 md:space-x-4">
+    <div className="flex items-center text-white space-x-2 md:space-x-2">
       <span className="icon-bg">
         <Phone className={cn(size || defaultSize, "social")} />
       </span>

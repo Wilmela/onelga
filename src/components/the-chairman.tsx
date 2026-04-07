@@ -16,7 +16,13 @@ const TheChairman = () => {
           description="Meet the Chairman steering the vision for Ogba/Egbema/Ndoni Local Government Area."
         />
 
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense
+          fallback={
+            <>
+              <ChairmanSkeleton />
+            </>
+          }
+        >
           <RenderChairman />
         </Suspense>
       </MaxWidthWrapper>
@@ -31,15 +37,10 @@ async function RenderChairman() {
 
   if (!data.length) {
     return (
-      <div className="relative h-125 md:size-full col-span-1 md:col-span-3 overflow-hidden rounded-2xl">
-        <Image
-          src={`/images/sec.jpeg`}
-          alt="chairman"
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-      </div>
+      <ChairmanComp
+        name="High Chief Hon. Barr. Chukwu Ogbogu Shedrack, DSSRS, PhD"
+        imageUrl="/images/chairman.jpg"
+      />
     );
   }
 
@@ -48,14 +49,18 @@ async function RenderChairman() {
   );
 
   return (
+    <ChairmanComp
+      name={chairman.name}
+      imageUrl={`${cloudinaryImageUrl}${chairman.image}`}
+    />
+  );
+}
+
+function ChairmanComp({ name, imageUrl }: { name: string; imageUrl: string }) {
+  return (
     <div className="grid grid-cols-1 md:grid-cols-7 gap-8">
       <div className="col-span-1 md:col-span-4 space-y-6">
-        <h1 className="font-light text-3xl">
-          {chairman
-            ? chairman.name
-            : "High Chief Hon. Barr. Chukwu Ogbogu Shedrack, DSSRS, PhD"}
-          .
-        </h1>
+        <h1 className="font-light text-3xl">{name}</h1>
 
         <p className="p-text">
           is the Executive Chairman of Ogba-Egbema-Ndoni Local Government Area
@@ -101,12 +106,30 @@ async function RenderChairman() {
 
       <div className="relative h-125 md:size-full col-span-1 md:col-span-3 overflow-hidden rounded-2xl">
         <Image
-          src={`${cloudinaryImageUrl}${chairman.image}`}
+          src={imageUrl}
           alt="chairman"
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
+      </div>
+    </div>
+  );
+}
+
+function ChairmanSkeleton() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-7 gap-8 bg-gray-100 animate-pulse">
+      <div className="col-span-1 md:col-span-4 space-y-6">
+        <h1 className="font-light text-3xl"></h1>
+
+        <div className="h-25 bg-gray-50"></div>
+
+        <div className="bg-gray-100 "></div>
+      </div>
+
+      <div className="relative h-125 md:size-full col-span-1 md:col-span-3 overflow-hidden rounded-2xl bg-gray-50">
+        <div />
       </div>
     </div>
   );

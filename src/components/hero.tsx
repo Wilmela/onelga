@@ -25,6 +25,7 @@ const Hero = () => {
     },
     { scope: container },
   );
+
   useGSAP(() => {
     const split = new SplitText("#text", { type: "words, chars" });
 
@@ -58,21 +59,22 @@ const Hero = () => {
   return (
     <section className="relative h-150 md:h-175 w-full z-10">
       <Image
-        src="/images/sec.jpeg"
+        src="/images/sec-gate.png"
         priority
         alt="banner"
         fill
         className="object-cover z-0"
         sizes="100wv"
       />
-      <div className="bg-app-blue/5 absolute inset-0 size-full z-10" />
+
+      <div className="bg-black/30 absolute inset-0 size-full z-10" />
 
       <MaxWidthWrapper
         ref={container}
-        className="absolute flex flex-col justify-center  size-full z-20 space-y-6"
+        className="absolute flex flex-col justify-center size-full z-20 space-y-6"
       >
         <h1 className="main-title" id="h1">
-          <span className="text-sm md:text-xl lowercase font-light">
+          <span className="text-sm md:text-xl lowercase font-light ">
             Welcome To
           </span>
           <br />
@@ -81,7 +83,7 @@ const Hero = () => {
           <span>Ndoni</span> <br /> Local Government Area
         </h1>
 
-        <p className="text-white p-text bg-black/70" id="text">
+        <p className="text-white p-text bg-black/40 w-fit" id="text">
           Powering the Nation, Welcoming the World: The Hub of Energy and
           Heritage. <br className="hidden md:block" />A Land of Infinite
           Opportunity, Anchored by Tradition and Fueled by the Wealth of the
@@ -106,7 +108,7 @@ const Hero = () => {
               (buttonVariants({
                 variant: "default",
               }),
-              " text-white hover:text-blue-800 rounded-full p-4 md:py-4 md:px-6 font-semibold text-sm md:text-lg min-w-30 md:min-w-40 text-center")
+              " text-white hover:text-blue-300 rounded-full p-4 md:py-4 md:px-6 font-semibold text-sm md:text-lg min-w-30 md:min-w-40 text-center")
             }
           >
             Contact Us &rarr;

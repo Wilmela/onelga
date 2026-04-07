@@ -53,13 +53,15 @@ export default ProjectsPage;
 
 async function RenderProjects() {
   const data = await cachedprojects();
-  if (!data) {
-    return <div>No project found</div>;
+
+  if (!data.length) {
+    return <div>No project found. Click on the Plus sign above to add.</div>;
   }
 
   return data.map((p: ProjectType) => (
     <ProjectCard
       key={p.title}
+      _id={p._id}
       imageUrl={p.imageUrl}
       title={p.title}
       location={p.location}

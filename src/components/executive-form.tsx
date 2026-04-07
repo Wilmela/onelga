@@ -212,6 +212,7 @@ const ExecutiveForm = ({ type, executive }: FormType) => {
             alt="banner"
             className="object-cover"
             fill
+            sizes="45vw"
           />
         </div>
       </section>

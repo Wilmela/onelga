@@ -48,7 +48,7 @@ const Services = () => {
     { scope: container },
   );
   return (
-    <section className="bg-app-dark-green/30 border-b">
+    <section className="bg-app-green/10 border-b">
       <MaxWidthWrapper className="p-y md:h-90" id="services">
         <div
           className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
@@ -60,7 +60,7 @@ const Services = () => {
                 key={s.title + i}
                 Icon={s.Icon}
                 title={s.title}
-                color={s.color}
+                // color={s.color}
                 href={s.href}
                 id={"card"}
               />
@@ -79,25 +79,25 @@ type Props = {
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >;
   title: string;
-  color: string;
+  // color: string;
   href: string;
   id?: string;
 };
-function ServiceCard({ Icon, title, color, href, id }: Props) {
+function ServiceCard({ Icon, title, href, id }: Props) {
   return (
     <div
       id={id}
-      className="flex flex-col items-center justify-center space-y-4 hover:scale-105 cursor-pointer transition-all duration-300 ease-in group bg-white/90 rounded-md h-50 md:h-60"
+      className="flex flex-col items-center justify-center space-y-4 hover:scale-105 cursor-pointer transition-all duration-300 ease-in group bg-app-green rounded-md h-50 md:h-60"
     >
-      <div className="bg-app-blue/10 size-16 md:size-20 rounded-full flex items-center justify-center">
-        <Icon className={cn("size-8 md:size-12", color)} />
+      <div className="bg-white/10 size-16 md:size-20 rounded-full flex items-center justify-center">
+        <Icon className={cn("size-8 md:size-12 text-white")} />
       </div>
-      <h3 className={cn("font-light text-sm md:text-xl", `text-${color}`)}>
+      <h3 className={cn("font-light text-sm md:text-xl", `text-white`)}>
         {title}
       </h3>
       <Link
         href={href}
-        className="text-app-blue text-light text-center transition-all duration-300 ease-out text-sm px-6 py-1 bg-app-blue rounded-full hover:bg-blue-800 hidden group-hover:block "
+        className="text-app-blue text-light text-center transition-all duration-300 ease-out text-sm px-6 py-1 bg-green-900 rounded-full hover:bg-green-950 opacity-0  group-hover:opacity-100 "
       >
         <ArrowRight className="text-bold size-4 text-white" />
       </Link>

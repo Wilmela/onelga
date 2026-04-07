@@ -2,6 +2,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { ZodError } from "zod";
 import parse from "html-react-parser";
+import { z } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -46,4 +47,19 @@ export const USER_ROLE = {
 
 export function cleanText(text: string) {
   return text ? parse(text) : "";
+}
+
+export function checkLength(n: string, measure: number) {
+  return n.length < measure ? n : `${n.slice(0, measure)}...`;
+}
+
+export function validateInput(
+  schema: z.ZodObject,
+  data: z.infer<typeof z.ZodObject>,
+) {
+  const parsed = schema.safeParse(data);
+
+  if (!parsed.success) throw new Error(parsed.error.message);
+
+  return parsed.data;
 }

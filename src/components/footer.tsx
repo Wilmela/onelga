@@ -18,7 +18,8 @@ const LINK_HEADING = [
     links: [
       { title: "Exectutive", href: "/leadership/executives" },
       { title: "Councilors", href: "/leadership/councilors" },
-      { title: "Committee", href: "/leadership/committee" },
+      { title: "Past Leaders", href: "/leadership/past-leaders" },
+      // { title: "Committee", href: "/leadership/committee" },
     ],
   },
   {
@@ -31,7 +32,7 @@ const LINK_HEADING = [
       { title: "Map", href: "#map" },
     ],
   },
-  { title: "Legal", links: NAVLINKS },
+  { title: "Legal", links: [{ title: "Privacy", href: "/privacy" }] },
 ];
 
 const Footer = () => {
@@ -96,10 +97,10 @@ const Footer = () => {
       <section className="bg-black">
         <MaxWidthWrapper className="py-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <Suspense fallback={<p>Loading..</p>}>
+            <Suspense fallback={null}>
               <CopyDate />
             </Suspense>
-            <div className="inline-flex items-center space-x-4">
+            {/* <div className="inline-flex items-center space-x-4">
               {["privacy", "accesibility"].map((i) => (
                 <Link
                   href={`/${i}`}
@@ -109,7 +110,13 @@ const Footer = () => {
                   {i}
                 </Link>
               ))}
-            </div>
+            </div> */}
+            <Link
+              href={`mailto:techmelaservices@gmail.com?subject='Enquiry'`}
+              className="p-text text-white hover:underline"
+            >
+              D&D: Techmela Services
+            </Link>
           </div>
         </MaxWidthWrapper>
       </section>

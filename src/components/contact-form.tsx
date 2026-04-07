@@ -9,6 +9,7 @@ import { Button } from "./ui/button";
 import { STATES } from "@/lib/constants";
 import Spinner from "./spinner";
 import { Suspense } from "react";
+import { sendMail } from "@/lib/actions/mail.actions";
 
 const ContactForm = () => {
   const initial = {
@@ -25,7 +26,7 @@ const ContactForm = () => {
   });
 
   async function onSubmitForm(data: contactFormSchemaType) {
-    console.log(data);
+    await sendMail(data);
   }
   return (
     <Suspense fallback={<p>Loading..</p>}>

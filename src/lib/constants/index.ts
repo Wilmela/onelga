@@ -66,16 +66,12 @@ export const categories = [
   "General",
   "Sport",
   "Events",
-  "Skills",
-  "Tradition",
+  "Empowerment",
   "Employment",
   "Infrastructure",
-  "Enteprenuership",
 ];
 
-export function checkLength(n: string, measure: number) {
-  return n.length < measure ? n : `${n.slice(0, measure)}...`;
-}
+
 
 export const landmarks = [
   {
@@ -134,25 +130,25 @@ export const services = [
   {
     Icon: MapPin,
     title: "Visit ONELGA",
-    color: "text-app-blue",
+    color: "text-white",
     href: "/contact",
   },
   {
     Icon: ToolCase,
     title: "Services",
-    color: "text-app-green",
+    color: "text-white",
     href: "/contact",
   },
   {
     Icon: Clock,
     title: "Appointment",
-    color: "text-app-red",
+    color: "text-white",
     href: "/contact",
   },
   {
     Icon: Contact,
     title: "Contact Us",
-    color: "text-app-dark-green",
+    color: "text-white",
     href: `/contact`,
   },
   // {

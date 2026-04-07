@@ -53,13 +53,14 @@ async function RenderExecutives() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="h-full">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div className="h-full md:col-span-1">
         {chairman ? (
           <>
             <div className="relative w-full h-75 md:h-125">
               <Image
-                src={`${cloudinaryImageUrl}${chairman.image}`}
+                src={`${cloudinaryImageUrl}${chairman.image || "/images/gloo.jpeg"} `}
                 alt={"chairman"}
                 fill
                 className="object-cover"
@@ -81,13 +82,36 @@ async function RenderExecutives() {
       </div>
 
       {/* top 3 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:col-span-2">
         {executiveMembers
           .filter(
             (m: { position: string; past: boolean }) =>
               lc(m.position) !== positions.chairman &&
               !m.past &&
               allowedRoles.includes(lc(m.position)),
+          )
+          .map((m: ExecutiveType) => (
+            <LeaderCard
+              key={m.name}
+              name={m.name}
+              position={m.position}
+              bio={m.bio}
+              image={m.image}
+              tenure={m.tenure}
+              showExtra
+              type="executive"
+            />
+          ))}
+      </div>
+
+      {/* OTHERS */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-4">
+        {executiveMembers
+          .filter(
+            (m: { position: string; past: boolean }) =>
+              lc(m.position) !== positions.chairman &&
+              !m.past &&
+              !allowedRoles.includes(lc(m.position)),
           )
           .map((m: ExecutiveType) => (
             <LeaderCard

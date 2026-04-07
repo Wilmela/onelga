@@ -1,7 +1,7 @@
 "use client";
 
 import { deleteBlogPost, publishNews } from "@/lib/actions/news.actions";
-import { checkLength } from "@/lib/constants";
+import { checkLength } from "@/lib/utils";
 import { NewsType } from "@/types";
 import { CalendarDays, Edit, PowerCircle, Trash, User } from "lucide-react";
 import Image from "next/image";
@@ -21,7 +21,7 @@ export default function NewsThumbnail({
   const [isPending, startTransition] = useTransition();
 
   if (!news.length) {
-    return <h1 className="text-3xl font-bold ml-16">No news found!</h1>;
+    return <h1 className="text-xl font-light ml-16">No news found!</h1>;
   }
 
   return news.map((n, i) => {
@@ -50,7 +50,7 @@ export default function NewsThumbnail({
           </h3>
 
           <span className="p-text group-hover:text-app-blue">
-            {cleanText(checkLength(n.content, 100))}
+            {cleanText(checkLength(n.content, 80))}
           </span>
         </div>
 

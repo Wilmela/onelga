@@ -30,14 +30,3 @@ const NewsPage = () => {
 
 export default NewsPage;
 
-// async function RenderNews() {
-//   const data = await getCachedNews();
-
-//   if (!data.length) {
-//     return <p>No news found</p>;
-//   }
-
-//   const publishedNews: NewsType[] = data.filter((n: NewsType) => n.isPublished);
-
-//   return <NewsComp  />;
-// }

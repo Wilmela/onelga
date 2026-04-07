@@ -12,6 +12,7 @@ import { PowerCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function ProjectCard({
+  _id,
   imageUrl,
   title,
   status,
@@ -43,7 +44,7 @@ export function ProjectCard({
 
         {isEditable && (
           <button
-            onClick={async () => await toggleProjectCompletion(title, status)}
+            onClick={async () => await toggleProjectCompletion(title, !status)}
             className="absolute top-5 left-5 text-white text-xs"
           >
             <PowerCircle
@@ -61,7 +62,7 @@ export function ProjectCard({
         }
       </div>
       <EditTab
-        editHref={`/dashboard/projects/${title}/edit`}
+        editHref={`/dashboard/projects/${_id}/edit`}
         onDelete={async () => await deleteProject(title)}
         isEditable={isEditable}
       />

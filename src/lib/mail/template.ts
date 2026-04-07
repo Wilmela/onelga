@@ -299,7 +299,7 @@ export function contactTemplate(data: any): string {
             </div>
             <div class="section">
                 <h3>Subject</h3>
-                <div class="message-content">${data.subject}</div>
+                <div class="message-content">${data.reason}</div>
             </div>
             <div class="section">
                 <h3>💬 Message</h3>

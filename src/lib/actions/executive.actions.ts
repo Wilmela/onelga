@@ -3,18 +3,17 @@
 import { revalidateTag } from "next/cache";
 import { connectToDatabase } from "../database";
 import Executive from "../database/models/executive.model";
-import { handleErrors } from "../utils";
+import { handleErrors, validateInput } from "../utils";
 import { ExecutiveFormDataType, executiveSchema } from "../validations";
 
 export async function createExecutive(data: ExecutiveFormDataType) {
   try {
-    const parsed = executiveSchema.safeParse(data);
-
-    if (!parsed.success) throw new Error(parsed.error.message);
+ 
+    const parsed = validateInput(executiveSchema, data);
 
     await connectToDatabase();
 
-    const exe = await Executive.create(parsed.data);
+    const exe = await Executive.create(parsed);
 
     if (!exe) throw new Error("Failed to create executive");
 
@@ -29,9 +28,7 @@ export async function createExecutive(data: ExecutiveFormDataType) {
 }
 export async function updateExecutive(id: string, data: ExecutiveFormDataType) {
   try {
-    const parsed = executiveSchema.safeParse(data);
-
-    if (!parsed.success) throw new Error(parsed.error.message);
+    const parsed = validateInput(executiveSchema, data);
 
     await connectToDatabase();
 
@@ -39,7 +36,7 @@ export async function updateExecutive(id: string, data: ExecutiveFormDataType) {
       { _id: id },
       {
         $set: {
-          ...data,
+          ...parsed,
         },
       },
       { returnDocument: "after" },
@@ -56,7 +53,6 @@ export async function updateExecutive(id: string, data: ExecutiveFormDataType) {
   }
 }
 export async function togglePastExecutive(name: string, isPast: boolean) {
-  console.log(name, isPast);
 
   try {
     await connectToDatabase();

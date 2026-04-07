@@ -16,6 +16,13 @@ interface Props {
   params: Promise<{ title: string }>;
 }
 
+// export async function generateStaticParams() {
+//   const allNews = await getCachedNews();
+//   return allNews.map((n: { title: string }) => ({
+//     title:n.title,
+//   }));
+// }
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
@@ -42,7 +49,7 @@ export async function generateMetadata(
       description: news.excerpt,
       type: "article",
       publishedTime: news.date,
-      authors: ["OGSOFT TEAM"],
+      authors: ["ONELGA MEDIA"],
     },
     twitter: {
       card: "summary_large_image",
@@ -82,7 +89,7 @@ async function RenderNews({ params }: Props) {
         (n: { category: string; title: string }) =>
           n.category === news.category && n.title !== news.title,
       )
-      .slice(0, 3) || [];
+      .slice(0, 4) || [];
 
   return (
     <>
@@ -103,7 +110,7 @@ async function RenderNews({ params }: Props) {
             </span>
             <span className="inline-flex space-x-2 justify-center items-center">
               <CalendarRange />
-              <p>{news.date}</p>
+              <p>{news.date.split("T")[0]}</p>
             </span>
           </div>
         </div>
@@ -127,7 +134,7 @@ async function RenderNews({ params }: Props) {
             alt="banner"
             fill
             className="object-cover"
-            sizes="(max-width: 7680x) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
 
@@ -136,7 +143,7 @@ async function RenderNews({ params }: Props) {
         </div>
 
         {/* GALLERY */}
-        <div className="mt-10">
+        <div className="mt-10 ">
           <Suspense
             fallback={
               <>

@@ -2,7 +2,7 @@
 
 import { BlogFormDataType, blogSchema } from "@/lib/validations";
 import { revalidatePath, revalidateTag } from "next/cache";
-import { handleErrors } from "../utils";
+import { handleErrors, validateInput } from "../utils";
 import { connectToDatabase } from "../database";
 import News from "../database/models/news.model";
 
@@ -13,23 +13,20 @@ export async function createBlogPost(data: BlogFormDataType, shorts: string[]) {
   }));
 
   try {
-    const parsed = blogSchema.safeParse(data);
-    if (!parsed.success) {
-      throw new Error(parsed.error.message);
-    }
+    const parsed = validateInput(blogSchema, data);
     await connectToDatabase();
 
-    const existingPost = await News.findOne({ title: parsed.data.title });
+    const existingPost = await News.findOne({ title: parsed.title });
 
     if (existingPost) {
       throw new Error("A blog post with this title already exists");
     }
 
     const newPost = await News.create({
-      ...parsed.data,
-      slug: parsed.data.title
+      ...parsed,
+      slug: data.title
         .toLowerCase()
-        .trim() 
+        .trim()
         .replace(/[^a-z0-9\s-]/g, "") // 3. Remove EVERYTHING except letters, numbers, spaces, and hyphens
         .replace(/[\s;:,]+/g, "-") // 4. Turn spaces, ;, :, and , into hyphens
         .replace(/-+/g, "-") // 5. Collapse multiple hyphens (e.g., "---" to "-")
@@ -69,9 +66,6 @@ export async function updateBlogPost(
     id: `${s}+${i}`,
     link: s,
   }));
-
-  console.log("shorts", shots);
-  console.log("fmShots", fmtShots);
 
   try {
     await connectToDatabase();
@@ -136,6 +130,7 @@ export async function publishNews(slug: string, isPublished: boolean) {
       },
     );
     revalidateTag("news", "max");
+    revalidatePath("/dashboard/news/view");
     return { success: true };
   } catch (error) {
     return { error: handleErrors(error) };
@@ -180,6 +175,26 @@ export async function getNewByTitle(title: string) {
       title: t,
       // isPublished: true,
     });
+    if (!news) throw new Error("No new found");
+
+    return JSON.parse(JSON.stringify(news));
+  } catch (error) {
+    return { error: handleErrors(error) };
+  }
+}
+export async function getNewsBySlug(slug: string) {
+  console.log("calling...");
+  console.log(slug);
+
+  try {
+    await connectToDatabase();
+
+    const news = await News.findOne({
+      slug,
+    });
+
+    console.log("News", news);
+
     if (!news) throw new Error("No new found");
 
     return JSON.parse(JSON.stringify(news));

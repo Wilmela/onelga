@@ -3,20 +3,16 @@
 import { revalidateTag } from "next/cache";
 import { connectToDatabase } from "../database";
 import Councilor from "../database/models/councilor.model";
-import { handleErrors } from "../utils";
+import { handleErrors, validateInput } from "../utils";
 import { CouncilorFormDataType, councilorSchema } from "../validations";
 
 export async function createCouncilor(data: CouncilorFormDataType) {
-  console.log("calling");
-
   try {
-    const parsed = councilorSchema.safeParse(data);
-
-    if (!parsed.success) throw new Error(parsed.error.message);
+    const parsed = validateInput(councilorSchema, data);
 
     await connectToDatabase();
 
-    const exe = await Councilor.create(parsed.data);
+    const exe = await Councilor.create(parsed);
 
     if (!exe) throw new Error("Failed to create Councilor");
 
@@ -31,9 +27,7 @@ export async function createCouncilor(data: CouncilorFormDataType) {
 
 export async function updateCouncilor(id: string, data: CouncilorFormDataType) {
   try {
-    const parsed = councilorSchema.safeParse(data);
-
-    if (!parsed.success) throw new Error(parsed.error.message);
+    const parsed = validateInput(councilorSchema, data);
 
     await connectToDatabase();
 
@@ -41,7 +35,7 @@ export async function updateCouncilor(id: string, data: CouncilorFormDataType) {
       { _id: id },
       {
         $set: {
-          ...data,
+          ...parsed,
         },
       },
     );

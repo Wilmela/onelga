@@ -212,6 +212,7 @@ const CouncilorForm = ({ type, councilor }: FormType) => {
             alt="banner"
             className="object-cover"
             fill
+            sizes='45vw'
           />
         </div>
       </section>

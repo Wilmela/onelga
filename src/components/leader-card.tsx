@@ -48,12 +48,12 @@ export function LeaderCard({
   }
   return (
     <div>
-      <div className="relative w-full h-50 ">
+      <div className="relative w-full h-75 ">
         <Image
           src={`${cloudinaryImageUrl}${image}`}
           alt={name}
           fill
-          className="object-cover"
+          className="object-contain bg-white"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
 
