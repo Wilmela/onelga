@@ -71,7 +71,7 @@ const Hero = () => {
 
       <MaxWidthWrapper
         ref={container}
-        className="absolute flex flex-col justify-center size-full z-20 space-y-6"
+        className="absolute flex flex-col justify-center size-full z-20 space-y-8 md:space-y-6"
       >
         <h1 className="main-title" id="h1">
           <span className="text-sm md:text-xl lowercase font-light ">

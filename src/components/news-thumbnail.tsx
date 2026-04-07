@@ -21,7 +21,11 @@ export default function NewsThumbnail({
   const [isPending, startTransition] = useTransition();
 
   if (!news.length) {
-    return <h1 className="text-xl font-light ml-16">No news found!</h1>;
+    return (
+      <h1 className="text-xl font-light ml-16">
+        No news found in current category!
+      </h1>
+    );
   }
 
   return news.map((n, i) => {

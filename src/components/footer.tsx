@@ -26,7 +26,7 @@ const LINK_HEADING = [
     title: "Explore",
     links: [
       { title: "Services", href: "#services" },
-      { title: "Data", href: "#stat" },
+      { title: "Statistics", href: "#stat" },
       { title: "Landmarks", href: "#landmark" },
       { title: "Chairman", href: "#chairman" },
       { title: "Map", href: "#map" },
@@ -63,7 +63,7 @@ const Footer = () => {
               {siteConfig.description}
             </p>
 
-            <div>
+            <div className="mb-4 md:mb-0">
               <h3 className="text-white font-semibold mb-4">SOCIALS</h3>
               <Socials />
             </div>
@@ -96,7 +96,7 @@ const Footer = () => {
 
       <section className="bg-black">
         <MaxWidthWrapper className="py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-4">
             <Suspense fallback={null}>
               <CopyDate />
             </Suspense>
@@ -115,7 +115,7 @@ const Footer = () => {
               href={`mailto:techmelaservices@gmail.com?subject='Enquiry'`}
               className="p-text text-white hover:underline"
             >
-              D&D: Techmela Services
+              D&D: With ❤️ By Techmela Services
             </Link>
           </div>
         </MaxWidthWrapper>

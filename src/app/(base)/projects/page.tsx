@@ -1,4 +1,5 @@
 import MaxWidthWrapper from "@/components/max-width-wrapper";
+import PageBanner from "@/components/page-banner";
 import { ProjectCard, ProjectSkeleton } from "@/components/project-card";
 import SectionHeader from "@/components/section-header";
 import { cachedprojects } from "@/lib/DAL/cache";
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
 
 const ProjectsPage = () => {
   return (
-    <section className="p-y">
+    <section>
+      <PageBanner />
+
       <MaxWidthWrapper className="p-y">
         <SectionHeader
           title="Projects Showcase"

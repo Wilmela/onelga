@@ -4,7 +4,7 @@ function CopyDate() {
 
   return (
     <p className="p-text text-white inline-flex">
-      &copy; {date} &nbsp; ONELGA. All rights revserved{date}
+      &copy; {date}&nbsp; ONELGA. All rights revserved
     </p>
   );
 }

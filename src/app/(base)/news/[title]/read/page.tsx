@@ -143,7 +143,7 @@ async function RenderNews({ params }: Props) {
         </div>
 
         {/* GALLERY */}
-        <div className="mt-10 ">
+        <div className="mt-10 overflow-x-hidden">
           <Suspense
             fallback={
               <>
