@@ -138,12 +138,12 @@ async function RenderNews({ params }: Props) {
           />
         </div>
 
-        <div className="mx-auto w-full max-w-[90ch]">
+        <div className="mx-auto w-full max-w-[60ch] md:max-w-[90ch] whitespace-normal wrap-break-word overflow-hidden">
           {cleanText(news.content)}
         </div>
 
         {/* GALLERY */}
-        <div className="mt-10 overflow-x-hidden">
+        <div className="mt-10 ">
           <Suspense
             fallback={
               <>

@@ -30,12 +30,16 @@ const Header = () => {
   const [user, setUser] = useState<{ name: string; role: string } | null>(null);
 
   const router = useRouter();
+  const pathname = usePathname();
 
+  // Fix: Logic to ensure nav shows on mobile OR after 100px scroll
   function toggleNav() {
-    if (window.scrollY > 100) {
-      setShowNav(true);
-    } else {
-      setShowNav(false);
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 768 || window.scrollY > 100) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
     }
   }
 
@@ -44,7 +48,6 @@ const Header = () => {
       try {
         const session = await getCurrentSession();
         if (!session) return;
-
         setUser({ name: session.user.name, role: session.user.role });
       } catch (error) {
         console.log(error);
@@ -54,12 +57,20 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    document.addEventListener("scroll", toggleNav);
+    // FIX: Using setTimeout avoids the "cascading renders" error
+    const initTimeout = setTimeout(() => {
+      toggleNav();
+    }, 0);
 
-    return () => document.removeEventListener("scroll", toggleNav);
+    window.addEventListener("scroll", toggleNav);
+    window.addEventListener("resize", toggleNav);
+
+    return () => {
+      clearTimeout(initTimeout);
+      window.removeEventListener("scroll", toggleNav);
+      window.removeEventListener("resize", toggleNav);
+    };
   }, []);
-
-  const pathname = usePathname();
 
   function toggleSubMenu(href: string) {
     setIsActive(isActive === href ? null : href);
@@ -74,7 +85,7 @@ const Header = () => {
       case "/leadership/past-leaders":
         return <UserSquare2 />;
       default:
-        return;
+        return null;
     }
   }
 
@@ -89,7 +100,7 @@ const Header = () => {
         <nav
           className={cn(
             showNav
-              ? "animate-slide-down fixed left-0 right-0 backdrop-blur-lg p-x bg-app-dark-green "
+              ? "animate-slide-down fixed left-0 right-0 bg-app-dark-green p-x z-50"
               : "",
           )}
         >
@@ -99,7 +110,7 @@ const Header = () => {
           <div
             className={cn(
               "hidden md:flex items-center space-x-6 bg-black/50 rounded-full py-6 px-8",
-              showNav ? " shadow-shine" : "",
+              showNav ? "shadow-shine" : "",
             )}
           >
             {LINKS.map((l) => (
@@ -142,11 +153,10 @@ const Header = () => {
             ))}
           </div>
 
+          {/* Desktop socials (RESTORED) */}
           <div className="inline-flex items-center space-x-4">
             <div className="inline-flex items-center space-x-2">
               <Socials size="size-5" />
-
-              {/* <Search className="text-white ml-2" /> */}
 
               {user && (
                 <button
@@ -168,16 +178,15 @@ const Header = () => {
                             console.log(`Error: ${ctx.error.message}`),
                         },
                       });
-                      await getCurrentSession();
                     });
                   }}
                   className={cn(
-                    "size-8 rounded-full flex items-center justify-center text-white font-bold border p-2  cursor-pointer",
+                    "size-8 rounded-full flex items-center justify-center text-white font-bold border p-2 cursor-pointer",
                     isPending && "animate-pulse",
                     user.name !== "" && "bg-app-blue hover:bg-blue-800",
                   )}
                 >
-                  {user && user.name.charAt(0)}
+                  {user.name.charAt(0)}
                 </button>
               )}
             </div>
@@ -190,9 +199,9 @@ const Header = () => {
             </button>
           </div>
 
-          {/* MOBILE */}
+          {/* MOBILE (RESTORED STYLES) */}
           {toggled && (
-            <div className="md:hidden flex flex-col absolute top-0 right-0 h-svh w-[80%] bg-app-dark-green pl-6 pt-8">
+            <div className="md:hidden flex flex-col absolute top-0 right-0 h-svh w-[80%] bg-app-dark-green pl-6 pt-8 z-50">
               <X
                 className="size-8 self-end mr-4 text-white mb-4"
                 onClick={() => {
@@ -214,9 +223,7 @@ const Header = () => {
                       pathname === l.href ? "underline" : "",
                     )}
                     onClick={() => {
-                      if (l.href === "/leadership") {
-                        return;
-                      }
+                      if (l.href === "/leadership") return;
                       setToggled(false);
                     }}
                   >
@@ -226,11 +233,14 @@ const Header = () => {
                     )}
                   </Link>
 
-                  {/* SUB MENU */}
+                  {/* SUB MENU (RESTORED STYLES) */}
                   {isActive === l.href && l.subLinks && (
                     <div
                       className="absolute top-5 bg-app-green backdrop-blur-xs p-4 rounded-md w-[80%] z-50 flex flex-col"
-                      onClick={() => setIsActive(null)}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevents closing the whole menu
+                        setIsActive(null);
+                      }}
                     >
                       <X
                         className="self-end text-white"
@@ -254,10 +264,6 @@ const Header = () => {
                   )}
                 </div>
               ))}
-
-              <div className="mt-12 animate-slide-up">
-                <Socials />
-              </div>
             </div>
           )}
         </nav>
