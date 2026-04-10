@@ -113,7 +113,7 @@ function LandmarkCard({ imageUrl, title, description, Icon, id }: Props) {
           src={imageUrl}
           alt="banner"
           fill
-          className="object-contain"
+          className="object-cover md:object-contain"
           sizes="(max-width: 768px) 100vw, 33wv"
         />
       </div>
