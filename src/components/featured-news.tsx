@@ -47,7 +47,7 @@ function LatestNewsCard() {
 
   useGSAP(
     () => {
-      if (container == null || typeof window == "undefined") return;
+      if (!container === null || typeof window == "undefined") return;
 
       const cards = gsap.utils.toArray<HTMLElement>(".news-card");
 
@@ -62,7 +62,7 @@ function LatestNewsCard() {
         });
       });
     },
-    { dependencies: [news], scope: container },
+    { dependencies: [news] },
   );
 
   useEffect(() => {

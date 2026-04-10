@@ -11,7 +11,7 @@ export default function BaseLayout({
   return (
     <div>
       <div className="relative min-h-screen grow">
-        <div className="z-50 absolute left-0 top-0 right-0 overflow-x-hidden">
+        <div className=" absolute left-0 top-0 right-0">
           <Suspense fallback={<p>Loading header..</p>}>
             <Header />
           </Suspense>

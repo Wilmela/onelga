@@ -35,7 +35,7 @@ const Header = () => {
   // Fix: Logic to ensure nav shows on mobile OR after 100px scroll
   function toggleNav() {
     if (typeof window !== "undefined") {
-      if (window.innerWidth < 768 || window.scrollY > 100) {
+      if ( window.scrollY > 100) {
         setShowNav(true);
       } else {
         setShowNav(false);
@@ -58,17 +58,17 @@ const Header = () => {
 
   useEffect(() => {
     // FIX: Using setTimeout avoids the "cascading renders" error
-    const initTimeout = setTimeout(() => {
-      toggleNav();
-    }, 0);
+    // const initTimeout = setTimeout(() => {
+    //   toggleNav();
+    // }, 0);
 
     window.addEventListener("scroll", toggleNav);
-    window.addEventListener("resize", toggleNav);
+    // window.addEventListener("resize", toggleNav);
 
     return () => {
-      clearTimeout(initTimeout);
+      // clearTimeout(initTimeout);
       window.removeEventListener("scroll", toggleNav);
-      window.removeEventListener("resize", toggleNav);
+      // window.removeEventListener("resize", toggleNav);
     };
   }, []);
 
@@ -95,13 +95,14 @@ const Header = () => {
   }
 
   return (
-    <header>
+    <header className="z-50">
       <MaxWidthWrapper>
         <nav
           className={cn(
+            "left-0 right-0 z-50 w-full transition-all duration-300",
             showNav
-              ? "animate-slide-down fixed left-0 right-0 bg-app-dark-green p-x z-50"
-              : "",
+              ? "animate-slide-down fixed bg-app-blue p-x"
+              : "relative bg-transparent",
           )}
         >
           <Logo />
@@ -109,16 +110,12 @@ const Header = () => {
           {/* Desktop Nav */}
           <div
             className={cn(
-              "hidden md:flex items-center space-x-6 bg-black/50 rounded-full py-6 px-8",
+              "hidden md:flex items-center space-x-6 bg-black/50 rounded-full py-6 px-8 h-auto",
               showNav ? "shadow-shine" : "",
             )}
           >
             {LINKS.map((l) => (
-              <div
-                key={l.title}
-                className="relative"
-                onMouseEnter={() => toggleSubMenu(l.href)}
-              >
+              <div key={l.title} className="relative group">
                 <Link
                   href={l.href}
                   className={cn(
@@ -132,9 +129,10 @@ const Header = () => {
                   )}
                 </Link>
 
-                {isActive === l.href && l.subLinks && (
+                {/* Submenu - using group-hover instead of state */}
+                {l.subLinks && (
                   <div
-                    className="absolute top-5 bg-app-dark-green text-white backdrop-blur-xs border border-white p-4 rounded-md w-100 h-50 flex flex-col"
+                    className="absolute top-full left-0 mt-2 bg-app-blue text-white backdrop-blur-xs border border-white rounded-md w-64 py-2 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 shadow-xl"
                     onMouseLeave={() => setIsActive(null)}
                   >
                     {l.subLinks.map((sl) => (
@@ -142,7 +140,7 @@ const Header = () => {
                         href={sl.href}
                         key={sl.href}
                         onClick={() => setIsActive(null)}
-                        className="hover:bg-gray-100 hover:text-accent-foreground p-2 my-2 inline-flex items-center space-x-2 rounded-md"
+                        className="hover:bg-white/20 transition-colors p-3 inline-flex items-center space-x-3 rounded-md"
                       >
                         {switchPath(sl.href)} <span>{sl.title}</span>
                       </Link>
@@ -153,8 +151,8 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Desktop socials (RESTORED) */}
           <div className="inline-flex items-center space-x-4">
+            {/* Socials and user*/}
             <div className="inline-flex items-center space-x-2">
               <Socials size="size-5" />
 
@@ -199,9 +197,9 @@ const Header = () => {
             </button>
           </div>
 
-          {/* MOBILE (RESTORED STYLES) */}
+          {/* MOBILE*/}
           {toggled && (
-            <div className="md:hidden flex flex-col absolute top-0 right-0 h-svh w-[80%] bg-app-dark-green pl-6 pt-8 z-50">
+            <div className="md:hidden flex flex-col absolute top-0 -right-4 h-svh w-[80%] bg-app-blue pl-6 pt-8 z-50">
               <X
                 className="size-8 self-end mr-4 text-white mb-4"
                 onClick={() => {
@@ -233,10 +231,10 @@ const Header = () => {
                     )}
                   </Link>
 
-                  {/* SUB MENU (RESTORED STYLES) */}
+                  {/* SUB MENU */}
                   {isActive === l.href && l.subLinks && (
                     <div
-                      className="absolute top-5 bg-app-green backdrop-blur-xs p-4 rounded-md w-[80%] z-50 flex flex-col"
+                      className="absolute top-5 bg-app-dark-green backdrop-blur-xs p-4 rounded-md w-[80%] z-50 flex flex-col"
                       onClick={(e) => {
                         e.stopPropagation(); // Prevents closing the whole menu
                         setIsActive(null);
@@ -264,6 +262,7 @@ const Header = () => {
                   )}
                 </div>
               ))}
+              <Socials size="size-5" />
             </div>
           )}
         </nav>

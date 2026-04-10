@@ -67,7 +67,7 @@ const Hero = () => {
         sizes="100wv"
       />
 
-      <div className="bg-black/30 absolute inset-0 size-full z-10" />
+      <div className="bg-black/20 absolute inset-0 size-full z-10" />
 
       <MaxWidthWrapper
         ref={container}
@@ -83,7 +83,7 @@ const Hero = () => {
           <span>Ndoni</span> <br /> Local Government Area
         </h1>
 
-        <p className="text-white p-text bg-black/40 w-fit" id="text">
+        <p className="text-white p-text bg-black/50 w-fit" id="text">
           Powering the Nation, Welcoming the World: The Hub of Energy and
           Heritage. <br className="hidden md:block" />A Land of Infinite
           Opportunity, Anchored by Tradition and Fueled by the Wealth of the

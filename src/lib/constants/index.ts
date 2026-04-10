@@ -103,7 +103,7 @@ export const landmarks = [
       "Critical industrial complexes and installations operated by major energy companies including TotalEnergies, Nigerian Agip Oil Company (NAOC), and Shell Petroleum Development Company (SPDC). These facilities represent ONELGA's strategic role in Nigeria's petroleum industry and economic development.",
   },
   {
-    imageUrl: "/images/sec.jpeg",
+    imageUrl: "/images/river-niger.png",
     title: "River Niger (Ndoni Axis)",
     icons: Droplets,
     description:

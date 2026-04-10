@@ -40,7 +40,7 @@ const Landmarks = () => {
   );
 
   return (
-    <section>
+    <section >
       <MaxWidthWrapper className="p-y">
         <SectionHeader
           title="Landmarks of ONELGA"
@@ -101,6 +101,7 @@ type Props = {
   id?: string;
 };
 
+
 function LandmarkCard({ imageUrl, title, description, Icon, id }: Props) {
   return (
     <div
@@ -112,14 +113,14 @@ function LandmarkCard({ imageUrl, title, description, Icon, id }: Props) {
           src={imageUrl}
           alt="banner"
           fill
-          className="object-cover "
+          className="object-contain"
           sizes="(max-width: 768px) 100vw, 33wv"
         />
       </div>
 
       <div className="space-y-6 my-6 px-4">
         <div className="inline-flex space-x-2 items-center">
-          <div className="p-2 bg-app-blue/80 rounded-full size-12 flex items-center justify-center">
+          <div className="p-2 bg-app-blue/90 rounded-full size-12 flex items-center justify-center">
             <Icon className="size-6 text-white" />
           </div>
           <h2 className="font-bold text-lg text-app-dark-green">{title}</h2>
@@ -144,7 +145,7 @@ function DesktopLandmarkCard({
     >
       <div className="space-y-6 my-6 px-4">
         <div className="inline-flex space-x-2 items-center">
-          <div className="p-2 bg-app-blue/80 rounded-full size-12 flex items-center justify-center">
+          <div className="p-2 bg-app-blue/90 rounded-full size-12 flex items-center justify-center">
             <Icon className="size-6 text-white" />
           </div>
           <h2 className="font-bold text-lg text-app-dark-green ">{title}</h2>

@@ -198,7 +198,7 @@ html {
 @layer components {
   header {
     nav {
-      @apply flex items-center justify-between py-4 z-50;
+      @apply flex justify-between py-4 z-50;
     }
   }
 }

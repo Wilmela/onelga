@@ -18,7 +18,7 @@ export async function signUp(data: signUpFormSchemaType) {
     });
 
     if (res.ok) {
-      console.log(res);
+      return { success: true };
     }
   } catch (error) {
     return {
@@ -48,9 +48,8 @@ export async function signIn(data: signInFormSchemaType) {
 }
 
 export async function signOut() {
-
   console.log("calling");
-  
+
   try {
     const res = await auth.api.signOut();
 

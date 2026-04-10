@@ -14,7 +14,13 @@ export type contactFormSchemaType = z.infer<typeof contactFormSchema>;
 export const SignUpSchema = z.object({
   name: z.string().min(5, "must be more than 5 characters"),
   email: z.email().describe("provide a valid email"),
-  password: z.string().min(5, "must be more than 5 characters"),
+   password: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
+      "Password must contain at least one uppercase letter, one lowercase letter, and one number",
+    ),
 });
 export type signUpFormSchemaType = z.infer<typeof SignUpSchema>;
 

@@ -53,7 +53,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-app-dark-green">
+    <footer className="bg-app-blue">
       <MaxWidthWrapper className="p-y">
         <div className="flex flex-col md:flex-row flex-1  justify-between ">
           <div className="md:flex-[0.3] ">

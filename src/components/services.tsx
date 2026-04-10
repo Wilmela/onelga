@@ -48,7 +48,7 @@ const Services = () => {
     { scope: container },
   );
   return (
-    <section className="bg-app-green/10 border-b">
+    <section className="bg-app-green/10 border-b" id="explore">
       <MaxWidthWrapper className="p-y md:h-90" id="services">
         <div
           className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
