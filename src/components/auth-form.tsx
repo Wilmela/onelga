@@ -17,6 +17,7 @@ import { signIn, signUp } from "@/lib/actions/auth";
 import { handleErrors } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import Spinner from "./spinner";
+import { toast } from "sonner";
 
 type AuthType = {
   type: "SignIn" | "SignUp";
@@ -41,15 +42,19 @@ const AuthForm = ({ type }: AuthType) => {
     try {
       if (type === "SignUp") {
         const res = await signUp(data as signUpFormSchemaType);
-        if (!res?.error) {
-          router.replace("/auth/sign-in");
+        if (res?.error) {
+          toast.error("Failed to sign up");
+          return;
         }
+        toast.success("Sign up successful");
+        router.replace("/auth/sign-in");
       } else {
         const res = await signIn(data as signInFormSchemaType);
-        if (!res?.error) {
-          console.log(res?.error);
-          router.replace("/");
+        if (res?.error) {
+          toast("Failed to sign in");
         }
+        toast("Sign in successful");
+        router.replace("/");
       }
     } catch (error) {
       handleErrors(error);

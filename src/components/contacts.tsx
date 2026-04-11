@@ -92,7 +92,7 @@ const Contacts = () => {
           fill
           alt="logo"
           className="bg-white"
-          sizes="160px"
+          sizes="100px"
         />
       </div>
 

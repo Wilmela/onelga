@@ -12,7 +12,10 @@ import { Button } from "./ui/button";
 import CopyDate from "./copy-date";
 
 const LINK_HEADING = [
-  { title: "Links", links: NAVLINKS },
+  {
+    title: "Links",
+    links: NAVLINKS,
+  },
   {
     title: "Leadership",
     links: [
@@ -71,7 +74,7 @@ const Footer = () => {
 
           {/* Headings */}
           <div className="md:flex-[0.7] col-span-7">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4  ">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {LINK_HEADING.map((l) => (
                 <div key={l.title} className="space-y-6">
                   <h1 className="font-bold text-white">{l.title}</h1>

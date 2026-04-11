@@ -53,7 +53,7 @@ export function LeaderCard({
           src={`${cloudinaryImageUrl}${image}`}
           alt={name}
           fill
-          className="object-contain bg-white"
+          className="aspect-video bg-white"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
 

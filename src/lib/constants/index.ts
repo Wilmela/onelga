@@ -128,14 +128,14 @@ export const landmarks = [
 
 export const services = [
   {
-    Icon: MapPin,
-    title: "Visit ONELGA",
+    Icon: ToolCase,
+    title: "Digital Revenue Portal",
     color: "text-white",
-    href: "/contact",
+    href: "/tax-portal",
   },
   {
-    Icon: ToolCase,
-    title: "Services",
+    Icon: MapPin,
+    title: "Visit ONELGA",
     color: "text-white",
     href: "/contact",
   },

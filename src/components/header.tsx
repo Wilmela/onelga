@@ -35,7 +35,7 @@ const Header = () => {
   // Fix: Logic to ensure nav shows on mobile OR after 100px scroll
   function toggleNav() {
     if (typeof window !== "undefined") {
-      if ( window.scrollY > 100) {
+      if (window.scrollY > 100) {
         setShowNav(true);
       } else {
         setShowNav(false);
@@ -55,6 +55,16 @@ const Header = () => {
     }
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    if (toggled) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [toggled]);
 
   useEffect(() => {
     // FIX: Using setTimeout avoids the "cascading renders" error

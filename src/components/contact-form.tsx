@@ -10,6 +10,7 @@ import { STATES } from "@/lib/constants";
 import Spinner from "./spinner";
 import { Suspense } from "react";
 import { sendMail } from "@/lib/actions/mail.actions";
+import { toast } from "sonner";
 
 const ContactForm = () => {
   const initial = {
@@ -25,8 +26,23 @@ const ContactForm = () => {
     resolver: zodResolver(contactFormSchema),
   });
 
+  const isSubmitting = form.formState.isSubmitting;
+
   async function onSubmitForm(data: contactFormSchemaType) {
-    await sendMail(data);
+    try {
+      const res = await sendMail(data);
+
+      if (res?.error) {
+        toast.error("Failed to send message");
+        return;
+      }
+
+      toast.success("Message sent successfully");
+      form.reset();
+      return;
+    } catch (error) {
+      throw error;
+    }
   }
   return (
     <Suspense fallback={<p>Loading..</p>}>
@@ -88,10 +104,11 @@ const ContactForm = () => {
 
           <div>
             <Button
+              disabled={isSubmitting}
               variant={"ghost"}
               className="bg-app-blue hover:bg-blue-800 text-white hover:text-white cursor-pointer rounded-full py-1 px-4"
             >
-              {form.formState.isSubmitting ? <Spinner /> : "Submit"}
+              {isSubmitting ? <Spinner /> : "Submit"}
             </Button>
           </div>
         </form>

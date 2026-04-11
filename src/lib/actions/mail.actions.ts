@@ -7,14 +7,16 @@ import { contactFormSchemaType } from "../validations";
 import { contactTemplate } from "../mail/template";
 
 export async function sendMail(data: contactFormSchemaType) {
+  const { fullName, email, reason, phone, message } = data;
+
   const options = {
-    from: data.email,
+    from: email,
     to: mail.auth.user,
-    subject: data.reason,
-    text: `${data.fullName} with email: ${data.email} and phone ${data.phone}
+    subject: reason,
+    text: `${fullName} with email: ${email} and phone ${phone}
     reached out from: ${data.state}, 
-    for: ${data.reason} 
-    with the following message: ${data.message}.
+    for: ${reason} 
+    with the following message: ${message}.
     `,
     html: contactTemplate(data),
   };

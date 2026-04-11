@@ -48,7 +48,7 @@ const Services = () => {
     { scope: container },
   );
   return (
-    <section className="bg-app-green/10 border-b" id="explore">
+    <section className="bg-app-blue/10 border-b" id="explore">
       <MaxWidthWrapper className="p-y md:h-90" id="services">
         <div
           className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
@@ -87,7 +87,7 @@ function ServiceCard({ Icon, title, href, id }: Props) {
   return (
     <div
       id={id}
-      className="flex flex-col items-center justify-center space-y-4 hover:scale-105 cursor-pointer transition-all duration-300 ease-in group bg-app-green rounded-md h-50 md:h-60"
+      className="flex flex-col items-center justify-center space-y-4 hover:scale-105 cursor-pointer transition-all duration-300 ease-in group bg-app-blue rounded-md h-50 md:h-60"
     >
       <div className="bg-white/10 size-16 md:size-20 rounded-full flex items-center justify-center">
         <Icon className={cn("size-8 md:size-12 text-white")} />
@@ -97,7 +97,7 @@ function ServiceCard({ Icon, title, href, id }: Props) {
       </h3>
       <Link
         href={href}
-        className="text-app-blue text-light text-center transition-all duration-300 ease-out text-sm px-6 py-1 bg-green-900 rounded-full hover:bg-green-950 opacity-0  group-hover:opacity-100 "
+        className="text-app-blue text-light text-center transition-all duration-300 ease-out text-sm px-6 py-1 bg-white/10 rounded-full hover:bg-blue-500/10 opacity-0  group-hover:opacity-100 "
       >
         <ArrowRight className="text-bold size-4 text-white" />
       </Link>

@@ -14,6 +14,7 @@ const AboutPage = () => {
       <PageBanner />
 
       <MaxWidthWrapper className="p-y">
+        
         <SectionHeader
           title="About ONELGA"
           description="Learn about ONELGA's geography, demographics, economic sectors, and cultural landmarks that shape this vital region of Rivers State."
