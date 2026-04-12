@@ -14,7 +14,7 @@ export type contactFormSchemaType = z.infer<typeof contactFormSchema>;
 export const SignUpSchema = z.object({
   name: z.string().min(5, "must be more than 5 characters"),
   email: z.email().describe("provide a valid email"),
-   password: z
+  password: z
     .string()
     .min(8, "Password must be at least 8 characters")
     .regex(
@@ -111,8 +111,9 @@ export const councilorSchema = z.object({
     .string()
     .min(1, "Content is required")
     .min(10, "Content must be at least 10 characters"),
+  ward: z.number(),
   tenure: z.string(),
-  role: z.string(),
+  // role: z.string(),
   image: z.string(),
 });
 

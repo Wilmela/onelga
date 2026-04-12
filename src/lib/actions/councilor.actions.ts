@@ -75,7 +75,7 @@ export async function getCouncilors() {
   try {
     await connectToDatabase();
 
-    const exe = await Councilor.find();
+    const exe = await Councilor.find().sort({ ward: "asc" });
 
     if (!exe) throw new Error("Failed to find Councilor");
 

@@ -97,14 +97,14 @@ function ChairmanComp({ name, imageUrl }: { name: string; imageUrl: string }) {
         </p>
 
         <Link
-          className=" hover:text-app-blue rounded-2xl p-2"
+          className=" hover:text-app-blue hover:border rounded-2xl p-2"
           href="/leadership"
         >
           Learn More About the Leadership &rarr;
         </Link>
       </div>
 
-      <div className="relative h-125 md:size-full col-span-1 md:col-span-3 overflow-hidden rounded-2xl">
+      <div className="relative h-125 md:size-full col-span-1 md:col-span-3 overflow-hidden rounded-md">
         <Image
           src={imageUrl}
           alt="chairman"

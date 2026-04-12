@@ -156,6 +156,16 @@ export function CustomInput<T extends FieldValues>({
                 fieldState.error &&
                   "border-red-500 focus:border-red-500 focus:ring-red-500",
               )}
+              onChange={(e) => {
+                // Handle number type separately
+                if (type === "number") {
+                  const value = e.target.value;
+                  // Convert to number if the input is not empty
+                  field.onChange(value === "" ? undefined : Number(value));
+                } else {
+                  field.onChange(e.target.value);
+                }
+              }}
             />
           </div>
           {fieldState.error && (

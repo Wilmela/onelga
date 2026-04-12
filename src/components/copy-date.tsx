@@ -1,5 +1,4 @@
-
-function CopyDate() {
+export function CopyDate() {
   const date = new Date().getFullYear();
 
   return (
@@ -9,4 +8,15 @@ function CopyDate() {
   );
 }
 
-export default CopyDate;
+export function LastUpdate() {
+  const lastUpdate = new Date().toLocaleDateString("en-NG", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  return (
+    <p className="mt-4 text-xs uppercase tracking-widest opacity-75">
+      Last Updated: {lastUpdate}
+    </p>
+  );
+}

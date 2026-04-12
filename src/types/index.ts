@@ -35,6 +35,7 @@ export type CouncilorType = {
   role: string;
 
   bio: string;
+  ward: number;
   tenure: string;
   image: string;
 };

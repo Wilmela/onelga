@@ -1,5 +1,6 @@
 import { CustomBreadCrumb } from "@/components/customs";
 import { LeaderCard } from "@/components/leader-card";
+import { LeaderCardSkeleton } from "@/components/leader-card-skeleton";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import PageBanner from "@/components/page-banner";
 import SectionHeader from "@/components/section-header";
@@ -30,7 +31,16 @@ const CouncilorsPage = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <Suspense fallback={<p>Loading councilors...</p>}>
+          <Suspense
+            fallback={
+              <>
+                <LeaderCardSkeleton />
+                <LeaderCardSkeleton />
+                <LeaderCardSkeleton />
+                <LeaderCardSkeleton />
+              </>
+            }
+          >
             <RenderCouncilors />
           </Suspense>
         </div>
@@ -48,7 +58,6 @@ async function RenderCouncilors() {
     (m: { position: string; isPast: boolean }) => !m.isPast,
   );
 
-
   if (!councilors.length) {
     return <p>Councilors not found</p>;
   }
@@ -61,8 +70,9 @@ async function RenderCouncilors() {
       bio={m.bio}
       image={m.image}
       tenure={m.tenure}
-      showExtra={false}
+      showExtra
       type="councilor"
+      ward={m.ward}
     />
   ));
 }

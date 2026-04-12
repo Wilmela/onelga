@@ -69,7 +69,8 @@ const AuthForm = ({ type }: AuthType) => {
           alt="banner"
           className="object-cover"
           fill
-          sizes="45vw"
+          sizes="65vw"
+          loading="eager"
         />
       </div>
 

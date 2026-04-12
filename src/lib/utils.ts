@@ -53,13 +53,17 @@ export function checkLength(n: string, measure: number) {
   return n.length < measure ? n : `${n.slice(0, measure)}...`;
 }
 
-export function validateInput(
-  schema: z.ZodObject,
-  data: z.infer<typeof z.ZodObject>,
-) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function validateInput<T extends z.ZodObject<any>>(
+  schema: T,
+  data: unknown,
+): z.infer<T> {
   const parsed = schema.safeParse(data);
-
-  if (!parsed.success) throw new Error(parsed.error.message);
+  const error = parsed.error?.issues.map((i) => ({
+    field: i.path.join("."),
+    message: i.message,
+  }));
+  if (!parsed.success) throw new Error(JSON.stringify(error));
 
   return parsed.data;
 }

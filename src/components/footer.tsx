@@ -9,7 +9,7 @@ import Socials from "./socials";
 import { ArrowUp } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import CopyDate from "./copy-date";
+import {CopyDate} from "./copy-date";
 
 const LINK_HEADING = [
   {

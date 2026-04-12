@@ -57,6 +57,10 @@ export const NAVLINKS = [
     href: "/projects",
   },
   {
+    title: "Portals",
+    href: "/portals",
+  },
+  {
     title: "Contact",
     href: "/contact",
   },
@@ -70,8 +74,6 @@ export const categories = [
   "Employment",
   "Infrastructure",
 ];
-
-
 
 export const landmarks = [
   {
@@ -110,7 +112,7 @@ export const landmarks = [
       "The majestic western flank of Nigeria's greatest river flowing through Ndoni, serving as a vital transportation corridor and agricultural lifeline. This waterway facilitates trade, fishing, and connectivity to major commercial centers like Onitsha, while supporting local farming communities along its fertile banks.",
   },
   {
-    imageUrl: "/images/sec.jpeg",
+    imageUrl: "/images/culture.png",
     title: "Cultural Sites",
     icons: MapPin,
     description:

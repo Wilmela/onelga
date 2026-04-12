@@ -46,7 +46,8 @@ const CouncilorForm = ({ type, councilor }: FormType) => {
         bio: "",
         tenure: "",
         image: "",
-        role: "",
+        // role: "",
+        ward: 1,
       };
 
   const form = useForm<CouncilorFormDataType>({
@@ -125,22 +126,22 @@ const CouncilorForm = ({ type, councilor }: FormType) => {
                         label="Position"
                         isRequired
                       />
-                      <CustomInput
+                      {/* <CustomInput
                         name="role"
                         control={form.control}
                         label="Role"
                         isRequired
+                      /> */}
+                      <CustomInput
+                        name="ward"
+                        control={form.control}
+                        label="Ward"
+                        isRequired
+                        placeholder="e.g 1"
+                        type="number"
                       />
                     </div>
                     <div className="grid grid-cols-1 gap-6">
-                      <CustomTextarea
-                        name="bio"
-                        control={form.control}
-                        label="A brief bio"
-                        isRequired
-                        rows={2}
-                      />
-
                       <CustomInput
                         name="tenure"
                         control={form.control}
@@ -148,6 +149,13 @@ const CouncilorForm = ({ type, councilor }: FormType) => {
                         isRequired
                         placeholder="Enter full name"
                       />
+                    <CustomTextarea
+                      name="bio"
+                      control={form.control}
+                      label="A brief bio"
+                      isRequired
+                      rows={2}
+                    />
                     </div>
 
                     <div>
@@ -165,8 +173,8 @@ const CouncilorForm = ({ type, councilor }: FormType) => {
                           <Image
                             src={`${cloudinaryImageUrl}${councilor.image}`}
                             alt="image"
-                            width={400}
-                            height={200}
+                            width={200}
+                            height={100}
                           />
                         </div>
                       )}
@@ -212,13 +220,12 @@ const CouncilorForm = ({ type, councilor }: FormType) => {
             alt="banner"
             className="object-cover"
             fill
-            sizes='45vw'
+            sizes="45vw"
           />
         </div>
       </section>
     </Suspense>
   );
-
 };
 
 export default CouncilorForm;

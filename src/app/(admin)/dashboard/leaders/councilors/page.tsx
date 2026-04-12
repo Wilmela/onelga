@@ -13,7 +13,7 @@ const CouncilorsPage = () => {
         <Link href={"/dashboard/leaders/councilors/new"}>
           <PlusSquare className="size-10" />
         </Link>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
           <Suspense fallback={<p>Loading councilors...</p>}>
             <RenderCouncilors />
           </Suspense>
@@ -47,6 +47,7 @@ async function RenderCouncilors() {
             showExtra={false}
             isEditable={true}
             type="councilor"
+            ward={m.ward}
             editHref={`/dashboard/leaders/councilors/${m.name}/edit`}
           />
         ))}

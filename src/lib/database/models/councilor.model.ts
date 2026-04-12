@@ -10,13 +10,17 @@ const councilorSchema = new Schema(
       type: String,
       required: [true, "position is required"],
     },
-    role: {
-      type: String,
-      required: [true, "role is required"],
-    },
+    // role: {
+    //   type: String,
+    //   required: [true, "role is required"],
+    // },
     bio: {
       type: String,
       required: [true, "bio is required"],
+    },
+    ward: {
+      type: Number,
+      required: [true, "ward is required"],
     },
     tenure: {
       type: String,
