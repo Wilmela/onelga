@@ -20,3 +20,11 @@ export function LastUpdate() {
     </p>
   );
 }
+export function fullDate(date: Date | string) {
+  const res = new Date(date).toLocaleDateString("en-NG", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  return <p>{res}</p>;
+}

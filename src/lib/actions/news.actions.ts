@@ -45,7 +45,7 @@ export async function createBlogPost(data: BlogFormDataType, shorts: string[]) {
         );
       }
 
-      revalidatePath("/dashboard/creator/news/view");
+      revalidatePath("/dashboard/news/view");
     }
     return { success: true };
   } catch (error) {

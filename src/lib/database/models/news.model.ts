@@ -28,6 +28,10 @@ const newsSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
     category: {
       type: String,
       required: [true, "category is required"],

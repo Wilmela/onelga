@@ -78,45 +78,50 @@ function LatestNewsCard() {
   }
 
   return (
-    <div ref={container} className="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-8">
-      {news.map((n: NewsType) => (
-        <div
-          key={n.title}
-          className="group relative overflow-hidden rounded-lg hover:shadow-2xl hover:translate-y-1 transition-all ease-in-out duration-300 cursor-pointer news-card "
-        >
-          <div className="relative h-100 md:h-125 w-full ">
-            <Image
-              src={`${cloudinaryImageUrl}${n.banner}`}
-              alt="banner"
-              fill
-              className="object-cover"
-              sizes="(max-width:768px) 100wv, 45wv"
-            />
+    <div
+      ref={container}
+      className="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-8"
+    >
+      {news
+        .filter((n) => n.featured)
+        .map((n: NewsType) => (
+          <div
+            key={n.title}
+            className="group relative overflow-hidden rounded-lg hover:shadow-2xl hover:translate-y-1 transition-all ease-in-out duration-300 cursor-pointer news-card "
+          >
+            <div className="relative h-100 md:h-125 w-full ">
+              <Image
+                src={`${cloudinaryImageUrl}${n.banner}`}
+                alt="banner"
+                fill
+                className="object-cover"
+                sizes="(max-width:768px) 100wv, 45wv"
+              />
 
-            <div className="absolute bg-app-blue z-10 right-5 top-5 text-white rounded-full px-4 py-1 text-xs">
-              {n.category}
+              <div className="absolute bg-app-blue z-10 right-5 top-5 text-white rounded-full px-4 py-1 text-xs">
+                {n.category}
+              </div>
+            </div>
+
+            <div className="absolute left-0 right-0 bottom-0 bg-black/40 p-2 pb-16">
+              <h1 className="text-white font-bold text-xl uppercase">
+                {n.title}
+              </h1>
+              <h2 className="text-white font-semibold text-lg">{n.excerpt}</h2>
+              <span className="p-text text-white">
+                {cleanText(checkLength(n.content, 200))}
+              </span>
+            </div>
+            <div className="bg-black/90 flex justify-end p-4">
+              <Link
+                href={`/news/${n.title}/read`}
+                className="text-white hover:text-app-blue cursor-pointer z-30"
+              >
+                Read more &rarr;
+              </Link>
             </div>
           </div>
-
-          <div className="absolute left-0 right-0 bottom-0 bg-black/40 p-2 pb-16">
-            <h1 className="text-white font-bold text-xl uppercase">
-              {n.title}
-            </h1>
-            <h2 className="text-white font-semibold text-lg">{n.excerpt}</h2>
-            <span className="p-text text-white">
-              {cleanText(checkLength(n.content, 200))}
-            </span>
-          </div>
-          <div className="bg-black/90 flex justify-end p-4">
-            <Link
-              href={`/news/${n.title}/read`}
-              className="text-white hover:text-app-blue cursor-pointer z-30"
-            >
-              Read more &rarr;
-            </Link>
-          </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }

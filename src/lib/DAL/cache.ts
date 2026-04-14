@@ -3,7 +3,7 @@ import { getAllUsers } from "./user";
 import { getProjectsDAL } from "./project";
 import { getExecutivesDAL } from "./executives";
 import { getCouncilorsDAL } from "./councilors";
-import { getNewsDAL } from "./news";
+import { getAnnouncementsDAL, getNewsDAL } from "./news";
 
 // Cache
 export async function cachedUsers() {
@@ -18,6 +18,12 @@ export async function getCachedNews() {
   cacheTag("news");
 
   return await getNewsDAL();
+}
+export async function getCachedAnnouncements() {
+  "use cache";
+  cacheTag("announcements");
+
+  return await getAnnouncementsDAL();
 }
 
 export async function getCachedExecutives() {

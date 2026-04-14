@@ -1,3 +1,4 @@
+import Announcements from "@/components/anouncements";
 import FeaturedNews from "@/components/featured-news";
 import Hero from "@/components/hero";
 import Landmarks from "@/components/landmarks";
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <TheChairman />
       <Stats />
+      <Announcements/>
       <FeaturedNews />
       <Map />
     </>

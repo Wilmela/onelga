@@ -70,6 +70,21 @@ export const blogSchema = z.object({
 
 export type BlogFormDataType = z.infer<typeof blogSchema>;
 
+export const announceSchema = z.object({
+  title: z
+    .string()
+    .min(1, "Title is required")
+    .min(3, "Title must be at least 3 characters")
+    .max(200, "Title must be less than 200 characters"),
+  date: z.string().optional(),
+  content: z
+    .string()
+    .min(1, "Content is required")
+    .min(10, "Content must be at least 10 characters"),
+});
+
+export type AnnouncementFormDataType = z.infer<typeof announceSchema>;
+
 export const executiveSchema = z.object({
   name: z
     .string()

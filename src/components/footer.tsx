@@ -19,7 +19,7 @@ const LINK_HEADING = [
   {
     title: "Leadership",
     links: [
-      { title: "Exectutive", href: "/leadership/executives" },
+      { title: "Exectutive", href: "/leadership" },
       { title: "Councilors", href: "/leadership/councilors" },
       { title: "Past Leaders", href: "/leadership/past-leaders" },
       // { title: "Committee", href: "/leadership/committee" },

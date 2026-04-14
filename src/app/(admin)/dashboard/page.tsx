@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   Newspaper,
   LucideIcon,
+  Megaphone,
 } from "lucide-react";
 
 // 1. Define the reusable Card Component
@@ -75,8 +76,15 @@ const DashboardPage = () => {
       href: "/dashboard/news",
       title: "News",
       icon: Newspaper,
-      description: "Latest company updates and posts",
+      description: "Latest LGA updates and posts",
       color: "bg-orange-500",
+    },
+    {
+      href: "/dashboard/announcements",
+      title: "Announcements",
+      icon: Megaphone,
+      description: "Latest public announcements",
+      color: "bg-yellow-500",
     },
   ];
 

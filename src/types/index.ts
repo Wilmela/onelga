@@ -18,6 +18,14 @@ export type NewsType = {
   // updatedAt: "2025-11-09T03:59:20.123Z";
   // __v: 0;
 };
+export type AnnouncementType = {
+  _id?: string;
+  id: string;
+  title: string;
+  date: string;
+  content: string;
+  isPublished?: boolean;
+};
 export type ExecutiveType = {
   _id?: string;
   name: string;
