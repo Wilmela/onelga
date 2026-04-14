@@ -133,7 +133,7 @@ export const services = [
     Icon: ToolCase,
     title: "Digital Revenue Portal",
     color: "text-white",
-    href: "/tax-portal",
+    href: "/portals",
   },
   {
     Icon: MapPin,

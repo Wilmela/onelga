@@ -93,7 +93,7 @@ async function RenderNews({ params }: Props) {
 
   return (
     <>
-      <MaxWidthWrapper className="flex flex-col items-center justify-center h-90 md:h-75 w-full bg-app-dark-green">
+      <MaxWidthWrapper className="flex flex-col items-center justify-center h-90 md:h-75 w-full bg-app-blue">
         <div className="text-center space-y-6 mx-auto w-full max-w-4xl mt-28 md:mt-20 mb-8 md:mb-0">
           <div className="text-white ">
             <h1 className="capitalize text-2xl md:text-3xl font-bold">

@@ -19,7 +19,7 @@ export type NewsType = {
   // __v: 0;
 };
 export type AnnouncementType = {
-  _id?: string;
+  _id: string;
   id: string;
   title: string;
   date: string;

@@ -2,6 +2,7 @@ import Announcementcard from "@/components/announcement-card";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { NewsSkeleton } from "@/components/skeletons";
 import { getCachedAnnouncements } from "@/lib/DAL/cache";
+import { AnnouncementType } from "@/types";
 import { Suspense } from "react";
 
 const ViewAnnouncementPage = () => {
@@ -33,5 +34,15 @@ async function RenderAnnouncements() {
     return <p>No announcements found.</p>;
   }
 
-  return <Announcementcard announcements={announcements} isEditable />;
+  return (
+    <>
+      {announcements.map((announcement: AnnouncementType) => (
+        <Announcementcard
+          key={announcement.title}
+          {...announcement}
+          isEditable
+        />
+      ))}
+    </>
+  );
 }

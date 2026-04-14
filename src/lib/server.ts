@@ -1,6 +1,6 @@
 "use server";
 
-import { getCachedNews } from "./DAL/cache";
+import { getCachedAnnouncements, getCachedNews } from "./DAL/cache";
 import { handleErrors } from "./utils";
 
 export async function fetchCachedNews() {

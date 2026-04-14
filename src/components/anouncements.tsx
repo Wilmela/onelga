@@ -2,48 +2,47 @@ import MaxWidthWrapper from "./max-width-wrapper";
 import SectionHeader from "./section-header";
 import { Suspense } from "react";
 
-import Announcementcard from "./announcement-card";
+import AnnouncementCard from "./announcement-card";
 import { getCachedAnnouncements } from "@/lib/DAL/cache";
+import { AnnouncementType } from "@/types";
 
-// const annoucementData = [
-//   {
-//     id: "1",
-//     title: "Ban on scarp scavengers",
-//     content:
-//       "This is to announce to the public that a ban has been placed on scrap scavenger from today 4-April-2026 till further notice",
-//     date: "10/04/2026",
-//   },
-//   {
-//     id: "2",
-//     title: "Ban on scarp scavengers",
-//     content:
-//       "This is to announce to the public that a ban has been placed on scrap scavenger from today 4-April-2026 till further notice",
-//     date: "10/04/2026",
-//   },
-// ];
 const Announcements = async () => {
-  const announcement = await getCachedAnnouncements();
+  const announcements: AnnouncementType[] = await getCachedAnnouncements();
 
-  
+  const pusblishedAnnouncements = announcements.filter((a) => a.isPublished);
+
+  if (!pusblishedAnnouncements.length) {
+    return null;
+  }
+
   return (
     <>
-      {announcement.length && (
-        <section>
-          <MaxWidthWrapper className="p-y">
-            <div className="flex justify-between items-center">
-              <SectionHeader
-                title="Anncouncements"
-                description="Recent public announcements"
-              />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-8">
-              <Suspense fallback={<p>Loading...</p>}>
-                <Announcementcard announcements={announcement} />
-              </Suspense>
-            </div>
-          </MaxWidthWrapper>
-        </section>
-      )}
+      <section>
+        <MaxWidthWrapper className="p-y">
+          <div className="flex justify-between items-center">
+            <SectionHeader
+              title="Anncouncements"
+              description="Recent public announcements"
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-8">
+            <Suspense fallback={<p>Loading...</p>}>
+              <>
+                {pusblishedAnnouncements.map(
+                  (announcement: AnnouncementType) => {
+                    return (
+                      <AnnouncementCard
+                        key={announcement.title}
+                        {...announcement}
+                      />
+                    );
+                  },
+                )}
+              </>
+            </Suspense>
+          </div>
+        </MaxWidthWrapper>
+      </section>
     </>
   );
 };

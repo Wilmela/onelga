@@ -1,111 +1,110 @@
 "use client";
 
-import { AnnouncementType } from "@/types";
-import { Megaphone, PowerCircle, Trash } from "lucide-react";
-
-import { useRef, useTransition } from "react";
-import Spinner from "./spinner";
+import { Megaphone, PowerCircle, Trash, Calendar, Edit } from "lucide-react";
+import React, { useTransition } from "react";
+import { fullDate } from "./copy-date";
 import { cleanText, cn } from "@/lib/utils";
 import {
   deleteAnnouncement,
   publishAnnouncement,
 } from "@/lib/actions/announcement.actions";
-import gsap from "gsap";
+import Spinner from "./spinner";
+import { AnnouncementType } from "@/types";
+import Link from "next/link";
 
-import { useGSAP } from "@gsap/react";
-import { fullDate } from "./copy-date";
+type Props = AnnouncementType & { isEditable?: boolean };
 
-gsap.registerPlugin(useGSAP);
-
-export default function Announcementcard({
-  announcements,
-  isEditable = false,
-}: {
-  announcements: AnnouncementType[];
-  isEditable?: boolean;
-}) {
-  const container = useRef<HTMLDivElement | null>(null);
-
-  useGSAP(
-    () => {
-      if (!container === null || typeof window == "undefined") return;
-
-      const cards = gsap.utils.toArray<HTMLElement>(".news-card");
-
-      cards.forEach((card) => {
-        gsap.to(card, {
-          scale: 1.05,
-          duration: 0.7,
-          repeat: -1,
-          yoyo: true,
-          stagger: 0.1,
-          ease: "bounce.in",
-        });
-      });
-    },
-    { dependencies: [announcements] },
-  );
+const AnnouncementCard = ({
+  _id,
+  title,
+  date,
+  isPublished,
+  content,
+  isEditable,
+}: Props) => {
   const [isPending, startTransition] = useTransition();
 
-  return announcements.map((n, i) => {
-    return (
-      <div
-        key={n.title + i}
-        className="group relative min-h-50 bg-app-blue/5 rounded-md overflow-hidden"
-      >
-        <div className="h-14 bg-app-blue flex items-center justify-between px-4">
-          <Megaphone size={40} className=" text-white" />
+  return (
+    <div className="group relative flex flex-col min-h-62.5 bg-white border border-slate-200 hover:border-app-blue/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg">
+      {/* Header Bar */}
+      <div className="h-2 bg-app-blue w-full" />
 
-          <div className="p-2 bg-white/10 rounded-full text-white text-xs inline-flex items-center justify-center  z-20">
-            {fullDate(n.date)}
+      <div className="p-5 flex-1">
+        <div className="flex items-start justify-between mb-4">
+          <div className="p-2 bg-app-blue/10 rounded-lg text-app-blue">
+            <Megaphone size={24} />
+          </div>
+          <div className="flex items-center gap-1.5 text-slate-500 text-xs font-medium bg-slate-100 px-2.5 py-1 rounded-full">
+            <Calendar size={14} />
+            {fullDate(date)}
           </div>
         </div>
 
-        <div className="p-2 space-y-6">
-          <h3 className="text-3xl text-bold">{n.title}</h3>
-          <span className="p-text wrap-break-word group-hover:text-app-blue">
-            {cleanText(n.content)}
-          </span>
+        <div className="space-y-2">
+          <h3 className="text-xl font-bold text-slate-800 leading-tight line-clamp-2">
+            {title}
+          </h3>
+          <p className="text-slate-600 text-sm leading-relaxed line-clamp-4 wrap-break-word">
+            {cleanText(content)}
+          </p>
         </div>
-
-        {/* Overlay */}
-        {isEditable && (
-          <div className="hidden bg-black/50 absolute size-full inset-0 group-hover:flex flex-col items-center justify-center group-hover:animate-slide-up">
-            <div className="flex items-center space-x-4 mt-6">
-              {!isPending ? (
-                <div className="flex space-x-8">
-                  <button
-                    onClick={() =>
-                      startTransition(async () => {
-                        await publishAnnouncement(n.id, !n.isPublished);
-                      })
-                    }
-                  >
-                    <PowerCircle
-                      className={cn(
-                        "font-bold text-2xl cursor-pointer",
-                        n.isPublished ? "text-green-500" : "text-red-500 ",
-                      )}
-                    />
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      startTransition(async () => {
-                        await deleteAnnouncement(n.id);
-                      })
-                    }
-                  >
-                    <Trash className="text-red-500 font-bold text-2xl cursor-pointer" />
-                  </button>
-                </div>
-              ) : (
-                <Spinner />
-              )}
-            </div>
-          </div>
-        )}
       </div>
-    );
-  });
-}
+
+      {/* Admin Actions - Fixed for Mobile & Desktop */}
+      {isEditable && (
+        <div
+          className="flex items-center justify-end gap-3 p-3 bg-slate-50 border-t border-slate-100 
+                        transition-all duration-300 
+                        md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+        >
+          {!isPending ? (
+            <>
+              <button
+                title={isPublished ? "Unpublish" : "Publish"}
+                className="p-2 hover:bg-white rounded-full transition-colors shadow-sm border border-transparent hover:border-slate-200"
+                onClick={() =>
+                  startTransition(async () => {
+                    await publishAnnouncement(_id, !isPublished);
+                  })
+                }
+              >
+                <PowerCircle
+                  size={20}
+                  className={cn(
+                    "transition-colors",
+                    isPublished ? "text-green-600" : "text-slate-400",
+                  )}
+                />
+              </button>
+
+              <Link
+                href={`/dashboard/announcements/${_id}/edit`}
+                title="Edit"
+                className="p-2 hover:bg-red-50 rounded-full transition-colors shadow-sm border border-transparent hover:border-red-100"
+              >
+                <Edit size={20} className="text-blue-500" />
+              </Link>
+              <button
+                title="Delete"
+                className="p-2 hover:bg-red-50 rounded-full transition-colors shadow-sm border border-transparent hover:border-red-100"
+                onClick={() =>
+                  startTransition(async () => {
+                    await deleteAnnouncement(_id);
+                  })
+                }
+              >
+                <Trash size={20} className="text-red-500" />
+              </button>
+            </>
+          ) : (
+            <div className="pr-4">
+              <Spinner />
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default AnnouncementCard;

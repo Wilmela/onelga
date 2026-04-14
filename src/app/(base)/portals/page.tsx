@@ -9,12 +9,12 @@ const TaxPortal = () => {
       <PageBanner />
       <MaxWidthWrapper className="p-y">
         <SectionHeader
-          title="Tax Portal"
+          title="Portals"
           description="ONELGA Digital Revenue Online platform"
         />
 
         <div className="flex items-center justify-center">
-          <h1 className="text-3xl font-bold">Portal not open yet.</h1>
+          <h1 className="text-2xl font-bold">Portal not open yet.</h1>
         </div>
       </MaxWidthWrapper>
     </section>

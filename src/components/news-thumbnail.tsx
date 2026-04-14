@@ -30,7 +30,7 @@ export default function NewsThumbnail({
 
   return news.map((n, i) => {
     return (
-      <div key={n.title + i} className=" group relative min-h-105">
+      <div key={n.title + i} className="group relative min-h-100">
         <div className="relative md:w-75 h-50 overflow-hidden">
           <Image
             src={`${cloudinaryImageUrl}${n.banner}`}
@@ -42,6 +42,12 @@ export default function NewsThumbnail({
           <div className="py-1 px-2 bg-app-blue text-white text-xs text-center rounded-full absolute top-5 right-5 z-20">
             {n.category}
           </div>
+          <Link
+            href={`/news/${n.title}/read`}
+            className="md:hidden py-1 px-2 bg-app-blue text-white text-xs text-center rounded-full absolute top-5 left-5 z-20"
+          >
+            Read news
+          </Link>
         </div>
 
         <div className="p-2">
@@ -59,7 +65,7 @@ export default function NewsThumbnail({
         </div>
 
         {/* footer */}
-        <div className=" absolute bottom-0 left-0 right-0 w-full flex items-center justify-between p-2 bg-app-dark-green text-white group-hover:animate-pulse text-xs">
+        <div className=" absolute bottom-0 left-0 right-0 w-full flex items-center justify-between p-2 bg-app-blue text-white group-hover:animate-pulse text-xs">
           <div className="inline-flex items-center space-x-1">
             <User size={16} />
             <p>{n.author}</p>

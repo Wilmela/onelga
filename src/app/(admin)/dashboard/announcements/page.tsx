@@ -3,7 +3,7 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { Eye, Plus, ArrowRight, LucideIcon } from "lucide-react";
 import Link from "next/link";
 
-const NewsPage = () => {
+const AnnouncementsPage = () => {
   const NEWS_TABS = [
     {
       icon: Plus,
@@ -47,7 +47,7 @@ const NewsPage = () => {
   );
 };
 
-export default NewsPage;
+export default AnnouncementsPage;
 
 interface NewsActionCardProps {
   href: string;
