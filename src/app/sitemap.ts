@@ -47,6 +47,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     },
     {
+      url: `${url}/portals`,
+      changeFrequency: "never" as const,
+      priority: 0.6,
+    },
+    {
       url: `${url}/news`,
       changeFrequency: "weekly" as const,
       priority: 0.5,
@@ -56,7 +61,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.6,
     },
-    
+
     ...newsEntries,
   ];
 }

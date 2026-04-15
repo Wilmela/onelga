@@ -91,14 +91,14 @@ export const landmarks = [
       "The vibrant commercial heartbeat of ONELGA, where traders and customers converge daily for fresh produce, textiles, household goods, and local crafts. A bustling center of economic activity that showcases the region's entrepreneurial spirit and community commerce.",
   },
   {
-    imageUrl: "/images/sec.jpeg",
+    imageUrl: "/images/pofoba.jpeg",
     title: "Traditional Palaces",
     icons: HouseIcon,
     description:
       "Historic royal seats representing the rich cultural heritage of ONELGA's constituent kingdoms: the palace of the Oba of Ogbaland in Omoku, the Nze-Obi of Egbema Kingdom, and the Eze Egi of Egi Kingdom. These architectural landmarks serve as centers of traditional governance and cultural preservation.",
   },
   {
-    imageUrl: "/images/sec.jpeg",
+    imageUrl: "/images/obob.jpeg",
     title: "Oil & Gas Infrastructure",
     icons: SettingsIcon,
     description:
