@@ -15,7 +15,7 @@ export default function Home() {
       <Services />
       <TheChairman />
       <Stats />
-      <Announcements/>
+      <Announcements />
       <FeaturedNews />
       <Map />
     </>

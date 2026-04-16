@@ -38,6 +38,9 @@ export function handleErrors(error: unknown) {
 export const positions = {
   councilor: "councilor",
   chairman: "chairman",
+  vicechairman: "vice chairman",
+  secretary: "secretary general",
+  pro: "public relations officer (p.r.o)",
 } as const;
 export const USER_ROLE = {
   commander: "admin",

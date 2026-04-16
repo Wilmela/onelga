@@ -45,6 +45,13 @@ async function RenderExecutives() {
     (u: { position: string; isPast: boolean }) =>
       lc(u.position) === positions.chairman && !u.isPast,
   );
+  const vice = executiveMembers.find(
+    (u: { position: string }) => lc(u.position) === positions.vicechairman,
+  );
+  const secretary = executiveMembers.find(
+    (u: { position: string; isPast: boolean }) =>
+      lc(u.position) === positions.secretary,
+  );
 
   const allowedRoles = [
     "vice chairman",
@@ -54,13 +61,13 @@ async function RenderExecutives() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
+      {/* CHAIRMAN */}
       <div className="h-full md:col-span-1">
         {chairman ? (
           <>
             <div className="relative w-full h-75 md:h-125">
               <Image
-                src={`${cloudinaryImageUrl}${chairman.image || "/images/gloo.jpeg"} `}
+                src={`${cloudinaryImageUrl}${chairman.image || "/images/logo.jpeg"} `}
                 alt={"chairman"}
                 fill
                 className="object-cover"
@@ -83,25 +90,29 @@ async function RenderExecutives() {
 
       {/* top 3 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:col-span-2">
-        {executiveMembers
-          .filter(
-            (m: { position: string; past: boolean }) =>
-              lc(m.position) !== positions.chairman &&
-              !m.past &&
-              allowedRoles.includes(lc(m.position)),
-          )
-          .map((m: ExecutiveType) => (
-            <LeaderCard
-              key={m.name}
-              name={m.name}
-              position={m.position}
-              bio={m.bio}
-              image={m.image}
-              tenure={m.tenure}
-              showExtra
-              type="executive"
+        <div>
+          {vice && (
+            <ExecCard
+              imageUrl={`${cloudinaryImageUrl}${vice.image} `}
+              name={vice.name}
+              bio={vice.bio}
+              role={vice.role}
+              tenure={vice.tenure}
             />
-          ))}
+          )}
+        </div>
+
+        <div>
+          {secretary && (
+            <ExecCard
+              imageUrl={`${cloudinaryImageUrl}${secretary.image} `}
+              name={secretary.name}
+              bio={secretary.bio}
+              role={secretary.role}
+              tenure={secretary.tenure}
+            />
+          )}
+        </div>
       </div>
 
       {/* OTHERS */}
@@ -127,5 +138,35 @@ async function RenderExecutives() {
           ))}
       </div>
     </div>
+  );
+}
+
+type Props = {
+  imageUrl: string;
+  name: string;
+  role: string;
+  bio: string;
+  tenure: string;
+};
+
+function ExecCard({ imageUrl, name, role, bio, tenure }: Props) {
+  return (
+    <>
+      <div className="relative w-full h-75 md:h-125">
+        <Image
+          src={`${imageUrl || "/images/logo.jpeg"} `}
+          alt={name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      </div>
+      <div className="space-y-2 mt-4">
+        <h3 className="text-xl md:text-2xl font-bold">{name}</h3>
+        <h3 className="text-lg md:text-xl font-semibold">{role}</h3>
+        <p className="w-full  p-text">{bio}</p>
+        <p>{tenure}</p>
+      </div>
+    </>
   );
 }
