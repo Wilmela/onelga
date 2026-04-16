@@ -7,6 +7,7 @@ export const contactFormSchema = z.object({
   state: z.string().min(5, "must be more than 5 characters"),
   reason: z.string().min(5, "must be more than 5 characters"),
   message: z.string().min(5, "must be more than 5 characters"),
+  check: z.string().optional(),
 });
 
 export type contactFormSchemaType = z.infer<typeof contactFormSchema>;

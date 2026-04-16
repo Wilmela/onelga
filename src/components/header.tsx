@@ -244,7 +244,7 @@ const Header = () => {
                   {/* SUB MENU */}
                   {isActive === l.href && l.subLinks && (
                     <div
-                      className="absolute top-5 bg-app-dark-green backdrop-blur-xs p-4 rounded-md w-[80%] z-50 flex flex-col"
+                      className="absolute top-5 bg-black/20 backdrop-blur-xs p-4 rounded-md w-[80%] z-50 flex flex-col"
                       onClick={(e) => {
                         e.stopPropagation(); // Prevents closing the whole menu
                         setIsActive(null);
@@ -272,7 +272,9 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <Socials size="size-5" />
+              <div className="animate-slide-up">
+                <Socials size="size-5" />
+              </div>
             </div>
           )}
         </nav>

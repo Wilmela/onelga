@@ -20,6 +20,7 @@ const ContactForm = () => {
     state: "",
     reason: "",
     message: "",
+    check: "",
   };
   const form = useForm<contactFormSchemaType>({
     defaultValues: initial,
@@ -29,6 +30,7 @@ const ContactForm = () => {
   const isSubmitting = form.formState.isSubmitting;
 
   async function onSubmitForm(data: contactFormSchemaType) {
+    if (data.check !== "") return;
     try {
       const res = await sendMail(data);
 
@@ -58,7 +60,14 @@ const ContactForm = () => {
             name="fullName"
             isRequired
           />
-
+          <div className="hidden aria-hidden:">
+            <CustomInput
+              control={form.control}
+              label="Check"
+              type="text"
+              name="check"
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
             <CustomInput
               control={form.control}

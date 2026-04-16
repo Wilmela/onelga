@@ -25,6 +25,7 @@ const Announcements = async () => {
               description="Recent public announcements"
             />
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-8">
             <Suspense fallback={<p>Loading...</p>}>
               <>
@@ -41,6 +42,7 @@ const Announcements = async () => {
               </>
             </Suspense>
           </div>
+          
         </MaxWidthWrapper>
       </section>
     </>

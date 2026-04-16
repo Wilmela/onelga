@@ -9,7 +9,7 @@ import Socials from "./socials";
 import { ArrowUp } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import {CopyDate} from "./copy-date";
+import { CopyDate } from "./copy-date";
 
 const LINK_HEADING = [
   {
@@ -68,7 +68,7 @@ const Footer = () => {
 
             <div className="mb-4 md:mb-0">
               <h3 className="text-white font-semibold mb-4">SOCIALS</h3>
-              <Socials />
+              <Socials size="size-4" />
             </div>
           </div>
 
@@ -116,7 +116,7 @@ const Footer = () => {
             </div> */}
             <Link
               href={`mailto:techmelaservices@gmail.com?subject='Enquiry'`}
-              className="p-text text-white hover:underline"
+              className="text-muted-foreground text-xs  hover:underline"
             >
               D&D: With ❤️ By Techmela Services
             </Link>

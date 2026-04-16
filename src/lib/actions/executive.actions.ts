@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { connectToDatabase } from "../database";
 import Executive from "../database/models/executive.model";
 import { handleErrors, validateInput } from "../utils";
@@ -8,7 +8,6 @@ import { ExecutiveFormDataType, executiveSchema } from "../validations";
 
 export async function createExecutive(data: ExecutiveFormDataType) {
   try {
- 
     const parsed = validateInput(executiveSchema, data);
 
     await connectToDatabase();
@@ -44,6 +43,7 @@ export async function updateExecutive(id: string, data: ExecutiveFormDataType) {
 
     if (!exe) throw new Error("Failed to update executive");
     revalidateTag("executives", "max");
+    revalidatePath("/dashboard/leaders/executives");
 
     return { success: true };
   } catch (error) {
@@ -53,7 +53,6 @@ export async function updateExecutive(id: string, data: ExecutiveFormDataType) {
   }
 }
 export async function togglePastExecutive(name: string, isPast: boolean) {
-
   try {
     await connectToDatabase();
 

@@ -10,7 +10,7 @@ export default function RootLayout({
 }>) {
   return (
     <div>
-      <div className="z-50 bg-app-dark-green relative">
+      <div className="z-50 bg-app-blue relative">
         <Suspense fallback={<p>Loading header..</p>}>
           <Header />
         </Suspense>

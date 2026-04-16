@@ -53,9 +53,7 @@ const AnnouncementCard = ({
       {/* Admin Actions - Fixed for Mobile & Desktop */}
       {isEditable && (
         <div
-          className="flex items-center justify-end gap-3 p-3 bg-slate-50 border-t border-slate-100 
-                        transition-all duration-300 
-                        md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+          className="flex items-center justify-end gap-3 p-3 bg-slate-50 border-t border-slate-100 transition-all duration-300 md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
         >
           {!isPending ? (
             <>
@@ -84,6 +82,7 @@ const AnnouncementCard = ({
               >
                 <Edit size={20} className="text-blue-500" />
               </Link>
+
               <button
                 title="Delete"
                 className="p-2 hover:bg-red-50 rounded-full transition-colors shadow-sm border border-transparent hover:border-red-100"
