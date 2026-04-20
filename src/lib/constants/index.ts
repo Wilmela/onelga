@@ -85,7 +85,7 @@ export const landmarks = [
       "A premier tertiary institution and major educational hub in Rivers State, offering technical and vocational training to students from across Nigeria. Established to advance skill development and technical education in the Niger Delta region.",
   },
   {
-    imageUrl: "/images/sec.jpeg",
+    imageUrl: "/images/omm.png",
     title: "Omoku Main Market",
     icons: TagIcon,
     description:
