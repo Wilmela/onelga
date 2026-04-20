@@ -264,3 +264,47 @@ export const TIME = [
   "4:00 p.m.",
   "5:00 p.m.",
 ];
+
+export const OGBA: string[] = [
+  "Omoku",
+  "Obirikom",
+  "Erema",
+  "Akabuka",
+  "Obagi",
+  "Kreigani",
+  "Obiebe",
+  "Ogbogwu",
+  "Odugiri",
+  "Okposi",
+];
+
+export const EGBEMA: string[] = [
+  "Mgbede",
+  "Aggah",
+  "Okwuzi",
+  "Ebocha",
+  "Abacheke",
+  "Obiakpu",
+  "Mmahu",
+];
+export const NDONI: string[] = ["Ndoni Town", "Onikwu", "Ase-Azaga", "Isukwa"];
+
+export const WARDS: Record<number, string> = {
+  1: "Omoku Town I",
+  2: "Omoku Town II",
+  3: "Omoku Town III (Obieti)",
+  4: "Omoku Town IV (Usomini)",
+  5: "Obirikom (Usomini North)",
+  6: "Usomini South (Kreigani)",
+  7: "Igburu",
+  8: "Egi I",
+  9: "Egi II",
+  10: "Egi III (Erema)",
+  11: "Egbema I",
+  12: "Egbema II",
+  13: " Ndoni I",
+  14: "Ndoni II",
+  15: "Ndoni III",
+  16: "Omoku Town V",
+  17: "Egi IV ",
+};

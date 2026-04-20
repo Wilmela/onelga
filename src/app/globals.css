@@ -171,6 +171,9 @@ html {
 @utility about-h1 {
   @apply text-lg md:text-xl font-bold mb-4;
 }
+@utility about-h2 {
+  @apply text-sm md:text-lg font-semibold mb-4;
+}
 @utility about-p {
   @apply p-text mb-4;
 }

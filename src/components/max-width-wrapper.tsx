@@ -13,7 +13,7 @@ const MaxWidthWrapper = ({ children, className, id, ref }: Props) => {
       ref={ref}
       id={id}
       className={cn(
-        "mx-auto size-full px-4 sm:px-6 md:px-8 lg:px-16",
+        "mx-auto size-full px-4 sm:px-6 md:px-4 lg:px-16",
         className,
       )}
     >

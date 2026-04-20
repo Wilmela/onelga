@@ -164,7 +164,7 @@ const Header = () => {
           <div className="inline-flex items-center space-x-4">
             {/* Socials and user*/}
             <div className="inline-flex items-center space-x-2">
-              <Socials size="size-5" />
+              <Socials size="size-4" />
 
               {user && (
                 <button
@@ -273,7 +273,7 @@ const Header = () => {
                 </div>
               ))}
               <div className="animate-slide-up">
-                <Socials size="size-5" />
+                <Socials size="size-4" />
               </div>
             </div>
           )}

@@ -1,6 +1,8 @@
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import PageBanner from "@/components/page-banner";
 import SectionHeader from "@/components/section-header";
+import { Badge } from "@/components/ui/badge";
+import { EGBEMA, NDONI, OGBA, WARDS } from "@/lib/constants";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -14,7 +16,6 @@ const AboutPage = () => {
       <PageBanner />
 
       <MaxWidthWrapper className="p-y">
-        
         <SectionHeader
           title="About ONELGA"
           description="Learn about ONELGA's geography, demographics, economic sectors, and cultural landmarks that shape this vital region of Rivers State."
@@ -29,7 +30,7 @@ const AboutPage = () => {
             sizes="96px"
           />
         </div>
-        <p className="p-text mx-auto max-w-[60ch] text-xl md:text-2xl text-justify z-10">
+        <p className="p-text mx-auto max-w-[60ch] text-lg md:text-xl text-justify z-10">
           Welcome to the official portal of Ogba/Egbema/Ndoni Local Government
           Area (ONELGA). Known as the energy powerhouse of Rivers State and a
           bastion of cultural heritage, ONELGA is a land of abundant resources,
@@ -132,9 +133,80 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+
+        <div>
+          <div>
+            <h1 className="about-h1">Major Communities by Clan</h1>
+            <p className="about-p">
+              The LGA is structured around these primary ethnic territories:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Clan
+              description="The Ogba kingdom is the largest and is traditionally divided into
+            three sub-clans: Egi, Igburu, and Usomini."
+              title="OGBA CLAN"
+              clan={OGBA}
+            />
+
+            <Clan
+              description="The Egbema people in Rivers State occupy several key communities, though the ethnic group also extends into neighboring Imo State."
+              title="EGBEMA CLAN"
+              clan={EGBEMA}
+            />
+
+            <Clan
+              description="The Ndoni people reside primarily along the riverine areas of the LGA. "
+              title="NDONI CLAN"
+              clan={NDONI}
+            />
+          </div>
+        </div>
+        {/* WARDS */}
+        <div className="mt-8">
+          <div>
+            <h1 className="about-h1">Administrative Wards</h1>
+            <p className="about-p">
+              ONELGA is divided into 17 wards for local governance:
+            </p>
+          </div>
+
+          <ul>
+            {Object.entries(WARDS).map(([key, value]) => (
+              <li key={key} className="about-p">
+                {key} {value}
+              </li>
+            ))}
+          </ul>
+        </div>
       </MaxWidthWrapper>
     </section>
   );
 };
 
 export default AboutPage;
+
+function Clan({
+  clan,
+  title,
+  description,
+}: {
+  clan: string[];
+  title: string;
+  description: string;
+}) {
+  return (
+    <div>
+      <h2 className="about-h2">{title}</h2>
+      <p className="about-p">{description}</p>
+      <div>
+        {clan.map((o) => (
+          <Badge className="bg-app-blue text-xs hover:bg-blue-700" key={o}>
+            {o}
+          </Badge>
+        ))}
+      </div>
+    </div>
+  );
+}

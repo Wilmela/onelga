@@ -70,7 +70,7 @@ async function RenderExecutives() {
                 src={`${cloudinaryImageUrl}${chairman.image || "/images/logo.jpeg"} `}
                 alt={"chairman"}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -157,7 +157,7 @@ function ExecCard({ imageUrl, name, role, bio, tenure }: Props) {
           src={`${imageUrl || "/images/logo.jpeg"} `}
           alt={name}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
