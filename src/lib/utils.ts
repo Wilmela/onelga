@@ -40,7 +40,7 @@ export function cleanText(text: string) {
 }
 
 export function checkLength(n: string, measure: number) {
-  return n.length < measure ? n : `${n.slice(0, measure)}...`;
+  return n.length <= measure ? n : `${n.slice(0, measure)}...`;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

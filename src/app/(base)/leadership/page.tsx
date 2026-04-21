@@ -79,7 +79,7 @@ async function RenderExecutives() {
               <h3 className="text-xl md:text-2xl font-bold font-montserrat">
                 {chairman.name}
               </h3>
-              <h3 className="text-lg md:text-xl font-semibold font-roboto">
+              <h3 className="text-lg md:text-xl font-semibold font-roboto capitalize">
                 {chairman.role}
               </h3>
               <p className="p-text text-sm leading-relaxed">{chairman.bio}</p>
@@ -168,7 +168,7 @@ function ExecCard({ imageUrl, name, role, bio, tenure }: Props) {
         <h3 className="text-xl md:text-2xl font-bold font-montserrat">
           {name}
         </h3>
-        <h3 className="text-lg md:text-xl font-semibold font-roboto">{role}</h3>
+        <h3 className="text-lg md:text-xl font-semibold font-roboto capitalize">{role}</h3>
         <p className="leading-relaxed p-text text-sm">{bio}</p>
         <p className="p-text font-semibold">{tenure}</p>
       </div>

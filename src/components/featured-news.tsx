@@ -104,13 +104,13 @@ function LatestNewsCard() {
               </Badge>
             </div>
 
-            <div className="absolute left-0 right-0 bottom-0 bg-black/40 p-2 pb-16">
+            <div className="absolute left-0 right-0 bottom-0 bg-black/40 p-2 py-4 pb-16">
               <h1 className="text-white font-bold font-montserrat text-xl uppercase">
                 {n.title}
               </h1>
               <h2 className="text-white font-roboto font-semibold text-lg">{n.excerpt}</h2>
-              <span className="p-text text-white">
-                {cleanText(checkLength(n.content, 200))}
+              <span className="p-text text-sm text-white">
+                {cleanText(checkLength(n.content, 110))}
               </span>
             </div>
             <div className="bg-black/90 flex justify-end p-4">
