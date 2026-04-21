@@ -109,7 +109,7 @@ function LatestNewsCard() {
                 {n.title}
               </h1>
               <h2 className="text-white font-roboto font-semibold text-lg">{n.excerpt}</h2>
-              <span className="p-text text-sm text-white">
+              <span className="p-text text-sm text-white wrap-break-word">
                 {cleanText(checkLength(n.content, 110))}
               </span>
             </div>

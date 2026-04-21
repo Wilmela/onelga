@@ -1,8 +1,11 @@
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import PageBanner from "@/components/page-banner";
 import SectionHeader from "@/components/section-header";
-import React from "react";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Portals",
+};
 const TaxPortal = () => {
   return (
     <section>

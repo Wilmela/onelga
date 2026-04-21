@@ -4,9 +4,13 @@ import { positions } from "@/lib/constants";
 import { getCachedExecutives } from "@/lib/DAL/cache";
 import { lc } from "@/lib/utils";
 import { ExecutiveType } from "@/types";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | Past Leadership",
+};
 const PastLeadersPage = () => {
   return (
     <section>

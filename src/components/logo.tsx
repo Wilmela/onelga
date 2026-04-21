@@ -14,7 +14,7 @@ const Logo = () => {
           alt="logo"
           fill
           sizes="64px"
-          className="object-contain"
+          className="object-contain bg-white"
         />
       </div>
       <div className="hidden md:block">

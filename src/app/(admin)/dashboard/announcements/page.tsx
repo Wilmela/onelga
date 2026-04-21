@@ -1,8 +1,12 @@
 import DashboardPagePeader from "@/components/dashboard-page-header";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { Eye, Plus, ArrowRight, LucideIcon } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Admin | Announcement",
+};
 const AnnouncementsPage = () => {
   const NEWS_TABS = [
     {

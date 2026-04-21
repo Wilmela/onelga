@@ -9,8 +9,11 @@ import {
   Megaphone,
 } from "lucide-react";
 import SectionHeader from "@/components/section-header";
+import { Metadata } from "next";
 
-// 1. Define the reusable Card Component
+export const metadata: Metadata = {
+  title: "Admin",
+};
 interface DashboardCardProps {
   href: string;
   title: string;

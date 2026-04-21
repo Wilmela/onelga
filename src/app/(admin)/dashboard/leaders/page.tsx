@@ -8,6 +8,11 @@ import {
   LucideIcon,
 } from "lucide-react";
 import DashboardPagePeader from "@/components/dashboard-page-header";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin | Leadership",
+};
 
 const leaderCategories = [
   {

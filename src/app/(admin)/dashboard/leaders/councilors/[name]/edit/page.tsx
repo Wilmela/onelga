@@ -1,7 +1,11 @@
 import CouncilorForm from "@/components/councilor-form";
 import { getCouncilorByName } from "@/lib/actions/councilor.actions";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | Edit Councilor",
+};
 const EditCouncilorPage = async ({
   params,
 }: {

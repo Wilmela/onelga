@@ -1,7 +1,11 @@
 import ProjectForm from "@/components/project-form";
 import { getProjectById } from "@/lib/actions/projects.actions";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | News Edit" ,
+};
 const EditProjectPage = async ({
   params,
 }: {

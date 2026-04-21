@@ -1,6 +1,11 @@
 import ExecutiveForm from "@/components/executive-form";
 import { getExecutiveByName } from "@/lib/actions/executive.actions";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Admin | Edit Executive ",
+};
 
 const EditExecutivePage = async ({
   params,

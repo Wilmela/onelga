@@ -5,9 +5,14 @@ import { getCachedExecutives } from "@/lib/DAL/cache";
 import { lc } from "@/lib/utils";
 import { ExecutiveType } from "@/types";
 import { PlusSquare } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Admin | Executives",
+};
 
 const ExecutivesPage = () => {
   return (

@@ -3,7 +3,11 @@ import Contacts from "@/components/contacts";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import PageBanner from "@/components/page-banner";
 import SectionHeader from "@/components/section-header";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Contact",
+};
 const ContactPage = () => {
   return (
     <section>

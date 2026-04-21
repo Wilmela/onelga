@@ -4,8 +4,12 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import Spinner from "@/components/spinner";
 import { usersColumn } from "@/components/users-columns";
 import { cachedUsers } from "@/lib/DAL/cache";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | Users",
+};
 const UsersPage = () => {
   return (
     <section>

@@ -1,8 +1,12 @@
 import AnnouncementForm from "@/components/announcement-form";
 import { getCachedAnnouncements } from "@/lib/DAL/cache";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | Edit Announcement ",
+};
 const EditAnnouncementPage = async ({
   params,
 }: {

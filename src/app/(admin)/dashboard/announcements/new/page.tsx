@@ -1,6 +1,10 @@
 import AnnouncementForm from "@/components/announcement-form";
-import React, { Suspense } from "react";
+import { Metadata } from "next";
+import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | Create Announcement ",
+};
 const NewAnnouncementPage = () => {
   return (
     <Suspense fallback={<p>loading..</p>}>

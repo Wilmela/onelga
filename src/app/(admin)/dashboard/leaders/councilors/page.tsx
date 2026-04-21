@@ -3,9 +3,13 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { getCachedCouncilors } from "@/lib/DAL/cache";
 import { CouncilorType } from "@/types";
 import { PlusSquare } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | Councilors Leadership ",
+};
 const CouncilorsPage = () => {
   return (
     <section>

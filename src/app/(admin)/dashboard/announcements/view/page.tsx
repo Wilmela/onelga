@@ -3,8 +3,12 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { NewsSkeleton } from "@/components/skeletons";
 import { getCachedAnnouncements } from "@/lib/DAL/cache";
 import { AnnouncementType } from "@/types";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Admin | Announcements",
+};
 const ViewAnnouncementPage = () => {
   return (
     <section>

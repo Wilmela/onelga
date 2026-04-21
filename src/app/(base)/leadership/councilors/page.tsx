@@ -6,8 +6,12 @@ import PageBanner from "@/components/page-banner";
 import SectionHeader from "@/components/section-header";
 import { getCachedCouncilors } from "@/lib/DAL/cache";
 import { CouncilorType } from "@/types";
-import React, { Suspense } from "react";
+import { Metadata } from "next";
+import { Suspense } from "react";
 
+export const metadata: Metadata = {
+  title: "Leadership | Councilors",
+};
 const CouncilorsPage = () => {
   return (
     <section>
