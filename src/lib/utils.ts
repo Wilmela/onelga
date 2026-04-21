@@ -34,19 +34,6 @@ export function handleErrors(error: unknown) {
   return message;
 }
 
-// CONST
-export const positions = {
-  councilor: "councilor",
-  chairman: "chairman",
-  vicechairman: "vice chairman",
-  secretary: "secretary general",
-  pro: "public relations officer (p.r.o)",
-} as const;
-export const USER_ROLE = {
-  commander: "admin",
-  writer: "creator",
-  commoner: "user",
-} as const;
 
 export function cleanText(text: string) {
   return text ? parse(text) : "";

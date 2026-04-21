@@ -109,7 +109,7 @@ function Label({
   isRequired: boolean;
 }) {
   return (
-    <FieldLabel htmlFor={htmlFor} className="text-sm font-medium text-gray-700">
+    <FieldLabel htmlFor={htmlFor} className="text-sm font-medium text-gray-700 font-heebo">
       {label} {isRequired && <span className="text-red-600 text-xl">*</span>}
     </FieldLabel>
   );
@@ -347,7 +347,7 @@ export function CustomBreadCrumb({
         <BreadcrumbItem>
           {items.map((i) => (
             <BreadcrumbLink
-              className="hover:text-app-blue p-text text-[14px] font-normal"
+              className="hover:text-app-blue p-text text-[14px] font-normal font-heebo"
               key={i.href}
               href={i.href}
             >
@@ -357,7 +357,7 @@ export function CustomBreadCrumb({
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage className="text-app-dark-green font-bold">
+          <BreadcrumbPage className="text-app-dark-green font-bold font-roboto">
             {currentPage}
           </BreadcrumbPage>
         </BreadcrumbItem>

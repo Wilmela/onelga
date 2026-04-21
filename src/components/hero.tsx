@@ -74,7 +74,7 @@ const Hero = () => {
         className="absolute flex flex-col justify-center size-full z-20 space-y-8 md:space-y-6"
       >
         <h1 className="main-title" id="h1">
-          <span className="text-sm md:text-xl lowercase font-light ">
+          <span className="text-sm md:text-xl lowercase font-light font-montserrat ">
             Welcome To
           </span>
           <br />
@@ -97,7 +97,7 @@ const Hero = () => {
               (buttonVariants({
                 variant: "default",
               }),
-              " bg-app-blue hover:bg-blue-800 rounded-full p-4 md:py-4 md:px-6 text-white font-semibold text-sm md:text-lg min-w-30 md:min-w-40 text-center")
+              " bg-app-blue hover:bg-blue-800 rounded-full p-4 md:py-4 md:px-6 text-white font-semibold font-roboto text-sm md:text-lg min-w-30 md:min-w-40 text-center")
             }
           >
             Explore
@@ -108,7 +108,7 @@ const Hero = () => {
               (buttonVariants({
                 variant: "default",
               }),
-              " text-white hover:text-blue-300 rounded-full p-4 md:py-4 md:px-6 font-semibold text-sm md:text-lg min-w-30 md:min-w-40 text-center")
+              " text-white hover:text-blue-300 rounded-full p-4 md:py-4 md:px-6 font-semibold font-roboto text-sm md:text-lg min-w-30 md:min-w-40 text-center")
             }
           >
             Contact Us &rarr;

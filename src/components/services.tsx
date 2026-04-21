@@ -93,12 +93,12 @@ function ServiceCard({ Icon, title, href, id }: Props) {
       <div className="bg-white/10 size-16 md:size-20 rounded-full flex items-center justify-center">
         <Icon className={cn("size-8 md:size-12 text-white")} />
       </div>
-      <h3 className={cn("font-light text-sm md:text-xl", `text-white`)}>
+      <h3 className={cn("font-light font-heebo text-sm md:text-xl", `text-white`)}>
         {title}
       </h3>
 
       <div className="text-app-blue text-light text-center transition-all duration-300 ease-out text-sm px-6 py-1 bg-white/10 rounded-full hover:bg-blue-500/10 opacity-0  group-hover:opacity-100 ">
-        <ArrowRight className="text-bold size-4 text-white" />
+        <ArrowRight className="size-4 text-white" />
       </div>
     </Link>
   );

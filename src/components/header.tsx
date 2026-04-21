@@ -12,8 +12,8 @@ import Link from "next/link";
 import { useEffect, useState, useTransition } from "react";
 import MaxWidthWrapper from "./max-width-wrapper";
 import { usePathname, useRouter } from "next/navigation";
-import { cn, USER_ROLE } from "@/lib/utils";
-import { NAVLINKS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+import { NAVLINKS, USER_ROLE } from "@/lib/constants";
 import Logo from "./logo";
 import Socials from "./socials";
 import { authClient } from "@/lib/auth-client";
@@ -129,7 +129,7 @@ const Header = () => {
                 <Link
                   href={l.href}
                   className={cn(
-                    "text-white cursor-pointer hover:underline inline-flex space-x-1 relative font-semibold",
+                    "text-white cursor-pointer hover:underline inline-flex space-x-1 relative font-semibold font-roboto",
                     pathname === l.href ? "underline" : "",
                   )}
                 >
@@ -150,7 +150,7 @@ const Header = () => {
                         href={sl.href}
                         key={sl.href}
                         onClick={() => setIsActive(null)}
-                        className="hover:bg-white/20 transition-colors p-3 inline-flex items-center space-x-3 rounded-md"
+                        className="hover:bg-white/20 transition-colors p-3 inline-flex items-center space-x-3 rounded-md font-heebo"
                       >
                         {switchPath(sl.href)} <span>{sl.title}</span>
                       </Link>
@@ -189,7 +189,7 @@ const Header = () => {
                     });
                   }}
                   className={cn(
-                    "size-8 rounded-full flex items-center justify-center text-white font-bold border p-2 cursor-pointer",
+                    "size-8 rounded-full flex items-center justify-center text-white font-bold font-montserrat border p-2 cursor-pointer",
                     isPending && "animate-pulse",
                     user.name !== "" && "bg-app-blue hover:bg-blue-800",
                   )}
@@ -235,7 +235,9 @@ const Header = () => {
                       setToggled(false);
                     }}
                   >
-                    <p className="text-2xl font-light mb-8">{l.title}</p>
+                    <p className="text-2xl font-light mb-8 font-roboto">
+                      {l.title}
+                    </p>
                     {l.subLinks !== undefined && (
                       <ChevronDown className="size-4 absolute bottom-9 -right-5" />
                     )}
@@ -254,7 +256,7 @@ const Header = () => {
                         className="self-end text-white"
                         onClick={() => setIsActive(null)}
                       />
-                      <div className="flex flex-col space-y-4 text-white">
+                      <div className="flex flex-col space-y-4 text-white font-heebo">
                         {l.subLinks.map((sl) => (
                           <Link
                             href={sl.href}

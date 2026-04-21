@@ -30,7 +30,7 @@ const AboutPage = () => {
             sizes="96px"
           />
         </div>
-        <p className="p-text mx-auto max-w-[60ch] text-lg md:text-xl text-justify z-10">
+        <p className="p-text mx-auto max-w-[60ch] text-lg md:text-xl text-justify z-10 font-roboto">
           Welcome to the official portal of Ogba/Egbema/Ndoni Local Government
           Area (ONELGA). Known as the energy powerhouse of Rivers State and a
           bastion of cultural heritage, ONELGA is a land of abundant resources,

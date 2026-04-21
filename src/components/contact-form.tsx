@@ -50,7 +50,7 @@ const ContactForm = () => {
     <Suspense fallback={<p>Loading..</p>}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmitForm)} className="py-6">
-          <p className="text-xl font-semibold py-2 mb-4">
+          <p className="text-xl font-semibold py-2 mb-4 font-roboto">
             Kindly complete this form
           </p>
           <CustomInput
@@ -115,7 +115,7 @@ const ContactForm = () => {
             <Button
               disabled={isSubmitting}
               variant={"ghost"}
-              className="bg-app-blue hover:bg-blue-800 text-white hover:text-white cursor-pointer rounded-full py-1 px-4"
+              className="bg-app-blue hover:bg-blue-800 text-white hover:text-white cursor-pointer rounded-full font-heebo py-1 px-4"
             >
               {isSubmitting ? <Spinner /> : "Submit"}
             </Button>

@@ -72,10 +72,10 @@ const LeaderLink = ({ href, title, subtitle, icon: Icon }: LeaderLinkProps) => (
         <Icon size={24} />
       </div>
       <div>
-        <h3 className="font-semibold text-slate-900 dark:text-slate-100">
+        <h3 className="font-semibold text-slate-900 dark:text-slate-100 font-roboto">
           {title}
         </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">{subtitle}</p>
+        <p className="text-sm font-heebo text-slate-500 dark:text-slate-400">{subtitle}</p>
       </div>
     </div>
     <ChevronRight className="h-5 w-5 text-slate-300 transition-transform group-hover:translate-x-1 group-hover:text-blue-500" />

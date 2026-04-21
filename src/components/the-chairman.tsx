@@ -4,8 +4,9 @@ import Image from "next/image";
 import MaxWidthWrapper from "./max-width-wrapper";
 import Link from "next/link";
 import { getCachedExecutives } from "@/lib/DAL/cache";
-import { lc, positions } from "@/lib/utils";
+import { lc } from "@/lib/utils";
 import { cloudinaryImageUrl } from "@/env";
+import { positions } from "@/lib/constants";
 
 const TheChairman = () => {
   return (
@@ -60,7 +61,7 @@ function ChairmanComp({ name, imageUrl }: { name: string; imageUrl: string }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-7 gap-8">
       <div className="col-span-1 md:col-span-4 space-y-6">
-        <h1 className="font-light text-3xl">{name}</h1>
+        <h1 className="font-light text-3xl font-roboto">{name}</h1>
 
         <p className="p-text">
           is the Executive Chairman of Ogba-Egbema-Ndoni Local Government Area

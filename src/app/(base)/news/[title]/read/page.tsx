@@ -96,21 +96,21 @@ async function RenderNews({ params }: Props) {
       <MaxWidthWrapper className="flex flex-col items-center justify-center h-90 md:h-75 w-full bg-app-blue">
         <div className="text-center space-y-6 mx-auto w-full max-w-4xl mt-28 md:mt-20 mb-8 md:mb-0">
           <div className="text-white ">
-            <h1 className="capitalize text-2xl md:text-3xl font-bold">
+            <h1 className="capitalize text-2xl md:text-3xl font-bold font-montserrat">
               {news.title}
             </h1>
-            <h3 className="text-lg md:text-xl font-light mt-4">
+            <h3 className="text-lg md:text-xl font-light mt-4 font-roboto">
               {news.excerpt}
             </h3>
           </div>
-          <div className="text-white text-sm text-light flex flex-col items-center space-y-2">
+          <div className="text-white font-heebo text-sm text-light flex flex-col items-center space-y-2">
             <span className="inline-flex space-x-2 justify-center items-center">
               <User />
-              <p>{news.author}</p>
+              <p className="text-white font-heebo">{news.author}</p>
             </span>
             <span className="inline-flex space-x-2 justify-center items-center">
               <CalendarRange />
-              <p>{news.date.split("T")[0]}</p>
+              <p>{new Date(news.date).toLocaleDateString()}</p>
             </span>
           </div>
         </div>
@@ -138,7 +138,7 @@ async function RenderNews({ params }: Props) {
           />
         </div>
 
-        <div className="mx-auto w-full max-w-[60ch] md:max-w-[90ch] whitespace-normal wrap-break-word overflow-hidden">
+        <div className="mx-auto w-full max-w-[60ch] md:max-w-[90ch] whitespace-normal wrap-break-word overflow-hidden p-text">
           {cleanText(news.content)}
         </div>
 

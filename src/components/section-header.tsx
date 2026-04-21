@@ -16,7 +16,7 @@ const SectionHeader = ({
         className,
       )}
     >
-      <h1 className="text-2xl md:text-4xl font-bold">{title}</h1>
+      <h1 className="text-2xl md:text-4xl font-bold font-montserrat">{title}</h1>
       <p className="p-text text-lg max-w-[50ch]">{description}</p>
       <div className="w-30 h-1 bg-app-blue rounded-full" />
     </div>

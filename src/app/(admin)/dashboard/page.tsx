@@ -8,6 +8,7 @@ import {
   LucideIcon,
   Megaphone,
 } from "lucide-react";
+import SectionHeader from "@/components/section-header";
 
 // 1. Define the reusable Card Component
 interface DashboardCardProps {
@@ -35,10 +36,10 @@ const DashboardCard = ({
       <Icon className={`h-6 w-6 ${color.replace("bg-", "text-")}`} />
     </div>
     <div>
-      <h3 className="font-semibold text-slate-900 dark:text-slate-100">
+      <h3 className="font-semibold text-slate-900 dark:text-slate-100 font-roboto">
         {title}
       </h3>
-      <p className="text-sm text-slate-500 dark:text-slate-400">
+      <p className="text-sm font-heebo text-slate-500 dark:text-slate-400">
         {description}
       </p>
     </div>
@@ -56,7 +57,7 @@ const DashboardPage = () => {
       title: "Users",
       icon: Users,
       description: "Manage team members and permissions",
-      color: "bg-blue-500",
+      color: "bg-blue-100",
     },
     {
       href: "/dashboard/projects",
@@ -92,12 +93,11 @@ const DashboardPage = () => {
     <section className="min-h-screen bg-slate-50/50 py-12 dark:bg-slate-950">
       <MaxWidthWrapper>
         <div className="mb-10">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Dashboard Overview
-          </h1>
-          <p className="text-slate-500">
-            Welcome back! Here is what&apos;s happening today.
-          </p>
+          <SectionHeader
+            title="Dashboard Overview"
+            description="
+            Welcome back! Here is the gateway to all contents."
+          />
         </div>
 
         {/* Responsive Grid: 1 col on mobile, 2 on tablet, 4 on desktop */}

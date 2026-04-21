@@ -18,8 +18,8 @@ const Logo = () => {
         />
       </div>
       <div className="hidden md:block">
-        <h3 className="text-lg font-bold text-white">ONELGA</h3>
-        <p className="text-white text-xs ">Rivers State, Nigeria.</p>
+        <h3 className="text-lg font-bold font-montserrat text-white">ONELGA</h3>
+        <p className="text-white text-xs font-heebo ">Rivers State, Nigeria.</p>
       </div>
     </Link>
   );

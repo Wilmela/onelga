@@ -308,3 +308,18 @@ export const WARDS: Record<number, string> = {
   16: "Omoku Town V",
   17: "Egi IV ",
 };
+
+
+export const positions: Record<string, string> = {
+  councilor: "councilor",
+  chairman: "chairman",
+  vicechairman: "vice chairman",
+  secretary: "secretary general",
+  pro: "public relations officer (p.r.o)",
+} as const;
+
+export const USER_ROLE: Record<string, string> = {
+  commander: "admin",
+  writer: "creator",
+  commoner: "user",
+} as const;

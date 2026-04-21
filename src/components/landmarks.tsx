@@ -123,7 +123,7 @@ function LandmarkCard({ imageUrl, title, description, Icon, id }: Props) {
           <div className="p-2 bg-app-blue/90 rounded-full size-12 flex items-center justify-center">
             <Icon className="size-6 text-white" />
           </div>
-          <h2 className="font-bold text-lg text-app-dark-green">{title}</h2>
+          <h2 className="font-bold font-montserrat text-lg text-app-dark-green">{title}</h2>
         </div>
 
         <p className="p-text">{description}</p>
@@ -148,7 +148,7 @@ function DesktopLandmarkCard({
           <div className="p-2 bg-app-blue/90 rounded-full size-12 flex items-center justify-center">
             <Icon className="size-6 text-white" />
           </div>
-          <h2 className="font-bold text-lg text-app-dark-green ">{title}</h2>
+          <h2 className="font-bold font-montserrat text-lg text-app-dark-green ">{title}</h2>
         </div>
 
         <p className="p-text">{description}</p>

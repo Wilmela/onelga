@@ -50,9 +50,9 @@ const Footer = () => {
   }
 
   useEffect(() => {
-    document.addEventListener("scroll", toggleShow);
+    window.addEventListener("scroll", toggleShow);
 
-    return () => document.removeEventListener("scroll", toggleShow);
+    return () => window.removeEventListener("scroll", toggleShow);
   }, []);
 
   return (
@@ -67,7 +67,7 @@ const Footer = () => {
             </p>
 
             <div className="mb-4 md:mb-0">
-              <h3 className="text-white font-semibold mb-4">SOCIALS</h3>
+              <h3 className="text-white font-roboto font-semibold mb-4">CONNECT WITH US</h3>
               <Socials size="size-4" />
             </div>
           </div>
@@ -116,7 +116,7 @@ const Footer = () => {
             </div> */}
             <Link
               href={`mailto:techmelaservices@gmail.com?subject='Enquiry'`}
-              className="text-muted-foreground text-xs  hover:underline"
+              className="text-muted-foreground text-xs  hover:underline font-heebo"
             >
               D&D: With ❤️ By Techmela Services
             </Link>

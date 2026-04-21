@@ -15,7 +15,7 @@ export function LastUpdate() {
     year: "numeric",
   });
   return (
-    <p className="mt-4 text-xs uppercase tracking-widest opacity-75">
+    <p className="mt-4 font-heebo text-white text-xs uppercase tracking-widest opacity-75 ">
       Last Updated: {lastUpdate}
     </p>
   );
@@ -26,5 +26,5 @@ export function fullDate(date: Date | string) {
     month: "long",
     year: "numeric",
   });
-  return <p>{res}</p>;
+  return <p className="font-heebo">{res}</p>;
 }

@@ -42,11 +42,11 @@ function SingleStat({ value, Icon, title, description }: Props) {
       <div className="flex items-center justify-center size-10 rounded-full bg-app-blue/10 group-hover:bg-app-blue ">
         <Icon className="size-4 group-hover:text-white" />
       </div>
-      <h2 className="font-bold text-lg transition-all duration-300  ease-in group-hover:scale-105 group-hover:text-app-dark-green">
+      <h2 className="font-bold font-roboto text-lg transition-all duration-300  ease-in group-hover:scale-105 group-hover:text-app-dark-green">
         {value}
       </h2>
       <p className="p-text group-hover:text-app-blue">{title}</p>
-      <p className="text-xs font-light group-hover:text-app-blue">
+      <p className="text-xs font-heebo font-light group-hover:text-app-blue">
         {description}
       </p>
     </div>

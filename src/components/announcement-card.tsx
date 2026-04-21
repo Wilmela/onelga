@@ -41,20 +41,18 @@ const AnnouncementCard = ({
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-xl font-bold text-slate-800 leading-tight line-clamp-2">
+          <h3 className="text-xl font-bold font-montserrat text-slate-800 leading-tight line-clamp-2">
             {title}
           </h3>
-          <span className="text-slate-600 text-sm leading-relaxed line-clamp-4 wrap-break-word">
+          <div className="p-text text-sm leading-relaxed line-clamp-4 wrap-break-word">
             {cleanText(content)}
-          </span>
+          </div>
         </div>
       </div>
 
       {/* Admin Actions - Fixed for Mobile & Desktop */}
       {isEditable && (
-        <div
-          className="flex items-center justify-end gap-3 p-3 bg-slate-50 border-t border-slate-100 transition-all duration-300 md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
-        >
+        <div className="flex items-center justify-end gap-3 p-3 bg-slate-50 border-t border-slate-100 transition-all duration-300 md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
           {!isPending ? (
             <>
               <button

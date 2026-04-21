@@ -80,6 +80,12 @@
   /* ANIMATE */
   --animate-slide-down: slideDown 0.3s ease-out;
   --animate-slide-up: slideUp 0.3s ease-out;
+
+  /* FONTS */
+
+  --font-heebo: var(--font-heebo);
+  --font-roboto: var(--font-roboto);
+  --font-montserrat: var(--font-montserrat);
 }
 
 :root {
@@ -157,7 +163,7 @@ html {
   /* overflow-x: hidden; */
 }
 @utility main-title {
-  @apply text-white text-4xl md:text-7xl font-bold text-left;
+  @apply text-white text-4xl md:text-7xl font-bold text-left font-montserrat;
 }
 @utility p-y {
   @apply py-8 md:py-16 lg:py-20;
@@ -166,13 +172,13 @@ html {
   @apply mx-auto px-4 sm:px-6 md:px-8 lg:px-16;
 }
 @utility p-text {
-  @apply text-sm md:text-[16px] md:leading-[1.6] text-muted-foreground font-light;
+  @apply text-sm md:text-[16px] md:leading-[1.6] text-muted-foreground font-light font-heebo;
 }
 @utility about-h1 {
-  @apply text-lg md:text-xl font-bold mb-4;
+  @apply text-lg md:text-xl font-bold mb-4 font-montserrat;
 }
 @utility about-h2 {
-  @apply text-sm md:text-lg font-semibold mb-4;
+  @apply text-sm md:text-lg font-semibold mb-4 font-montserrat;
 }
 @utility about-p {
   @apply p-text mb-4;
@@ -181,7 +187,7 @@ html {
   @apply p-text mb-4 list-disc list-inside;
 }
 @utility about-li {
-  @apply list-item;
+  @apply list-item p-text;
 }
 @utility social {
   @apply cursor-pointer hover:text-app-blue;

@@ -75,12 +75,12 @@ const Contacts = () => {
               >
                 <c.Icon className="size-7 text-white group-hover:scale-105 transition-all" />
               </div>
-              <h3 className="font-bold text-lg md:text-xl">{c.title}</h3>
+              <h3 className="font-bold text-lg md:text-xl font-montserrat">{c.title}</h3>
             </div>
 
             <div>
-              <p className="p-text font-semibold">{c.description}</p>
-              <p className="p-text">{c.contact}</p>
+              <p className="p-text font-semibold font-roboto">{c.description}</p>
+              <p className="p-text text-sm leading-relaxed">{c.contact}</p>
             </div>
           </div>
         ))}

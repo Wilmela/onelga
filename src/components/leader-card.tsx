@@ -10,7 +10,8 @@ import {
 import { deleteCouncilor } from "@/lib/actions/councilor.actions";
 import { cloudinaryImageUrl } from "@/env";
 import { PowerCircle, Loader2 } from "lucide-react";
-import { cn, lc, positions } from "@/lib/utils";
+import { cn, lc } from "@/lib/utils";
+import { positions } from "@/lib/constants";
 
 type Props = {
   image: string;
@@ -103,21 +104,19 @@ export function LeaderCard({
       {/* Content Section */}
       <div className="p-4 space-y-2 min-h-55 bg-white dark:bg-zinc-950">
         <div className="flex flex-col gap-1">
-          <h3 className="text-xl md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h3 className="text-xl md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-montserrat">
             {name}
           </h3>
-          <span className="text-primary font-medium text-sm md:text-base inline-flex items-center gap-2">
+          <span className="text-primary font-medium font-roboto text-sm md:text-base inline-flex items-center gap-2">
             {type === "councilor" ? `${position} • Ward ${ward}` : position}
           </span>
         </div>
 
         {showExtra && (
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm line-clamp-4">
-            {bio}
-          </p>
+          <p className="p-text leading-relaxed text-sm line-clamp-4">{bio}</p>
         )}
 
-        <p className="text-sm font-semibold text-gray-500 dark:text-gray-500 pt-2 border-t border-gray-100 dark:border-gray-800">
+        <p className="text-sm p-text font-semibold text-gray-500 dark:text-gray-500 pt-2 border-t border-gray-100 dark:border-gray-800">
           {tenure}
         </p>
       </div>

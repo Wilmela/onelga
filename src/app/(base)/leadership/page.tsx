@@ -3,8 +3,9 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import PageBanner from "@/components/page-banner";
 import SectionHeader from "@/components/section-header";
 import { cloudinaryImageUrl } from "@/env";
+import { positions } from "@/lib/constants";
 import { getCachedExecutives } from "@/lib/DAL/cache";
-import { lc, positions } from "@/lib/utils";
+import { lc } from "@/lib/utils";
 import { ExecutiveType } from "@/types";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -75,12 +76,14 @@ async function RenderExecutives() {
               />
             </div>
             <div className="space-y-2 mt-4">
-              <h3 className="text-xl md:text-2xl font-bold">{chairman.name}</h3>
-              <h3 className="text-lg md:text-xl font-semibold">
+              <h3 className="text-xl md:text-2xl font-bold font-montserrat">
+                {chairman.name}
+              </h3>
+              <h3 className="text-lg md:text-xl font-semibold font-roboto">
                 {chairman.role}
               </h3>
-              <p className="w-full  p-text">{chairman.bio}</p>
-              <p>{chairman.tenure}</p>
+              <p className="p-text text-sm leading-relaxed">{chairman.bio}</p>
+              <p className="p-text font-semibold">{chairman.tenure}</p>
             </div>
           </>
         ) : (
@@ -162,10 +165,12 @@ function ExecCard({ imageUrl, name, role, bio, tenure }: Props) {
         />
       </div>
       <div className="space-y-2 mt-4">
-        <h3 className="text-xl md:text-2xl font-bold">{name}</h3>
-        <h3 className="text-lg md:text-xl font-semibold">{role}</h3>
-        <p className="w-full  p-text">{bio}</p>
-        <p>{tenure}</p>
+        <h3 className="text-xl md:text-2xl font-bold font-montserrat">
+          {name}
+        </h3>
+        <h3 className="text-lg md:text-xl font-semibold font-roboto">{role}</h3>
+        <p className="leading-relaxed p-text text-sm">{bio}</p>
+        <p className="p-text font-semibold">{tenure}</p>
       </div>
     </>
   );

@@ -12,6 +12,7 @@ import { cloudinaryImageUrl } from "@/env";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { fetchCachedNews } from "@/lib/server";
+import { Badge } from "./ui/badge";
 
 gsap.registerPlugin(useGSAP);
 const FeaturedNews = () => {
@@ -26,7 +27,7 @@ const FeaturedNews = () => {
 
           <Link
             href={`/news/`}
-            className="text-accent-foreground hover:text-app-blue cursor-pointer infline-flex w-30"
+            className="text-accent-foreground hover:text-app-blue cursor-pointer infline-flex w-30 font-heebo"
           >
             More News &rarr;
           </Link>
@@ -98,16 +99,16 @@ function LatestNewsCard() {
                 sizes="(max-width:768px) 100wv, 45wv"
               />
 
-              <div className="absolute bg-app-blue z-10 right-5 top-5 text-white rounded-full px-4 py-1 text-xs">
+              <Badge className="absolute bg-app-blue z-10 right-5 top-5 text-white px-4 py-1 text-xs">
                 {n.category}
-              </div>
+              </Badge>
             </div>
 
             <div className="absolute left-0 right-0 bottom-0 bg-black/40 p-2 pb-16">
-              <h1 className="text-white font-bold text-xl uppercase">
+              <h1 className="text-white font-bold font-montserrat text-xl uppercase">
                 {n.title}
               </h1>
-              <h2 className="text-white font-semibold text-lg">{n.excerpt}</h2>
+              <h2 className="text-white font-roboto font-semibold text-lg">{n.excerpt}</h2>
               <span className="p-text text-white">
                 {cleanText(checkLength(n.content, 200))}
               </span>
@@ -115,7 +116,7 @@ function LatestNewsCard() {
             <div className="bg-black/90 flex justify-end p-4">
               <Link
                 href={`/news/${n.title}/read`}
-                className="text-white hover:text-app-blue cursor-pointer z-30"
+                className="text-white hover:text-app-blue cursor-pointer z-30 font-heebo"
               >
                 Read more &rarr;
               </Link>

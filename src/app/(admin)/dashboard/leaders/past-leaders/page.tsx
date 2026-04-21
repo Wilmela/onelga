@@ -1,7 +1,8 @@
 import { LeaderCard } from "@/components/leader-card";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
+import { positions } from "@/lib/constants";
 import { getCachedExecutives } from "@/lib/DAL/cache";
-import { lc, positions } from "@/lib/utils";
+import { lc } from "@/lib/utils";
 import { ExecutiveType } from "@/types";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";

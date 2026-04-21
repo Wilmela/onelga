@@ -10,6 +10,7 @@ import { useTransition } from "react";
 import Spinner from "./spinner";
 import { cloudinaryImageUrl } from "@/env";
 import { cleanText, cn } from "@/lib/utils";
+import { Badge } from "./ui/badge";
 
 export default function NewsThumbnail({
   news,
@@ -30,7 +31,7 @@ export default function NewsThumbnail({
 
   return news.map((n, i) => {
     return (
-      <div key={n.title + i} className="group relative min-h-100">
+      <div key={n.title + i} className="group relative min-h-100 max-h-100">
         <div className="relative md:w-75 h-50 overflow-hidden">
           <Image
             src={`${cloudinaryImageUrl}${n.banner}`}
@@ -39,27 +40,27 @@ export default function NewsThumbnail({
             className="object-cover group-hover:scale-105 transition-all duration-300 ease-in"
             sizes="(max-width: 7680x) 100vw, 25vw"
           />
-          <div className="py-1 px-2 bg-app-blue text-white text-xs text-center rounded-full absolute top-5 right-5 z-20">
+          <Badge className="py-1 px-2 bg-app-blue text-white text-xs  absolute top-5 right-5 z-20 font-roboto">
             {n.category}
-          </div>
+          </Badge>
           <Link
             href={`/news/${n.title}/read`}
-            className="md:hidden py-1 px-2 bg-app-blue text-white text-xs text-center rounded-full absolute top-5 left-5 z-20"
+            className="md:hidden py-1 px-2 bg-app-blue text-white text-xs text-center rounded-full absolute top-5 left-5 z-20 font-roboto"
           >
             Read news
           </Link>
         </div>
 
         <div className="p-2">
-          <h1 className="text-xl font-bold capitalize">
+          <h1 className="text-xl font-bold font-montserrat capitalize">
             {checkLength(n.title, 50)}
           </h1>
-          <h3 className="text-lg font-semibold">
+          <h3 className="text-lg font-roboto font-semibold">
             {" "}
             {checkLength(n.excerpt, 30)}
           </h3>
 
-          <span className="p-text group-hover:text-app-blue">
+          <span className="p-text text-sm group-hover:text-app-blue">
             {cleanText(checkLength(n.content, 80))}
           </span>
         </div>
@@ -68,12 +69,12 @@ export default function NewsThumbnail({
         <div className=" absolute bottom-0 left-0 right-0 w-full flex items-center justify-between p-2 bg-app-blue text-white group-hover:animate-pulse text-xs">
           <div className="inline-flex items-center space-x-1">
             <User size={16} />
-            <p>{n.author}</p>
+            <p className="text-white text-sm font-heebo">{n.author}</p>
           </div>
 
-          <div className="inline-flex items-center space-x-1">
+          <div className="inline-flex items-center space-x-1 text-sm font-heebo">
             <CalendarDays size={16} />
-            <p>{new Date(n.date).toLocaleTimeString()}</p>
+            <p>{new Date(n.date).toLocaleDateString()}</p>
           </div>
         </div>
 
