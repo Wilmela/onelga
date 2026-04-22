@@ -1,12 +1,21 @@
-import React from "react";
+import React, { Suspense } from "react";
 
-const RegistrationPage = async ({
+const RegistrationTypePage = async ({
   params,
 }: {
   params: Promise<{ type: string }>;
 }) => {
-  const { type } = await params;
-  return <div>RegistrationPage, {type}</div>;
+  return (
+    <Suspense fallback={<p>loading...</p>}>
+      <RenderForm params={params} />
+    </Suspense>
+  );
 };
 
-export default RegistrationPage;
+export default RegistrationTypePage;
+
+async function RenderForm({ params }: { params: Promise<{ type: string }> }) {
+  const { type } = await params;
+
+  return <div>{type}</div>;
+}
