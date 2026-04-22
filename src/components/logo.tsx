@@ -1,8 +1,9 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Logo = () => {
+const Logo = ({ showTitle = false }: { showTitle?: boolean }) => {
   return (
     <Link
       href={"/"}
@@ -17,7 +18,7 @@ const Logo = () => {
           className="object-contain bg-white"
         />
       </div>
-      <div className="hidden md:block">
+      <div className={cn(!showTitle && "hidden md:block")}>
         <h3 className="text-lg font-bold font-montserrat text-white">ONELGA</h3>
         <p className="text-white text-xs font-heebo ">Rivers State, Nigeria.</p>
       </div>

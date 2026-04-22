@@ -6,20 +6,20 @@ import Link from "next/link";
 
 const actions = [
   {
-    type: "Birth",
+    type: "birth",
     title: "Register for birth certifcates",
     description: "This is the channel for birth certificates registrations",
     icon: Baby,
     bg: "bg-blue-500",
-    href: "/",
+    href: "/registrations",
   },
   {
-    type: "LgaID",
+    type: "lgaId",
     title: "Register for LGA ID",
     description: "This is the channel for local government ID registrations",
     icon: User2,
     bg: "bg-green-500",
-    href: "/",
+    href: `registrations`,
   },
 ];
 
@@ -27,21 +27,21 @@ const RegistrationPage = () => {
   return (
     <section>
       {/* <PageBanner /> */}
-      <div className="p-y relative w-full h-100 md:h-110 flex flex-col items-center justify-center space-y-8 border-b bg-linear-to-tr from-app-blue/70 to-app-green/40">
+      <MaxWidthWrapper className="p-y relative w-full h-100 md:h-110 flex flex-col items-center justify-center space-y-8 border-b bg-linear-to-tr from-app-blue/70 to-app-green/40">
         <h1 className="font-bold font-montserrat text-5xl md:text-9xl text-center bg-linear-to-t to-app-blue from-black  bg-clip-text text-transparent">
           Registrations
         </h1>
 
-        <p className="font-roboto text-lg text-white">
+        <p className="font-roboto md:text-lg text-white">
           This is the platform for all kinds of registrations.
         </p>
-      </div>
+      </MaxWidthWrapper>
 
       <MaxWidthWrapper className="p-y">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
           {actions.map((a) => (
             <Link
-              href={a.href}
+              href={`${a.href}/${a.type}`}
               key={a.type}
               className={cn(
                 "border rounded-md space-y-4 p-4",

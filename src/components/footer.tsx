@@ -60,7 +60,7 @@ const Footer = () => {
       <MaxWidthWrapper className="p-y">
         <div className="flex flex-col md:flex-row flex-1  justify-between ">
           <div className="md:flex-[0.3] ">
-            <Logo />
+            <Logo showTitle />
 
             <p className="p-text text-white max-w-[35ch] my-4">
               {siteConfig.description}
@@ -76,8 +76,8 @@ const Footer = () => {
           <div className="md:flex-[0.7] col-span-7">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {LINK_HEADING.map((l) => (
-                <div key={l.title} className="space-y-6">
-                  <h1 className="font-bold text-white">{l.title}</h1>
+                <div key={l.title} className="space-y-4">
+                  <h1 className="font-bold uppercase text-white">{l.title}</h1>
 
                   <div className="flex flex-col space-y-2">
                     {l.links.map((l) => (

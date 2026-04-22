@@ -105,7 +105,7 @@ const Header = () => {
   }
 
   const DONT_NAVIGATE_IN_MOBILE = ["/leadership", "/portals"];
-  
+
   return (
     <header className="z-50">
       <MaxWidthWrapper>
@@ -211,7 +211,7 @@ const Header = () => {
 
           {/* MOBILE*/}
           {toggled && (
-            <div className="md:hidden flex flex-col absolute top-0 -right-4 h-svh w-[80%] bg-app-blue pl-6 pt-8 z-50">
+            <div className="md:hidden flex flex-col absolute top-0 -right-4 h-svh w-full bg-app-blue pl-6 pt-8 z-50">
               <X
                 className="size-8 self-end mr-4 text-white mb-4"
                 onClick={() => {
@@ -226,29 +226,34 @@ const Header = () => {
                   className="relative animate-slide-up"
                   onClick={() => toggleSubMenu(l.href)}
                 >
-                  <Link
-                    href={l.href}
-                    className={cn(
-                      "text-white cursor-pointer hover:underline inline-flex space-x-1 relative font-semibold",
-                      pathname === l.href ? "underline" : "",
-                    )}
-                    onClick={() => {
-                      if (DONT_NAVIGATE_IN_MOBILE.includes(l.href)) return;
-                      setToggled(false);
-                    }}
-                  >
-                    <p className="text-2xl font-light mb-8 font-roboto">
-                      {l.title}
-                    </p>
-                    {l.subLinks !== undefined && (
-                      <ChevronDown className="size-4 absolute bottom-9 -right-5" />
-                    )}
-                  </Link>
+                  <div className="inline-flex space-x-2 relative ">
+                    <Link
+                      href={l.href}
+                      className={cn(
+                        "text-white cursor-pointer hover:underline font-semibold",
+                        pathname === l.href ? "underline" : "",
+                      )}
+                      onClick={() => {
+                        if (DONT_NAVIGATE_IN_MOBILE.includes(l.href)) return;
+                        setToggled(false);
+                      }}
+                    >
+                      <p className="text-2xl font-light mb-8 font-roboto">
+                        {l.title}
+                      </p>
+                    </Link>
+
+                    <span className="absolute bottom-9 -right-5">
+                      {l.subLinks !== undefined && (
+                        <ChevronDown className="size-4 text-white" />
+                      )}
+                    </span>
+                  </div>
 
                   {/* SUB MENU */}
                   {isActive === l.href && l.subLinks && (
                     <div
-                      className="absolute top-5 bg-black/20 backdrop-blur-xs p-4 rounded-md w-[80%] z-50 flex flex-col"
+                      className="absolute top-5 bg-black/20 backdrop-blur-xs p-2 rounded-md w-[80%] z-50 flex flex-col animate-slide-up"
                       onClick={(e) => {
                         e.stopPropagation(); // Prevents closing the whole menu
                         setIsActive(null);

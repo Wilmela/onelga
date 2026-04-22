@@ -44,7 +44,7 @@ const AnnouncementCard = ({
           <h3 className="text-2xl font-bold font-montserrat text-slate-800 leading-tight line-clamp-2">
             {title}
           </h3>
-          <div className="p-text text-xl line-clamp-4 wrap-break-word">
+          <div className="p-text max-w-[30ch] text-xl wrap-break-word italic">
             {cleanText(content)}
           </div>
         </div>
