@@ -60,6 +60,16 @@ export const NAVLINKS = [
   {
     title: "Portals",
     href: "/portals",
+    subLinks: [
+      {
+        title: "Registrations",
+        href: "/registrations",
+      },
+      {
+        title: "Applications",
+        href: "/applications",
+      },
+    ],
   },
   {
     title: "Contact",
@@ -308,7 +318,6 @@ export const WARDS: Record<number, string> = {
   16: "Omoku Town V",
   17: "Egi IV ",
 };
-
 
 export const positions: Record<string, string> = {
   councilor: "councilor",

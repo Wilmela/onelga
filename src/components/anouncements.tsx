@@ -26,7 +26,7 @@ const Announcements = async () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Suspense fallback={<p>Loading...</p>}>
               <>
                 {pusblishedAnnouncements.map(

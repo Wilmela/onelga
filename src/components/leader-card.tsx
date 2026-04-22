@@ -11,7 +11,7 @@ import { deleteCouncilor } from "@/lib/actions/councilor.actions";
 import { cloudinaryImageUrl } from "@/env";
 import { PowerCircle, Loader2 } from "lucide-react";
 import { cn, lc } from "@/lib/utils";
-import { positions } from "@/lib/constants";
+import { positions, WARDS } from "@/lib/constants";
 
 type Props = {
   image: string;
@@ -53,6 +53,13 @@ export function LeaderCard({
     if (type === "executive") await deleteExecutive(name);
     if (type === "councilor") await deleteCouncilor(name);
   };
+
+  let wordName;
+  Object.entries(WARDS).find(([k, v]) => {
+    if (ward && k === ward.toString()) {
+      return (wordName = v);
+    }
+  });
 
   return (
     <div className="group overflow-hidden transition-all duration-300">
@@ -108,7 +115,9 @@ export function LeaderCard({
             {name}
           </h3>
           <span className="text-primary font-medium font-roboto text-sm md:text-base inline-flex items-center gap-2">
-            {type === "councilor" ? `${position} • Ward ${ward}` : position}
+            {type === "councilor"
+              ? `${position} • Ward ${ward} (${wordName})`
+              : position}
           </span>
         </div>
 

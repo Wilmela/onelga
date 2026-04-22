@@ -11,6 +11,9 @@ const announcementSchema = new Schema(
       required: [true, "content is required"],
       default: "",
     },
+    type: {
+      type: String,
+    },
     isPublished: {
       type: Boolean,
       default: false,

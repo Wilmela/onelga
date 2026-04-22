@@ -25,14 +25,14 @@ const AnnouncementCard = ({
   const [isPending, startTransition] = useTransition();
 
   return (
-    <div className="group relative flex flex-col min-h-62.5 bg-white border border-slate-200 hover:border-app-blue/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg">
+    <div className="group relative flex flex-col min-h-100 bg-white border border-slate-200 hover:border-app-blue/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg">
       {/* Header Bar */}
       <div className="h-2 bg-app-blue w-full" />
 
       <div className="p-5 flex-1">
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex items-center justify-between mb-4">
           <div className="p-2 bg-app-blue/10 rounded-lg text-app-blue">
-            <Megaphone size={24} />
+            <Megaphone size={50} />
           </div>
           <div className="flex items-center gap-1.5 text-slate-500 text-xs font-medium bg-slate-100 px-2.5 py-1 rounded-full">
             <Calendar size={14} />
@@ -40,11 +40,11 @@ const AnnouncementCard = ({
           </div>
         </div>
 
-        <div className="space-y-2">
-          <h3 className="text-xl font-bold font-montserrat text-slate-800 leading-tight line-clamp-2">
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold font-montserrat text-slate-800 leading-tight line-clamp-2">
             {title}
           </h3>
-          <div className="p-text text-sm leading-relaxed line-clamp-4 wrap-break-word">
+          <div className="p-text text-xl line-clamp-4 wrap-break-word">
             {cleanText(content)}
           </div>
         </div>
