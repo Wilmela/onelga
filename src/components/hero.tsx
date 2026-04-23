@@ -57,7 +57,7 @@ const Hero = () => {
   });
 
   return (
-    <section className="relative h-150 md:h-175 w-full z-10">
+    <section className="relative">
       <Image
         src="/images/sec-gate.png"
         priority
@@ -69,50 +69,53 @@ const Hero = () => {
 
       <div className="bg-black/20 absolute inset-0 size-full z-10" />
 
-      <MaxWidthWrapper
-        ref={container}
-        className="absolute flex flex-col justify-center size-full z-20 space-y-8 md:space-y-6"
-      >
-        <h1 className="main-title" id="h1">
-          <span className="text-sm md:text-xl lowercase font-light font-montserrat ">
-            Welcome To
-          </span>
-          <br />
-          <span>Ogba</span> <br />
-          <span>Egbema</span> <br />
-          <span>Ndoni</span> <br /> Local Government Area
-        </h1>
+      <MaxWidthWrapper className="relative h-150 md:h-175 z-10">
+        <div
+          ref={container}
+          className="absolute flex flex-col justify-center size-full z-20 space-y-8 md:space-y-6"
+        >
+          <h1 className="main-title" id="h1">
+            <span className="text-sm md:text-xl lowercase font-light font-montserrat ">
+              Welcome To
+            </span>
+            <br />
+            <span>Ogba</span> <br />
+            <span>Egbema</span> <br />
+            <span>Ndoni</span> <br /> Local Government Area
+          </h1>
 
-        <p className="text-white p-text bg-black/50 w-fit" id="text">
-          Powering the Nation, Welcoming the World: The Hub of Energy and
-          Heritage. <br className="hidden md:block" />A Land of Infinite
-          Opportunity, Anchored by Tradition and Fueled by the Wealth of the
-          Earth.
-        </p>
+          <p className="text-white p-text bg-black/50 w-fit" id="text">
+            Powering the Nation, Welcoming the World: The Hub of Energy{" "}
+            <br className="md:hidden" /> and Heritage.{" "}
+            <br className="hidden md:block" />A Land of Infinite Opportunity,
+            Anchored by <br className="md:hidden" /> Tradition and Fueled by the
+            Wealth of the Earth.
+          </p>
 
-        <div className="flex items-center space-x-4" id="btn">
-          <Link
-            href={"#explore"}
-            className={
-              (buttonVariants({
-                variant: "default",
-              }),
-              " bg-app-blue hover:bg-blue-800 rounded-full p-4 md:py-4 md:px-6 text-white font-semibold font-roboto text-sm md:text-lg min-w-30 md:min-w-40 text-center")
-            }
-          >
-            Explore
-          </Link>
-          <Link
-            href={"/contact"}
-            className={
-              (buttonVariants({
-                variant: "default",
-              }),
-              " text-white hover:text-blue-300 rounded-full p-4 md:py-4 md:px-6 font-semibold font-roboto text-sm md:text-lg min-w-30 md:min-w-40 text-center")
-            }
-          >
-            Contact Us &rarr;
-          </Link>
+          <div className="flex items-center space-x-4" id="btn">
+            <Link
+              href={"#explore"}
+              className={
+                (buttonVariants({
+                  variant: "default",
+                }),
+                " bg-app-blue hover:bg-blue-800 rounded-full p-4 md:py-4 md:px-6 text-white font-semibold font-roboto text-sm md:text-lg min-w-30 md:min-w-40 text-center")
+              }
+            >
+              Explore
+            </Link>
+            <Link
+              href={"/contact"}
+              className={
+                (buttonVariants({
+                  variant: "default",
+                }),
+                " text-white hover:text-blue-300 rounded-full p-4 md:py-4 md:px-6 font-semibold font-roboto text-sm md:text-lg min-w-30 md:min-w-40 text-center")
+              }
+            >
+              Contact Us &rarr;
+            </Link>
+          </div>
         </div>
       </MaxWidthWrapper>
     </section>

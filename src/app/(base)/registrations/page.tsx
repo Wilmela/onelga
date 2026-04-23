@@ -27,15 +27,17 @@ const RegistrationPage = () => {
   return (
     <section>
       {/* <PageBanner /> */}
-      <MaxWidthWrapper className="p-y relative w-full h-100 md:h-110 flex flex-col items-center justify-center space-y-8 border-b bg-linear-to-tr from-app-blue/70 to-app-green/40">
-        <h1 className="font-bold font-montserrat text-5xl md:text-9xl text-center bg-linear-to-t to-app-blue from-black  bg-clip-text text-transparent">
-          Registrations
-        </h1>
+      <div className="bg-linear-to-tr from-app-blue/70 to-app-green/40">
+        <MaxWidthWrapper className="p-y relative w-full h-100 md:h-110 flex flex-col items-center justify-center space-y-8 border-b ">
+          <h1 className="font-bold font-montserrat text-5xl md:text-9xl text-center bg-linear-to-t to-app-blue from-black  bg-clip-text text-transparent">
+            Registrations
+          </h1>
 
-        <p className="font-roboto md:text-lg text-white">
-          This is the platform for all kinds of registrations.
-        </p>
-      </MaxWidthWrapper>
+          <p className="font-roboto md:text-lg text-white">
+            This is the platform for all kinds of registrations.
+          </p>
+        </MaxWidthWrapper>
+      </div>
 
       <MaxWidthWrapper className="p-y">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 ">

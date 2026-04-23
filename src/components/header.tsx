@@ -211,9 +211,9 @@ const Header = () => {
 
           {/* MOBILE*/}
           {toggled && (
-            <div className="md:hidden flex flex-col absolute top-0 -right-4 h-svh w-full bg-app-blue pl-6 pt-8 z-50">
+            <div className="md:hidden flex flex-col absolute top-0 -right-4 h-svh w-[90%] bg-app-blue pl-6 pt-8 z-50">
               <X
-                className="size-8 self-end mr-4 text-white mb-4"
+                className="size-8 self-end mr-6 text-white mb-4"
                 onClick={() => {
                   setToggled(false);
                   setIsActive(null);
@@ -226,7 +226,7 @@ const Header = () => {
                   className="relative animate-slide-up"
                   onClick={() => toggleSubMenu(l.href)}
                 >
-                  <div className="inline-flex space-x-2 relative ">
+                  <div className="inline-flex space-x-6 relative ">
                     <Link
                       href={l.href}
                       className={cn(
