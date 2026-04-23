@@ -104,7 +104,7 @@ const Header = () => {
     LINKS = [...NAVLINKS, { title: "Dashboard", href: "/dashboard" }];
   }
 
-  const DONT_NAVIGATE_IN_MOBILE = ["/leadership", "/portals"];
+  // const DONT_NAVIGATE_IN_MOBILE = ["/leadership", "/portals"];
 
   return (
     <header className="z-50">
@@ -234,7 +234,7 @@ const Header = () => {
                         pathname === l.href ? "underline" : "",
                       )}
                       onClick={() => {
-                        if (DONT_NAVIGATE_IN_MOBILE.includes(l.href)) return;
+                        // if (DONT_NAVIGATE_IN_MOBILE.includes(l.href)) return;
                         setToggled(false);
                       }}
                     >
