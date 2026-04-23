@@ -67,12 +67,12 @@ const Hero = () => {
         sizes="100wv"
       />
 
-      <div className="bg-black/20 absolute inset-0 size-full z-10" />
+      <div className="bg-black/20 absolute inset-0 z-10" />
 
-      <MaxWidthWrapper className="relative h-150 md:h-175 z-10">
+      <MaxWidthWrapper className="relative h-150 md:h-175 z-10 overflow-x-hidden">
         <div
           ref={container}
-          className="absolute flex flex-col justify-center size-full z-20 space-y-8 md:space-y-6"
+          className="absolute flex flex-col justify-center h-full z-20 space-y-8 md:space-y-6"
         >
           <h1 className="main-title" id="h1">
             <span className="text-sm md:text-xl lowercase font-light font-montserrat ">

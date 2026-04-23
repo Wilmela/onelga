@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={` ${montserrat.variable} ${roboto.variable} ${hebbo.variable} antialiased bg-background overflow-x-hidden`}
+        className={` ${montserrat.variable} ${roboto.variable} ${hebbo.variable} antialiased bg-background`}
       >
         <TooltipProvider>
           <main className="grow z-0">{children}</main>

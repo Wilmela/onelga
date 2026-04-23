@@ -5,7 +5,7 @@ import { stats } from "@/lib/constants";
 
 const Stats = () => {
   return (
-    <section className="bg-app-blue/5">
+    <section className="bg-app-blue/5 border-y">
       <MaxWidthWrapper className="p-y" id="stat">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {stats.map((s) => {
