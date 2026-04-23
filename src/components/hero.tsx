@@ -84,13 +84,16 @@ const Hero = () => {
             <span>Ndoni</span> <br /> Local Government Area
           </h1>
 
-          <p className="text-white p-text bg-black/50 w-fit" id="text">
-            Powering the Nation, Welcoming the World: The Hub of Energy{" "}
-            <br className="md:hidden" /> and Heritage.{" "}
-            <br className="hidden md:block" />A Land of Infinite Opportunity,
-            Anchored by <br className="md:hidden" /> Tradition and Fueled by the
-            Wealth of the Earth.
-          </p>
+          <span
+            className="text-white p-text md:text-lg bg-black/50 w-fit"
+            id="text"
+          >
+            Powering the Nation, Welcoming the World: The Hub of
+            <br className="md:hidden" />
+            Energy and Heritage. <br className="hidden md:block" />A Land of
+            Infinite Opportunity, <br className="md:hidden" /> Anchored by
+            Tradition and Fueled by the Wealth of the Earth.
+          </span>
 
           <div className="flex items-center space-x-4" id="btn">
             <Link

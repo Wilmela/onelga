@@ -211,9 +211,9 @@ const Header = () => {
 
           {/* MOBILE*/}
           {toggled && (
-            <div className="md:hidden flex flex-col absolute top-0 -right-4 h-svh w-[90%] bg-app-blue pl-6 pt-8 z-50">
+            <div className="md:hidden flex flex-col absolute top-0 -right-4 h-svh w-[80%] bg-app-blue pl-6 pt-8 z-50">
               <X
-                className="size-8 self-end mr-6 text-white mb-4"
+                className="size-8 self-end mr-8 text-white mb-4"
                 onClick={() => {
                   setToggled(false);
                   setIsActive(null);
