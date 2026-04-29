@@ -332,3 +332,8 @@ export const USER_ROLE: Record<string, string> = {
   writer: "creator",
   commoner: "user",
 } as const;
+
+export const FORM_TYPES = {
+  birth: "birth",
+  lgaId: "lgaId",
+} as const;

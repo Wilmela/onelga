@@ -2,6 +2,7 @@ import "server-only";
 import { getCurrentSession } from "../actions/auth";
 import { handleErrors } from "../utils";
 import { getProjects } from "../actions/projects.actions";
+import { getBirthcerts } from "../../features/registrations/birth-certs/actions/birth-cert.actions";
 
 export async function getSession() {
   const session = await getCurrentSession();
@@ -13,6 +14,15 @@ export async function getSession() {
 export async function getProjectsDAL() {
   try {
     return await getProjects();
+  } catch (error) {
+    return {
+      error: handleErrors(error),
+    };
+  }
+}
+export async function getBirthcertsDAL() {
+  try {
+    return await getBirthcerts();
   } catch (error) {
     return {
       error: handleErrors(error),

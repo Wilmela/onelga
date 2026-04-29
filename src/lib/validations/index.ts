@@ -158,3 +158,86 @@ export const projectSchema = z.object({
 });
 
 export type ProjectFormDataType = z.infer<typeof projectSchema>;
+
+export const birthcartSchema = z.object({
+  firstName: z
+    .string()
+    .min(1, "First name is required")
+    .min(3, "First name must be at least 3 characters"),
+  lastName: z
+    .string()
+    .min(1, "last name is required")
+    .min(3, "last name must be at least 3 characters"),
+  middleName: z
+    .string()
+    .min(1, "middle name is required")
+    .min(3, "middle name must be at least 3 characters")
+    .optional(),
+
+  fatherName: z
+    .string()
+    .min(1, "father's name is required")
+    .min(5, "father's name must be at least 5 characters"),
+
+  motherName: z
+    .string()
+    .min(1, "mother's name is required")
+    .min(5, "Title must be at least 5 characters"),
+
+  address: z
+    .string()
+    .min(1, "Address is required")
+    .min(10, "Address must be at least 10 characters"),
+
+  homeTown: z
+    .string()
+    .min(1, "home town is required")
+    .min(2, "home town must be at least 2 characters"),
+
+  placeOfBirth: z
+    .string()
+    .min(1, "place of birth is required")
+    .min(5, "place of birth  must be at least 5 characters"),
+
+  dob: z.string(),
+  // imageUrl: z.string(),
+  // status: z.boolean().optional(),
+});
+
+export type BirthcertFormDataType = z.infer<typeof birthcartSchema>;
+
+export const lgaIdSchema = z.object({
+  firstName: z
+    .string()
+    .min(1, "First name is required")
+    .min(3, "First name must be at least 3 characters"),
+  lastName: z
+    .string()
+    .min(1, "last name is required")
+    .min(3, "last name must be at least 3 characters"),
+  middleName: z
+    .string()
+    .min(1, "middle name is required")
+    .min(3, "middle name must be at least 3 characters")
+    .optional(),
+
+  address: z
+    .string()
+    .min(1, "Address is required")
+    .min(10, "Address must be at least 10 characters"),
+
+  homeTown: z
+    .string()
+    .min(1, "home town is required")
+    .min(2, "home town must be at least 2 characters"),
+
+  placeOfBirth: z
+    .string()
+    .min(1, "place of birth is required")
+    .min(5, "place of birth  must be at least 5 characters"),
+
+  imageUrl: z.string(),
+  // status: z.boolean().optional(),
+});
+
+export type LgaIFormDataType = z.infer<typeof lgaIdSchema>;

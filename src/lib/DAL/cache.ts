@@ -1,6 +1,6 @@
 import { cacheTag } from "next/cache";
 import { getAllUsers } from "./user";
-import { getProjectsDAL } from "./project";
+import { getBirthcertsDAL, getProjectsDAL } from "./project";
 import { getExecutivesDAL } from "./executives";
 import { getCouncilorsDAL } from "./councilors";
 import { getAnnouncementsDAL, getNewsDAL } from "./news";
@@ -45,6 +45,14 @@ export async function cachedprojects() {
   cacheTag("projects");
 
   const data = await getProjectsDAL();
+
+  return data;
+}
+export async function cachedBirthcerts() {
+  "use cache";
+  cacheTag("birthcert");
+
+  const data = await getBirthcertsDAL();
 
   return data;
 }

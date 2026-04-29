@@ -59,3 +59,30 @@ export type ProjectType = {
   date: string;
   isEditable?: boolean;
 };
+export type BirthcertType = {
+  _id: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  fatherName: string;
+  motherName: string;
+  address: string;
+  dob: string;
+  placeOfBirth: string;
+  homeTown: string;
+  isProcessed: boolean;
+  certId: string;
+};
+
+export type LgaIdType = {
+  _id: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  address: string;
+  placeOfBirth: string;
+  homeTown: string;
+  imageUrl: string;
+  isProcessed: boolean;
+  cardId: string;
+};

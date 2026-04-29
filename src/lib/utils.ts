@@ -34,7 +34,6 @@ export function handleErrors(error: unknown) {
   return message;
 }
 
-
 export function cleanText(text: string) {
   return text ? parse(text) : "";
 }
@@ -57,3 +56,22 @@ export function validateInput<T extends z.ZodObject<any>>(
 
   return parsed.data;
 }
+
+export function genRandonID(length: number): string {
+  const chars =
+    "ABCDEFGHIJKLIMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwsyz0123456789";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+
+  return result;
+}
+
+export const formatDate = (date: string | Date) => {
+  if (!date) return "";
+  const d = typeof date === "string" ? new Date(date) : date;
+  if (isNaN(d.getTime())) return "";
+  return d.toISOString().split("T")[0];
+};
+

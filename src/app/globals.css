@@ -195,6 +195,15 @@ html {
 @utility icon-bg {
   @apply size-8 flex items-center justify-center text-white bg-black/20 rounded-full;
 }
+@utility flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+@utility tb-header {
+  @apply font-heebo font-semibold;
+}
 
 @layer base {
   * {

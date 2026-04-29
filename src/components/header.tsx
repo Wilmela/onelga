@@ -144,7 +144,7 @@ const Header = () => {
                 {/* Submenu - using group-hover instead of state */}
                 {l.subLinks && (
                   <div
-                    className="absolute top-full left-0 mt-2 bg-app-blue text-white backdrop-blur-xs border border-white rounded-md w-64 py-2 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 shadow-xl"
+                    className="absolute top-full left-0 p-2 bg-app-blue text-white backdrop-blur-xs border border-white rounded-md w-64 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 shadow-xl"
                     onMouseLeave={() => setIsActive(null)}
                   >
                     {l.subLinks.map((sl) => (
