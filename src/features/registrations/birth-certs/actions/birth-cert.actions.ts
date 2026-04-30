@@ -2,11 +2,7 @@
 
 import { birthcartSchema, BirthcertFormDataType } from "@/lib/validations";
 import { revalidatePath, revalidateTag } from "next/cache";
-import {
-  genRandonID,
-  handleErrors,
-  validateInput,
-} from "@/lib/utils";
+import { genRandonID, handleErrors, validateInput } from "@/lib/utils";
 import { connectToDatabase } from "@/lib/database";
 import Birthcert from "@/lib/database/models/birth-cert.model";
 
@@ -30,8 +26,6 @@ export async function createBirthcert(data: BirthcertFormDataType) {
     const isExist = await Birthcert.findOne({
       firstName: parsed.firstName,
       lastName: parsed.lastName,
-      fatherName: parsed.fatherName,
-      motherName: parsed.motherName,
     });
 
     if (isExist) {

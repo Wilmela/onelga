@@ -12,7 +12,6 @@ const lgaIdSchema = new Schema(
     },
     middleName: {
       type: String,
-      required: [true, "middle name is required"],
     },
 
     homeTown: {
@@ -30,6 +29,9 @@ const lgaIdSchema = new Schema(
       type: String,
       required: [true, "address is required"],
       lowercase: true,
+    },
+    imageUrl: {
+      type: String,
     },
     lgaCardId: {
       type: String,
