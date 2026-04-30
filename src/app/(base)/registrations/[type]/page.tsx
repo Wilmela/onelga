@@ -1,4 +1,4 @@
-import LgaIdForm from "@/components/lgaId-form";
+import LgaIdForm from "@/features/registrations/lga-ids/components/lgaId-form";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import BirthcertForm from "@/features/registrations/birth-certs/components/birthcert-form";
 import { FORM_TYPES } from "@/lib/constants";

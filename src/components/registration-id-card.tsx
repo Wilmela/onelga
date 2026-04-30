@@ -3,7 +3,7 @@
 import { Check, Copy } from "lucide-react";
 import { Button } from "./ui/button";
 import MaxWidthWrapper from "./max-width-wrapper";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 
 type Props = {
@@ -38,7 +38,7 @@ const RegistrationIdCard = ({
   const router = useRouter();
   return (
     <MaxWidthWrapper>
-      <div className="flex-col-center space-y-6 h-screen">
+      <div className="flex-col-center space-y-6 h-125">
         <p className="text-center p-text">
           Thank you for completing this form, <br /> Kindly copy and save your
           ID.

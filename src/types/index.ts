@@ -84,5 +84,5 @@ export type LgaIdType = {
   homeTown: string;
   imageUrl: string;
   isProcessed: boolean;
-  cardId: string;
+  lgaCardId: string;
 };

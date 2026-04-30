@@ -168,11 +168,7 @@ export const birthcartSchema = z.object({
     .string()
     .min(1, "last name is required")
     .min(3, "last name must be at least 3 characters"),
-  middleName: z
-    .string()
-    .min(1, "middle name is required")
-    .min(3, "middle name must be at least 3 characters")
-    .optional(),
+  middleName: z.string().optional(),
 
   fatherName: z
     .string()
@@ -215,11 +211,7 @@ export const lgaIdSchema = z.object({
     .string()
     .min(1, "last name is required")
     .min(3, "last name must be at least 3 characters"),
-  middleName: z
-    .string()
-    .min(1, "middle name is required")
-    .min(3, "middle name must be at least 3 characters")
-    .optional(),
+  middleName: z.string().optional(),
 
   address: z
     .string()

@@ -12,7 +12,6 @@ const birthcertSchema = new Schema(
     },
     middleName: {
       type: String,
-      required: [true, "middle name is required"],
     },
     fatherName: {
       type: String,

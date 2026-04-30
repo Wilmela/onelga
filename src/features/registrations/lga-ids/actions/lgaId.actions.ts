@@ -2,10 +2,9 @@
 
 import { lgaIdSchema, LgaIFormDataType } from "@/lib/validations";
 import { revalidatePath, revalidateTag } from "next/cache";
-import { genRandonID, handleErrors, validateInput } from "../utils";
-import { connectToDatabase } from "../database";
-import Birthcert from "../database/models/birth-cert.model";
-import LgaIdCard from "../database/models/lgaId.model";
+import { genRandonID, handleErrors, validateInput } from "@/lib/utils";
+import { connectToDatabase } from "@/lib/database";
+import LgaIdCard from "@/lib/database/models/lgaId.model";
 
 export async function createLgaIdCard(data: LgaIFormDataType) {
   try {
@@ -29,6 +28,7 @@ export async function createLgaIdCard(data: LgaIFormDataType) {
 
     if (card) {
       revalidatePath("/dashboard/registrations/lgaids");
+
       return { cardId: card.lgaCardId };
     }
   } catch (error) {
@@ -59,6 +59,7 @@ export async function updateLgaIdCard(id: string, data: LgaIFormDataType) {
       console.log(post);
 
       revalidateTag("lgaId", "max");
+      revalidatePath("/dashboard/registrations/lgaids");
     }
 
     return { success: true };
@@ -79,14 +80,15 @@ export async function getLgaIdCard(lgaCardId: string) {
     error: handleErrors(error);
   }
 }
-export async function deleteLgaIdCard(id: string) {
+export async function deleteLgaIdCard(lgaCardId: string) {
   try {
     await connectToDatabase();
 
-    const news = await Birthcert.findOneAndDelete({ _id: id });
+    const news = await LgaIdCard.findOneAndDelete({ lgaCardId });
 
     if (news) {
       revalidateTag("lgaId", "max");
+      revalidatePath("/dashboard/registrations/lgaids");
     }
 
     return { success: true };
@@ -96,12 +98,15 @@ export async function deleteLgaIdCard(id: string) {
   }
 }
 
-export async function processLgaIdCard(cardId: string, isProcessed: boolean) {
+export async function processLgaIdCard(
+  lgaCardId: string,
+  isProcessed: boolean,
+) {
   try {
     await connectToDatabase();
 
     await LgaIdCard.updateOne(
-      { lgaCardId: cardId },
+      { lgaCardId },
       {
         $set: {
           isProcessed,
@@ -109,7 +114,7 @@ export async function processLgaIdCard(cardId: string, isProcessed: boolean) {
       },
     );
     revalidateTag("lgaId", "max");
-    revalidatePath("/dashboard/lgids");
+    revalidatePath("/dashboard/registrations/lgaids");
     return { success: true };
   } catch (error) {
     return { error: handleErrors(error) };
@@ -128,11 +133,11 @@ export async function getLgaIdCards() {
     return { error: handleErrors(error) };
   }
 }
-export async function getLgaIdCardById(cardId: string) {
+export async function getLgaIdCardById(lgaCardId: string) {
   try {
     await connectToDatabase();
 
-    const card = await LgaIdCard.findOne({ lgaCardId: cardId });
+    const card = await LgaIdCard.findOne({ lgaCardId });
     if (!card) throw new Error("No card found");
 
     return JSON.parse(JSON.stringify(card));
@@ -141,12 +146,12 @@ export async function getLgaIdCardById(cardId: string) {
   }
 }
 
-export async function getProcessedLgaIdCard(cardId: string) {
+export async function getProcessedLgaIdCard(lgaCardId: string) {
   try {
     await connectToDatabase();
     const card = await LgaIdCard.findOne({
       isProcessed: true,
-      lgaCardId: cardId,
+      lgaCardId,
     });
     if (!card) throw new Error("No card found");
 

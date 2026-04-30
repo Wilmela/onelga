@@ -202,7 +202,7 @@ html {
   @apply flex items-center justify-center;
 }
 @utility tb-header {
-  @apply font-heebo font-semibold;
+  @apply font-heebo font-semibold uppercase;
 }
 
 @layer base {
