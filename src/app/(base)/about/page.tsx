@@ -23,7 +23,7 @@ const AboutPage = () => {
 
         <div className="relative size-24 flex justify-center w-full mb-4 ">
           <Image
-            src={"/images/logo.png"}
+            src={"/images/logo.jpg"}
             alt="logo"
             fill
             className="z-0 object-contain"

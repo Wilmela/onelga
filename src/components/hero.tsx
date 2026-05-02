@@ -85,7 +85,7 @@ const Hero = () => {
           </h1>
 
           <span
-            className="text-white p-text md:text-lg bg-black/50 w-fit"
+            className="text-white p-text text-[13.5px] leading-relaxed md:text-lg bg-black/50 w-fit"
             id="text"
           >
             Powering the Nation, Welcoming the World: The Hub of

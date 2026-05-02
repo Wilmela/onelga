@@ -32,7 +32,7 @@
     "radix-ui": "^1.4.3",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-hook-form": "^7.74.0",
+    "react-hook-form": "^7.75.0",
     "react-image-gallery": "^2.1.2",
     "react-multi-carousel": "^2.8.6",
     "react-quill-new": "^3.8.3",
@@ -40,7 +40,7 @@
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.5.0",
     "web-haptics": "^0.0.6",
-    "zod": "^4.4.1"
+    "zod": "^4.4.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
