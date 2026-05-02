@@ -86,3 +86,14 @@ export type LgaIdType = {
   isProcessed: boolean;
   lgaCardId: string;
 };
+export type ApplicationType = {
+  _id: string;
+  applicationId: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  cv: string;
+  qualification: string;
+  passport: string;
+  invite: boolean;
+};

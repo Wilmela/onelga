@@ -19,7 +19,7 @@ const Hero = () => {
     () => {
       gsap.from("#h1", {
         opacity: 0,
-        duration: 2,
+        duration: 1,
         ease: "power1",
       });
     },
@@ -32,8 +32,8 @@ const Hero = () => {
     gsap.from(split.words, {
       opacity: 0,
       delay: 1,
-      stagger: 0.05,
-      duration: 0.5,
+      stagger: 0.03,
+      duration: 0.3,
       ease: "power1.in",
     });
   });
@@ -50,7 +50,7 @@ const Hero = () => {
         opacity: 1,
         x: 0,
         duration: 1,
-        delay: 2,
+        delay: 1,
         ease: "bounce.out",
       },
     );
