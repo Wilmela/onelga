@@ -233,3 +233,34 @@ export const lgaIdSchema = z.object({
 });
 
 export type LgaIFormDataType = z.infer<typeof lgaIdSchema>;
+
+export const applicationSchema = z.object({
+  firstName: z
+    .string()
+    .min(1, "First name is required")
+    .min(3, "First name must be at least 3 characters"),
+  lastName: z
+    .string()
+    .min(1, "last name is required")
+    .min(3, "last name must be at least 3 characters"),
+  middleName: z.string().optional(),
+
+  position: z
+    .string()
+    .min(1, "position is required")
+    .min(10, "position must be at least 10 characters"),
+  cv: z
+    .string()
+    .min(1, "cv is required")
+    .min(10, "cv must be at least 10 characters"),
+
+  qualification: z
+    .string()
+    .min(1, "qualification is required")
+    .min(2, "qualification must be at least 2 characters"),
+
+  passport: z.string(),
+  // status: z.boolean().optional(),
+});
+
+export type ApplicationFormDataType = z.infer<typeof applicationSchema>;
