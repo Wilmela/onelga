@@ -3,6 +3,7 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import BirthcertForm from "@/features/registrations/birth-certs/components/birthcert-form";
 import { FORM_TYPES } from "@/lib/constants";
 import { Suspense } from "react";
+import FormWrapper from "@/components/form-wrapper";
 
 const RegistrationTypePage = async ({
   params,
@@ -10,13 +11,11 @@ const RegistrationTypePage = async ({
   params: Promise<{ type: string }>;
 }) => {
   return (
-    <MaxWidthWrapper className="flex-center">
-      <Suspense fallback={<p>loading...</p>}>
-        <div className="w-full mx-auto max-w-4xl">
-          <RenderForm params={params} />
-        </div>
-      </Suspense>
-    </MaxWidthWrapper>
+    <Suspense fallback={<p>loading...</p>}>
+      <FormWrapper>
+        <RenderForm params={params} />
+      </FormWrapper>
+    </Suspense>
   );
 };
 

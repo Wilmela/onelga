@@ -24,13 +24,16 @@ import {
 } from "./customs";
 import { BlogFormDataType, blogSchema } from "@/lib/validations";
 import { toast } from "sonner";
-import { createBlogPost, updateBlogPost } from "@/lib/actions/news.actions";
+import {
+  createBlogPost,
+  updateBlogPost,
+} from "@/features/news/actions/news.actions";
 import { NewsType } from "@/types";
 import Image from "next/image";
 import { cloudinaryImageUrl, cloudName } from "@/env";
 import { useRouter } from "next/navigation";
 import { siteConfig } from "@/site-config";
-import { categories } from "@/lib/constants";
+import { categories, GENERAL_BG } from "@/lib/constants";
 import Spinner from "./spinner";
 import { CldUploadWidget } from "next-cloudinary";
 
@@ -107,9 +110,9 @@ const NewsForm = ({ type, news }: FormType) => {
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <section className=" grid grid-cols-1 md:grid-cols-6">
+      <section className="grid grid-cols-1 md:grid-cols-6">
         {/* LEFT */}
-        <MaxWidthWrapper className="cols-span-1 md:col-span-4 flex flex-col justify-center size-full">
+        <MaxWidthWrapper className="cols-span-1 md:col-span-4 flex flex-col justify-center lg:px-16">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -142,13 +145,15 @@ const NewsForm = ({ type, news }: FormType) => {
                         isRequired
                         placeholder="Enter an engaging title for your blog post"
                       />
-                      {type === 'Update' &&<CustomInput
-                        name="slug"
-                        control={form.control}
-                        label="Slug"
-                        isRequired
-                        placeholder="Enter slug"
-                      />}
+                      {type === "Update" && (
+                        <CustomInput
+                          name="slug"
+                          control={form.control}
+                          label="Slug"
+                          isRequired
+                          placeholder="Enter slug"
+                        />
+                      )}
 
                       <CustomTextarea
                         name="excerpt"
@@ -364,7 +369,7 @@ const NewsForm = ({ type, news }: FormType) => {
         {/* RIGHT */}
         <div className="-z-10 relative hidden md:block md:col-span-2 border">
           <Image
-            src={"/images/sec.jpeg"}
+            src={GENERAL_BG}
             alt="banner"
             className="object-cover"
             fill

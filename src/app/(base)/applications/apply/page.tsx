@@ -1,4 +1,4 @@
-import MaxWidthWrapper from "@/components/max-width-wrapper";
+import FormWrapper from "@/components/form-wrapper";
 import ApplicationForm from "@/features/applications/components/application-form";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
@@ -8,13 +8,11 @@ type Props = {
 };
 const ApplyPage = async ({ searchParams }: Props) => {
   return (
-    <MaxWidthWrapper className="p-y flex-center">
-      <Suspense fallback={null}>
-        <div className="w-full mx-auto max-w-4xl">
-          <RenderApplyForm searchParams={searchParams} />
-        </div>
-      </Suspense>
-    </MaxWidthWrapper>
+    <Suspense fallback={null}>
+      <FormWrapper>
+        <RenderApplyForm searchParams={searchParams} />
+      </FormWrapper>
+    </Suspense>
   );
 };
 

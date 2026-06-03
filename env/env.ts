@@ -17,3 +17,14 @@ export const baseUrl =
   process.env.NODE_ENV === "production"
     ? process.env.NEXT_PUBLIC_BASE_URL || "https://freshspringsmed.com"
     : "http://localhost:3000";
+
+export const redisCfg = {
+  port: process.env.REDIS_PORT as string,
+  db: Number(process.env.REDIS_DB),
+  host: process.env.REDIS_HOST as string,
+  password: process.env.REDIS_PASSWORD as string,
+  username: process.env.REDIS_USERNAME as string,
+};
+
+
+export const cronSecret = process.env.CRON_SECRET as string

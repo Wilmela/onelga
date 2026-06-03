@@ -1,8 +1,8 @@
-import MaxWidthWrapper from "@/components/max-width-wrapper";
 import BirthcertForm from "@/features/registrations/birth-certs/components/birthcert-form";
 import { BirthcertType } from "@/types";
 import { Suspense } from "react";
 import { cachedBirthcerts } from "@/lib/DAL/cache";
+import FormWrapper from "@/components/form-wrapper";
 
 type Props = {
   params: Promise<{ certId: string }>;
@@ -11,11 +11,9 @@ type Props = {
 const EditBirthcert = async ({ params }: Props) => {
   return (
     <Suspense fallback={null}>
-      <MaxWidthWrapper className="flex-center">
-        <div className="w-full mx-auto max-w-4xl p-y">
-          <RenderCert params={params} />
-        </div>
-      </MaxWidthWrapper>
+      <FormWrapper>
+        <RenderCert params={params} />
+      </FormWrapper>
     </Suspense>
   );
 };

@@ -5,11 +5,7 @@ export const metadata: Metadata = {
   title: "Admin | Create Executive ",
 };
 const NewExecutivePage = () => {
-  return (
-    <div>
-      <ExecutiveForm type="Create" />
-    </div>
-  );
+  return <ExecutiveForm type="Create" />;
 };
 
 export default NewExecutivePage;

@@ -4,7 +4,6 @@ import { ApplicationFormDataType, applicationSchema } from "@/lib/validations";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { genRandonID, handleErrors, validateInput } from "@/lib/utils";
 import { connectToDatabase } from "@/lib/database";
-import LgaIdCard from "@/lib/database/models/lgaId.model";
 import Application from "@/lib/database/models/application.model";
 
 export async function createApplication(data: ApplicationFormDataType) {
@@ -21,7 +20,7 @@ export async function createApplication(data: ApplicationFormDataType) {
       throw new Error("An application already exists");
     }
 
-    const card = await LgaIdCard.create({
+    const card = await Application.create({
       ...parsed,
       applicationId: genRandonID(10),
     });
@@ -34,9 +33,7 @@ export async function createApplication(data: ApplicationFormDataType) {
   } catch (error) {
     console.error("Application creation error:", error);
     return {
-      error:
-        handleErrors(error) ||
-        "Failed to Application. Please try again.",
+      error: handleErrors(error) || "Failed to Application. Please try again.",
     };
   }
 }

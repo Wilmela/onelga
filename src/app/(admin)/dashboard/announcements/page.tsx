@@ -31,7 +31,7 @@ const AnnouncementsPage = () => {
     <section className="min-h-screen bg-slate-50/50 py-12 dark:bg-slate-950">
       <MaxWidthWrapper className="p-y">
         <DashboardPagePeader
-          title="News Management"
+          title="Announcements Management"
           description="Control your narrative. Create compelling stories or manage your existing feed."
           currentPage="Announcements"
           items={[
@@ -41,7 +41,7 @@ const AnnouncementsPage = () => {
         />
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {NEWS_TABS.map((tab) => (
             <NewsActionCard key={tab.title} {...tab} />
           ))}

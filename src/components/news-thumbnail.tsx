@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteBlogPost, publishNews } from "@/lib/actions/news.actions";
+import { deleteBlogPost, publishNews } from "@/features/news/actions/news.actions";
 import { checkLength } from "@/lib/utils";
 import { NewsType } from "@/types";
 import { CalendarDays, Edit, PowerCircle, Trash, User } from "lucide-react";

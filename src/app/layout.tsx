@@ -5,6 +5,7 @@ import { URL } from "url";
 import { siteConfig } from "@/site-config";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
+import { RscBoundaryProvider } from "@rsc-boundary/next";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
     default: siteConfig.title,
   },
   description: siteConfig.description,
+  keywords: siteConfig.keywords,
 };
 
 export default function RootLayout({
@@ -41,10 +43,12 @@ export default function RootLayout({
       <body
         className={` ${montserrat.variable} ${roboto.variable} ${hebbo.variable} antialiased bg-background`}
       >
-        <TooltipProvider>
-          <main className="grow z-0">{children}</main>
-          <Toaster />
-        </TooltipProvider>
+        <RscBoundaryProvider>
+          <TooltipProvider>
+            <main className="grow z-0">{children}</main>
+            <Toaster />
+          </TooltipProvider>
+        </RscBoundaryProvider>
       </body>
     </html>
   );

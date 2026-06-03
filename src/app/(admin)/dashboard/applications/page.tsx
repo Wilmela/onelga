@@ -31,9 +31,9 @@ const ApplicationDashboardPage = () => {
       <MaxWidthWrapper>
         <div className="mb-10">
           <SectionHeader
-            title="Dashboard Overview"
+            title="Applications Dashboard Overview"
             description="
-            Welcome back! Here is the gateway to all contents."
+            Welcome back! Here is all your job postings."
           />
         </div>
 

@@ -1,14 +1,12 @@
-import ProjectForm from '@/components/project-form'
-import { Metadata } from 'next';
-import React from 'react'
+import ProjectForm from "@/components/project-form";
+import { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
-  title: "Admin | News",
+  title: "Admin | Projects",
 };
 const NewProjectPage = () => {
-  return (
-    <div><ProjectForm type='Create'/></div>
-  )
-}
+  return <ProjectForm type="Create" />;
+};
 
-export default NewProjectPage
+export default NewProjectPage;

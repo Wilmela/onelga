@@ -3,7 +3,8 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import NewsThumbnail from "@/components/news-thumbnail";
 import SectionHeader from "@/components/section-header";
 import { cloudinaryImageUrl } from "@/env";
-import { getNewByTitle } from "@/lib/actions/news.actions";
+import { getNewByTitle } from "@/features/news/actions/news.actions";
+import ViewCounter from "@/features/news/components/view-counter";
 import { getCachedNews } from "@/lib/DAL/cache";
 import { cleanText } from "@/lib/utils";
 import { CalendarRange, User } from "lucide-react";
@@ -93,28 +94,30 @@ async function RenderNews({ params }: Props) {
 
   return (
     <>
-      <MaxWidthWrapper className="flex flex-col items-center justify-center h-90 md:h-75 w-full bg-app-blue">
-        <div className="text-center space-y-6 mx-auto w-full max-w-4xl mt-28 md:mt-20 mb-8 md:mb-0">
-          <div className="text-white ">
-            <h1 className="capitalize text-2xl md:text-3xl font-bold font-montserrat">
-              {news.title}
-            </h1>
-            <h3 className="text-lg md:text-xl font-light mt-4 font-roboto">
-              {news.excerpt}
-            </h3>
+      <section className="bg-app-blue">
+        <MaxWidthWrapper className="flex flex-col items-center justify-center h-90 md:h-75">
+          <div className="text-center space-y-6 mx-auto w-full max-w-4xl mt-28 md:mt-20 mb-8 md:mb-0">
+            <div className="text-white ">
+              <h1 className="capitalize text-2xl md:text-3xl font-bold font-montserrat">
+                {news.title}
+              </h1>
+              <h3 className="text-lg md:text-xl font-light mt-4 font-roboto">
+                {news.excerpt}
+              </h3>
+            </div>
+            <div className="text-white font-heebo text-sm text-light flex flex-col items-center space-y-2">
+              <span className="inline-flex space-x-2 justify-center items-center">
+                <User />
+                <p className="text-white font-heebo">{news.author}</p>
+              </span>
+              <span className="inline-flex space-x-2 justify-center items-center">
+                <CalendarRange />
+                <p>{new Date(news.date).toLocaleDateString()}</p>
+              </span>
+            </div>
           </div>
-          <div className="text-white font-heebo text-sm text-light flex flex-col items-center space-y-2">
-            <span className="inline-flex space-x-2 justify-center items-center">
-              <User />
-              <p className="text-white font-heebo">{news.author}</p>
-            </span>
-            <span className="inline-flex space-x-2 justify-center items-center">
-              <CalendarRange />
-              <p>{new Date(news.date).toLocaleDateString()}</p>
-            </span>
-          </div>
-        </div>
-      </MaxWidthWrapper>
+        </MaxWidthWrapper>
+      </section>
 
       <div className="relative w-full h-75 md:h-100">
         <Image
@@ -136,6 +139,10 @@ async function RenderNews({ params }: Props) {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
+        </div>
+
+        <div className="my-8">
+          <ViewCounter slug={news.slug} initialViews={0} />
         </div>
 
         <div className="mx-auto w-full max-w-[60ch] md:max-w-[90ch] whitespace-normal wrap-break-word overflow-hidden p-text">

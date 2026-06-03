@@ -17,7 +17,7 @@ const newsSchema = new Schema(
     author: {
       type: String,
       // required: [true, "author is required"],
-      default: "Hospital Team",
+      default: "ONELGA MEDIA",
     },
     content: {
       type: String,
@@ -57,6 +57,16 @@ const newsSchema = new Schema(
         link: { type: String },
       },
     ],
+    comments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
+    viewCount: {
+      type: Schema.Types.ObjectId,
+      ref: "NewsView",
+    },
   },
 
   {

@@ -70,6 +70,7 @@ const ApplicationForm = ({ type, app }: FormType) => {
           return;
         }
         toast.success("Application card has been created successfully!");
+        router.replace("/registrations/applications");
       } else {
         // Run update function
         if (!app) return;

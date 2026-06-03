@@ -6,16 +6,36 @@ import {
   Newspaper,
   Megaphone,
   Book,
+  Pen,
 } from "lucide-react";
 import SectionHeader from "@/components/section-header";
 import { Metadata } from "next";
-import { DashboardCard } from "@/components/dashboard-card";
+import {
+  DashboardCard,
+  DbSettingsAndOthers,
+} from "@/components/dashboard-card";
+import {
+  cachedprojects,
+  cachedUsers,
+  getCachedAnnouncements,
+  getCachedExecutives,
+  getCachedNews,
+} from "@/lib/DAL/cache";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Admin",
 };
 
-const DashboardPage = () => {
+const DashboardPage = async () => {
+  const [u, p, e, n, a] = await Promise.all([
+    cachedUsers(),
+    cachedprojects(),
+    getCachedExecutives(),
+    getCachedNews(),
+    getCachedAnnouncements(),
+  ]);
+
   const navItems = [
     {
       href: "/dashboard/users",
@@ -23,6 +43,7 @@ const DashboardPage = () => {
       icon: Users,
       description: "Manage team members and permissions",
       color: "bg-blue-100",
+      count: u.length,
     },
     {
       href: "/dashboard/projects",
@@ -30,6 +51,7 @@ const DashboardPage = () => {
       icon: FolderKanban,
       description: "Track active tasks and milestones",
       color: "bg-purple-500",
+      count: p.length,
     },
     {
       href: "/dashboard/leaders",
@@ -37,6 +59,7 @@ const DashboardPage = () => {
       icon: ShieldCheck,
       description: "View executive insights and roles",
       color: "bg-emerald-500",
+      count: e.length,
     },
     {
       href: "/dashboard/news",
@@ -44,6 +67,7 @@ const DashboardPage = () => {
       icon: Newspaper,
       description: "Latest LGA updates and posts",
       color: "bg-orange-500",
+      count: n.length,
     },
     {
       href: "/dashboard/announcements",
@@ -51,6 +75,7 @@ const DashboardPage = () => {
       icon: Megaphone,
       description: "Latest public announcements",
       color: "bg-yellow-500",
+      count: a.length,
     },
     {
       href: "/dashboard/registrations",
@@ -58,6 +83,15 @@ const DashboardPage = () => {
       icon: Book,
       description: "All LGA registrations",
       color: "bg-indigo-500",
+      count: 10,
+    },
+    {
+      href: "/dashboard/applications",
+      title: "Applications",
+      icon: Pen,
+      description: "Manage applications",
+      color: "bg-blue-400",
+      count: 10,
     },
   ];
 
@@ -72,11 +106,22 @@ const DashboardPage = () => {
           />
         </div>
 
-        {/* Responsive Grid: 1 col on mobile, 2 on tablet, 4 on desktop */}
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        {/* DB SYNC */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {navItems.map((item) => (
             <DashboardCard key={item.href} {...item} />
           ))}
+        </div>
+        <div className="my-16">
+          <SectionHeader
+            title="Database Sync and Others "
+            description="
+            Sync news views and othe database data"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <DbSettingsAndOthers />
         </div>
       </MaxWidthWrapper>
     </section>
