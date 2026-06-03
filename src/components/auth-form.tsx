@@ -52,6 +52,7 @@ const AuthForm = ({ type }: AuthType) => {
         const res = await signIn(data as signInFormSchemaType);
         if (res?.error) {
           toast("Failed to sign in");
+          return;
         }
         toast("Sign in successful");
         router.replace("/");

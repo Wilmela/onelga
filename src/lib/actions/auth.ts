@@ -38,7 +38,7 @@ export async function signIn(data: signInFormSchemaType) {
     });
 
     if (!res.ok) {
-      console.log(res);
+      console.log(res.statusText);
     }
   } catch (error) {
     return {

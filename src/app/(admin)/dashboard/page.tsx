@@ -21,7 +21,6 @@ import {
   getCachedExecutives,
   getCachedNews,
 } from "@/lib/DAL/cache";
-import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Admin",
