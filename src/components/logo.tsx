@@ -11,7 +11,7 @@ const Logo = ({ showTitle = false }: { showTitle?: boolean }) => {
     >
       <div className="relative overflow-hidden bg-white size-14 md:size-16 rounded-full">
         <Image
-          src={"/images/logo.png"}
+          src={"/images/logo.jpg"}
           alt="logo"
           fill
           sizes="64px"

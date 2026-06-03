@@ -88,7 +88,7 @@ const Contacts = () => {
 
       <div className="relative size-40 image">
         <Image
-          src={"/images/logo.png"}
+          src={"/images/logo.jpg"}
           fill
           alt="logo"
           className="bg-white"

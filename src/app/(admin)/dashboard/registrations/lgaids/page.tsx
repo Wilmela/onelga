@@ -52,7 +52,7 @@ async function RenderLgaCards() {
           data={data}
           isSortable
           hasPages
-          filterParam="lga"
+          filterParam="lgaCardId"
         />
       </div>
     );

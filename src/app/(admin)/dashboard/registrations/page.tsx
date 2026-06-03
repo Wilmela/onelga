@@ -38,7 +38,7 @@ const RegistrationPage = () => {
         </div>
 
         {/* Responsive Grid: 1 col on mobile, 2 on tablet, 4 on desktop */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
           {navItems.map((item) => (
             <DashboardCard key={item.href} {...item} />
           ))}
