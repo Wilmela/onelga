@@ -58,9 +58,11 @@ const ApplicationPostingForm = ({ type, job }: FormType) => {
 
         if (res?.error) {
           toast.error(`Failed to create job posting: ${res.error}`);
+
           return;
         }
         toast.success("Job posting has been created successfully!");
+        router.replace("/registrations/applications");
       } else {
         // Run update function
         if (!job) return;

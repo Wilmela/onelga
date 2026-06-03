@@ -142,7 +142,7 @@ async function RenderNews({ params }: Props) {
         </div>
 
         <div className="my-8">
-          <ViewCounter/>
+          <ViewCounter slug={news.slug} initialViews={0} />
         </div>
 
         <div className="mx-auto w-full max-w-[60ch] md:max-w-[90ch] whitespace-normal wrap-break-word overflow-hidden p-text">

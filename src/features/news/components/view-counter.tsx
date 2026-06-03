@@ -1,25 +1,35 @@
 "use client";
 
-import React from "react";
+import { useEffect, useState } from "react";
 
-const ViewCounter = () => {
-  const count = 0;
+export default function ViewCounter({
+  slug,
+  initialViews,
+}: {
+  slug: string;
+  initialViews: number;
+}) {
+  const [views, setViews] = useState(initialViews);
+
+  useEffect(() => {
+    fetch(`/api/views/${slug}`, { method: "POST" })
+      .then((res) => res.json())
+      .then((data) => setViews(data.views))
+      .catch((err) => console.error("Error updating views:", err));
+  }, [slug]);
 
   function checkViews() {
-    let view: string;
-
-    if (count > 1) {
-      view = "views";
-    } else {
+    let view;
+    if (views <= 1) {
       view = "view";
+    } else {
+      view = "views";
     }
     return view;
   }
   return (
-    <div>
-      {count} {checkViews()}
-    </div>
+    <span className="text-sm font-roboto font-bold">
+      {views} {checkViews()}
+    </span>
   );
-};
-
-export default ViewCounter;
+}

@@ -63,6 +63,10 @@ const newsSchema = new Schema(
         ref: "Comment",
       },
     ],
+    viewCount: {
+      type: Schema.Types.ObjectId,
+      ref: "NewsView",
+    },
   },
 
   {

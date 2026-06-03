@@ -1,10 +1,10 @@
-import Announcementcard from "@/components/announcement-card";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { NewsSkeleton } from "@/components/skeletons";
 import { getCachedAnnouncements } from "@/lib/DAL/cache";
 import { AnnouncementType } from "@/types";
 import { Metadata } from "next";
 import { Suspense } from "react";
+import AnnouncementDashboardCard from "@/features/announcements/components/announcement-dashboard-card";
 
 export const metadata: Metadata = {
   title: "Admin | Announcements",
@@ -20,7 +20,7 @@ const ViewAnnouncementPage = () => {
             </>
           }
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-y">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-y">
             <RenderAnnouncements />
           </div>
         </Suspense>
@@ -41,11 +41,7 @@ async function RenderAnnouncements() {
   return (
     <>
       {announcements.map((announcement: AnnouncementType) => (
-        <Announcementcard
-          key={announcement.title}
-          {...announcement}
-          isEditable
-        />
+        <AnnouncementDashboardCard key={announcement.title} {...announcement} />
       ))}
     </>
   );

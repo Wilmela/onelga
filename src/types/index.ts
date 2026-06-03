@@ -25,6 +25,7 @@ export type AnnouncementType = {
   date: string;
   content: string;
   isPublished?: boolean;
+  type: string;
 };
 export type ExecutiveType = {
   _id?: string;
@@ -103,5 +104,4 @@ export type ApplicationPostingType = {
   position: string;
   description: string;
   requirements: string;
-
 };

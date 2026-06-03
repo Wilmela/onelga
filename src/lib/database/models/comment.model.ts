@@ -16,7 +16,7 @@ const commnetSchema = new Schema(
       type: Date,
       default: () => Date.now(),
     },
-    newsCommented: {
+    newsTitle: {
       type: String,
     },
   },

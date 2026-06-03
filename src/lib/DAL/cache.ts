@@ -4,6 +4,7 @@ import { getBirthcertsDAL, getLgaCardsDAL, getProjectsDAL } from "./project";
 import { getExecutivesDAL } from "./executives";
 import { getCouncilorsDAL } from "./councilors";
 import { getAnnouncementsDAL, getNewsDAL } from "./news";
+import { getJobApplicationsDAL, getJobPostingsDAL } from "./applications";
 
 // Cache
 export async function cachedUsers() {
@@ -61,6 +62,23 @@ export async function cachedLgaCards() {
   cacheTag("lgaId");
 
   const data = await getLgaCardsDAL();
+
+  return data;
+}
+export async function cachedJobAplications() {
+  "use cache";
+  cacheTag("applications");
+
+  const data = await getJobApplicationsDAL();
+
+  return data;
+}
+
+export async function cachedJobPostings() {
+  "use cache";
+  cacheTag("job-postings");
+
+  const data = await getJobPostingsDAL();
 
   return data;
 }

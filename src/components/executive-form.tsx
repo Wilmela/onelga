@@ -27,6 +27,7 @@ import {
   createExecutive,
   updateExecutive,
 } from "@/lib/actions/executive.actions";
+import { GENERAL_BG } from "@/lib/constants";
 
 type FormType = {
   type: "Create" | "Update";
@@ -84,7 +85,7 @@ const ExecutiveForm = ({ type, executive }: FormType) => {
     <Suspense fallback={<p>Loading...</p>}>
       <section className="grid grid-cols-1 md:grid-cols-5">
         {/* LEFT */}
-        <MaxWidthWrapper className="cols-span-1 md:col-span-3 flex flex-col justify-center size-full">
+        <MaxWidthWrapper className="cols-span-1 md:col-span-3 flex flex-col justify-center lg:px-16">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -208,7 +209,7 @@ const ExecutiveForm = ({ type, executive }: FormType) => {
         {/* RIGHT */}
         <div className="-z-10 relative hidden md:block md:col-span-2 border">
           <Image
-            src={"/images/sec.jpeg"}
+            src={GENERAL_BG}
             alt="banner"
             className="object-cover"
             fill

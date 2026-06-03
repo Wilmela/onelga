@@ -13,7 +13,6 @@ import mongoose from "mongoose";
 import Announcement from "@/lib/database/models/announcement.model";
 
 export async function createJobPosting(data: ApplicationPostingFormDataType) {
-  
   await connectToDatabase();
   const session = await mongoose.startSession();
 
@@ -38,7 +37,6 @@ export async function createJobPosting(data: ApplicationPostingFormDataType) {
           {
             title: job.title,
             content: job.description,
-            type: job.position,
           },
         ],
         { session },
@@ -148,7 +146,7 @@ export async function getJobPostings() {
   try {
     await connectToDatabase();
 
-    const posting = await Application.find().sort({ date: -1 });
+    const posting = await JobPosting.find().sort({ date: -1 });
     if (!posting) throw new Error("No posting found");
 
     return JSON.parse(JSON.stringify(posting));

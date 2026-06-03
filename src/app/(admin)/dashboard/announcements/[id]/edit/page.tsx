@@ -1,4 +1,4 @@
-import AnnouncementForm from "@/components/announcement-form";
+import AnnouncementForm from "@/features/announcements/components/announcement-form";
 import { getCachedAnnouncements } from "@/lib/DAL/cache";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";

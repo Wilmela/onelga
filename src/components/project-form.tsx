@@ -29,6 +29,7 @@ import { cloudinaryImageUrl } from "@/env";
 import { useRouter } from "next/navigation";
 import Spinner from "./spinner";
 import { createProject, updateProject } from "@/lib/actions/projects.actions";
+import { GENERAL_BG } from "@/lib/constants";
 
 type FormType = {
   type: "Create" | "Update";
@@ -86,7 +87,7 @@ const ProjectForm = ({ type, project }: FormType) => {
     <Suspense fallback={<p>Loading...</p>}>
       <section className="grid grid-cols-1 md:grid-cols-5">
         {/* LEFT */}
-        <MaxWidthWrapper className="cols-span-1 md:col-span-3 flex flex-col justify-center size-full">
+        <MaxWidthWrapper className="cols-span-1 md:col-span-3 flex flex-col justify-center lg:px-16">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -214,7 +215,7 @@ const ProjectForm = ({ type, project }: FormType) => {
         {/* RIGHT */}
         <div className="-z-10 relative hidden md:block md:col-span-2 border">
           <Image
-            src={"/images/sec.jpeg"}
+            src={GENERAL_BG}
             alt="banner"
             className="object-cover"
             fill

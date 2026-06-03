@@ -337,3 +337,5 @@ export const FORM_TYPES = {
   birth: "birth",
   lgaId: "lgaId",
 } as const;
+
+export const GENERAL_BG = "/images/sec.jpeg";

@@ -82,6 +82,10 @@ export const announceSchema = z.object({
     .string()
     .min(1, "Content is required")
     .min(10, "Content must be at least 10 characters"),
+  type: z
+    .string()
+    .min(1, "type is required")
+    .min(3, "Content must be at least 3 characters"),
 });
 
 export type AnnouncementFormDataType = z.infer<typeof announceSchema>;

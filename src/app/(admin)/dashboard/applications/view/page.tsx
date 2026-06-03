@@ -1,9 +1,36 @@
-import React from 'react'
+import MaxWidthWrapper from "@/components/max-width-wrapper";
+import { cachedJobPostings } from "@/lib/DAL/cache";
+import { ApplicationPostingFormDataType } from "@/lib/validations";
+import { Metadata } from "next";
+import { Suspense } from "react";
 
-const ViewAppliacitonsPage = () => {
+export const metadata: Metadata = {
+  title: "Application | View",
+};
+const ViewAppliacitonsPage = async () => {
   return (
-    <div>ViewAppliacitonsPage</div>
-  )
-}
+    <section>
+      <MaxWidthWrapper>
+        <Suspense fallback={<p>Loading...</p>}>
+          <RenderJobPostings />
+        </Suspense>
+      </MaxWidthWrapper>
+    </section>
+  );
+};
 
-export default ViewAppliacitonsPage
+export default ViewAppliacitonsPage;
+
+async function RenderJobPostings() {
+  const postings: ApplicationPostingFormDataType[] = await cachedJobPostings();
+
+  return (
+    <div>
+      {postings.map((p: ApplicationPostingFormDataType) => (
+        <div key={p.position}>
+          <p>{p.title}</p>
+        </div>
+      ))}
+    </div>
+  );
+}

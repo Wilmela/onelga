@@ -33,13 +33,12 @@ const RegistrationPage = () => {
     <section>
       {/* <PageBanner /> */}
       <div className="bg-app-blue relative">
-        
         <div className="size-75 blur-2xl bg-blue-100/10 rounded-full absolute top-20 right-10 " />
 
         <div className="size-100 blur-[50px] bg-blue-100/10 rounded-full absolute top-0 left-10 " />
 
         <MaxWidthWrapper className="p-y relative w-full h-100 md:h-110 flex flex-col items-center justify-center space-y-8 border-b ">
-          <h1 className="font-bold font-montserrat text-5xl md:text-9xl text-center text-white z-20">
+          <h1 className="font-bold font-montserrat text-5xl md:text-7xl lg:text-8xl text-center text-white z-20">
             Registrations
           </h1>
 
