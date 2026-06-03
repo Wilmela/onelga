@@ -1,7 +1,7 @@
 import "server-only";
 import { getCurrentSession } from "../actions/auth";
 import { handleErrors } from "../utils";
-import { getNews } from "../actions/news.actions";
+import { getNews } from "../../features/news/actions/news.actions";
 import { getAnnouncement } from "../actions/announcement.actions";
 
 export async function getSession() {

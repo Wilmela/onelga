@@ -97,3 +97,11 @@ export type ApplicationType = {
   passport: string;
   invite: boolean;
 };
+export type ApplicationPostingType = {
+  _id: string;
+  title: string;
+  position: string;
+  description: string;
+  requirements: string;
+
+};

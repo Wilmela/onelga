@@ -12,4 +12,12 @@ export const siteConfig = {
     process.env.NODE_ENV === "production"
       ? "https://ongelga.rv.gov.ng"
       : "http://localhost:3000",
+  keywords: [
+    "ONELGA",
+    "LGA",
+    "Rivers State",
+    "Nigeria",
+    "Local Government Area",
+    "Government",
+  ],
 };

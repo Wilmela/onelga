@@ -24,7 +24,7 @@ import {
 } from "./customs";
 import { BlogFormDataType, blogSchema } from "@/lib/validations";
 import { toast } from "sonner";
-import { createBlogPost, updateBlogPost } from "@/lib/actions/news.actions";
+import { createBlogPost, updateBlogPost } from "@/features/news/actions/news.actions";
 import { NewsType } from "@/types";
 import Image from "next/image";
 import { cloudinaryImageUrl, cloudName } from "@/env";

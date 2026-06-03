@@ -2,9 +2,9 @@
 
 import { BlogFormDataType, blogSchema } from "@/lib/validations";
 import { revalidatePath, revalidateTag } from "next/cache";
-import { handleErrors, validateInput } from "../utils";
-import { connectToDatabase } from "../database";
-import News from "../database/models/news.model";
+import { handleErrors, validateInput } from "../../../lib/utils";
+import { connectToDatabase } from "../../../lib/database";
+import News from "../../../lib/database/models/news.model";
 
 export async function createBlogPost(data: BlogFormDataType, shorts: string[]) {
   const fmPic = shorts.map((s, i) => ({

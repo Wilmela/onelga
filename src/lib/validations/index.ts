@@ -264,3 +264,25 @@ export const applicationSchema = z.object({
 });
 
 export type ApplicationFormDataType = z.infer<typeof applicationSchema>;
+
+export const applicationPostingSchema = z.object({
+  title: z
+    .string()
+    .min(1, "First name is required")
+    .min(3, "First name must be at least 3 characters"),
+
+  description: z.string().min(5, "last name must be at least 3 characters"),
+
+  position: z
+    .string()
+    .min(1, "position is required")
+    .min(10, "position must be at least 10 characters"),
+  requirements: z
+    .string()
+    .min(1, "requirements is required")
+    .min(5, "requirements must be at least 5 characters"),
+});
+
+export type ApplicationPostingFormDataType = z.infer<
+  typeof applicationPostingSchema
+>;

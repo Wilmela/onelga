@@ -1,9 +1,12 @@
-import React from 'react'
+import FormWrapper from "@/components/form-wrapper";
+import ApplicationPostingForm from "@/features/applications/components/application-posting-form";
 
 const CreateApplicationPage = () => {
   return (
-    <div>CreateApplicationPage</div>
-  )
-}
+    <FormWrapper>
+      <ApplicationPostingForm type="Create" />
+    </FormWrapper>
+  );
+};
 
-export default CreateApplicationPage
+export default CreateApplicationPage;

@@ -6,6 +6,7 @@ import {
   Newspaper,
   Megaphone,
   Book,
+  Pen,
 } from "lucide-react";
 import SectionHeader from "@/components/section-header";
 import { Metadata } from "next";
@@ -58,6 +59,13 @@ const DashboardPage = () => {
       icon: Book,
       description: "All LGA registrations",
       color: "bg-indigo-500",
+    },
+    {
+      href: "/dashboard/applications",
+      title: "Applications",
+      icon: Pen,
+      description: "Manage applications",
+      color: "bg-blue-400",
     },
   ];
 

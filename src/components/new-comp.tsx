@@ -18,7 +18,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "./ui/pagination";
-import { getNewsByCategory } from "@/lib/actions/news.actions";
+import { getNewsByCategory } from "@/features/news/actions/news.actions";
 import { NewsSkeleton } from "./skeletons";
 
 const NewsComp = () => {

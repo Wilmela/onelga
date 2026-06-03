@@ -12,7 +12,7 @@ export async function signUp(data: signUpFormSchemaType) {
         name: data.name,
         email: data.email,
         password: data.password,
-        role: "user",
+        // role: "user",
       },
       asResponse: true,
     });
@@ -52,8 +52,6 @@ export async function signOut() {
 
   try {
     const res = await auth.api.signOut();
-
-    console.log("res:", res);
 
     if (res.success) {
       console.log("signed out successfully");

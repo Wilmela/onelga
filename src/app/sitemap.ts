@@ -1,4 +1,4 @@
-import { getNews } from "@/lib/actions/news.actions";
+import { getNews } from "@/features/news/actions/news.actions";
 import { siteConfig } from "@/site-config";
 import { NewsType } from "@/types";
 import type { MetadataRoute } from "next";
@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const url = siteConfig.baseURL
 
   const newsEntries: MetadataRoute.Sitemap = news.map((n) => ({
-    url: `${url}/news/${n.slug}`,
+    url: `${url}/news/${n.title}`,
     lastModified: n.createdAt ? new Date(n.createdAt) : new Date(),
     changeFrequency: "never" as const,
     priority: 0.6,
